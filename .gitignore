@@ -1,0 +1,9 @@
+app/.env.local
+app/.env.*.local
+app/var/
+app/vendor/
+app/node_modules/
+app/public/bundles/
+app/.php-cs-fixer.cache
+app/.phpunit.result.cache
+.claude/

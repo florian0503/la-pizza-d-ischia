@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  php-cs-fixer:
+    name: PHP CS Fixer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: Install dependencies
+        run: composer install --working-dir=app
+      - name: Run PHP CS Fixer
+        run: cd app && vendor/bin/php-cs-fixer fix --dry-run --diff
+
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: Install dependencies
+        run: composer install --working-dir=app
+      - name: Warm up cache
+        run: cd app && php bin/console cache:warmup --env=dev
+      - name: Run PHPStan
+        run: cd app && vendor/bin/phpstan analyse
+
+  twig-cs-fixer:
+    name: Twig CS Fixer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: Install dependencies
+        run: composer install --working-dir=app
+      - name: Run Twig CS Fixer
+        run: cd app && vendor/bin/twig-cs-fixer lint
+
+  stylelint:
+    name: Stylelint + Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install --prefix app
+      - name: Run Stylelint
+        run: npm run lint:css --prefix app
+      - name: Run Prettier check
+        run: npm run format:check --prefix app
+
+  phpunit:
+    name: PHPUnit
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: pizzeria_messimy_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: Install dependencies
+        run: composer install --working-dir=app
+      - name: Run migrations
+        run: cd app && php bin/console doctrine:migrations:migrate --no-interaction --env=test
+        env:
+          DATABASE_URL: mysql://root:@127.0.0.1:3306/pizzeria_messimy_test?serverVersion=8.0&charset=utf8mb4
+      - name: Run tests
+        run: cd app && php bin/phpunit
+        env:
+          DATABASE_URL: mysql://root:@127.0.0.1:3306/pizzeria_messimy_test?serverVersion=8.0&charset=utf8mb4

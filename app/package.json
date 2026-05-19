@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "lint:css": "stylelint 'assets/**/*.css'",
+    "lint:css:fix": "stylelint 'assets/**/*.css' --fix",
+    "format": "prettier --write 'assets/**/*.css'",
+    "format:check": "prettier --check 'assets/**/*.css'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "prettier": "^3.8.3",
+    "stylelint": "^17.11.1",
+    "stylelint-config-standard": "^40.0.0"
+  }
+}
