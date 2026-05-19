@@ -6,10 +6,6 @@
             <img src="{{ asset('images/logo.png') }}" alt="La Pizza d'Ischia" class="header-logo-img">
         </a>
 
-        <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu">
-            <span></span>
-        </label>
-
         <nav class="header-nav" aria-label="Navigation principale">
             <ul class="header-nav-list" role="list">
                 <li>
@@ -33,14 +29,17 @@
                 <li>
                     <a href="{{ path('app_contact') }}"
                        class="header-nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
-                        Contact
+                        Galerie
                     </a>
                 </li>
             </ul>
-
-            <a href="{{ path('app_reservation') }}" class="header-cta">
-                Réserver
-            </a>
         </nav>
+
+        <div class="header-right">
+            <a href="{{ path('app_contact') }}" class="header-cta">Contact</a>
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu">
+                <span></span>
+            </label>
+        </div>
     </div>
 </header>

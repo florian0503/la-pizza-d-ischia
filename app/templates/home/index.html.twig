@@ -8,19 +8,345 @@
 {% endblock %}
 
 {% block body %}
+
+    {# ══════════════════════════════════════════════════════════
+       SECTION 1 — Hero vidéo
+    ══════════════════════════════════════════════════════════ #}
     <section class="hero">
         <video class="hero-video" autoplay muted loop playsinline preload="auto">
             <source src="https://videos.pexels.com/video-files/5898128/5898128-hd_1080_2048_30fps.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <p class="hero-sub">Depuis 1987 à Messimy</p>
-            <h1 class="hero-title">La vraie pizza<br><em>napolitaine</em></h1>
-            <p class="hero-desc">Pâte pétrie à la main, cuisson au feu de bois,<br>produits importés directement d'Italie.</p>
-            <div class="hero-actions">
+            <p class="hero-sub">Pizzeria napolitaine à Messimy</p>
+            <h1 class="hero-title">La Pizza<br><em>d'Ischia</em></h1>
+<div class="hero-actions">
                 <a href="{{ path('app_menu') }}" class="hero-btn hero-btn--primary">Voir le menu</a>
-                <a href="{{ path('app_reservation') }}" class="hero-btn hero-btn--outline">Réserver une table</a>
+                <a href="{{ path('app_contact') }}" class="hero-btn hero-btn--outline">Nous contacter</a>
             </div>
         </div>
     </section>
+
+    {# ══════════════════════════════════════════════════════════
+       SECTION 2 — Pizzas phares (clip-path reveal)
+    ══════════════════════════════════════════════════════════ #}
+    <section class="pizzas-phares" id="menu-apercu">
+        <div class="pizzas-phares-header">
+            <span class="section-label section-label--dark">Nos créations</span>
+            <h2 class="pizzas-phares-title">Les incontournables</h2>
+        </div>
+        <div class="pizzas-phares-grid">
+            <article class="pizza-card">
+                <div class="pizza-card-image-wrap">
+                    <img
+                        src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=80"
+                        alt="Margherita"
+                        class="pizza-card-img"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="pizza-card-body">
+                    <h3 class="pizza-card-name">Margherita</h3>
+                    <p class="pizza-card-desc">Tomate San Marzano, mozzarella di bufala, basilic frais, huile d'olive extra vierge</p>
+                    <span class="pizza-card-price">14 €</span>
+                </div>
+            </article>
+            <article class="pizza-card pizza-card--featured">
+                <div class="pizza-card-badge">La signature</div>
+                <div class="pizza-card-image-wrap">
+                    <img
+                        src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf2f?w=600&q=80"
+                        alt="Napolitaine"
+                        class="pizza-card-img"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="pizza-card-body">
+                    <h3 class="pizza-card-name">Napolitaine</h3>
+                    <p class="pizza-card-desc">Tomate, anchois, olives noires, câpres, origan — la recette originale de 1889</p>
+                    <span class="pizza-card-price">16 €</span>
+                </div>
+            </article>
+            <article class="pizza-card">
+                <div class="pizza-card-image-wrap">
+                    <img
+                        src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80"
+                        alt="Quattro Formaggi"
+                        class="pizza-card-img"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="pizza-card-body">
+                    <h3 class="pizza-card-name">Quattro Formaggi</h3>
+                    <p class="pizza-card-desc">Mozzarella, gorgonzola, pecorino romano, parmesan 24 mois</p>
+                    <span class="pizza-card-price">17 €</span>
+                </div>
+            </article>
+        </div>
+        <div class="pizzas-phares-cta">
+            <a href="{{ path('app_menu') }}" class="btn-primary">Découvrir tout le menu</a>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       SECTION 3 — Notre philosophie (sticky scroll)
+    ══════════════════════════════════════════════════════════ #}
+    <section class="philosophie" id="philosophie">
+        <div class="philosophie-image-col">
+            <div class="philosophie-image">
+                <img
+                    src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80"
+                    alt="Notre four à bois napolitain"
+                    loading="lazy"
+                >
+            </div>
+        </div>
+        <div class="philosophie-text-col">
+            <div class="philosophie-intro">
+                <span class="section-label">Notre philosophie</span>
+                <h2 class="philosophie-heading">Ce qui nous<br><em>définit</em></h2>
+            </div>
+            <div class="philosophie-step">
+                <span class="philosophie-step-num">01</span>
+                <h3 class="philosophie-step-title">L'authenticité</h3>
+                <p class="philosophie-step-text">Chaque pizza porte en elle l'âme de Naples. Nous n'avons jamais compromis la recette originale — ni les ingrédients, ni la méthode, ni le temps.</p>
+            </div>
+            <div class="philosophie-step">
+                <span class="philosophie-step-num">02</span>
+                <h3 class="philosophie-step-title">Le feu de bois</h3>
+                <p class="philosophie-step-text">Notre four atteint 485°C. À cette température, la pâte cuit en 90 secondes — croustillante dehors, aérienne dedans. Un résultat impossible à reproduire autrement.</p>
+            </div>
+            <div class="philosophie-step">
+                <span class="philosophie-step-num">03</span>
+                <h3 class="philosophie-step-title">Les produits</h3>
+                <p class="philosophie-step-text">Farine Caputo 00, tomates San Marzano DOP, mozzarella di bufala campana. Chaque ingrédient vient directement d'Italie, sélectionné avec exigence.</p>
+            </div>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       SECTION 4 — Avis clients (text reveal)
+    ══════════════════════════════════════════════════════════ #}
+    <section class="avis" id="avis">
+        <div class="avis-inner">
+            <span class="section-label">Ce qu'ils disent</span>
+            <h2 class="avis-title">Ils nous ont fait confiance</h2>
+            <div class="avis-grid">
+                <div class="avis-card">
+                    <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+                    <p class="avis-text">« La meilleure pizza que j'ai mangée en dehors de Naples. La pâte est incroyable, légère et aérienne. On reviendra sans hésiter. »</p>
+                    <p class="avis-author">Marie L. — Messimy</p>
+                </div>
+                <div class="avis-card">
+                    <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+                    <p class="avis-text">« Un endroit où l'on sent que la passion prime sur tout. La Napolitaine aux anchois est un chef-d'œuvre. Service chaleureux, accueil parfait. »</p>
+                    <p class="avis-author">Thomas R. — Lyon</p>
+                </div>
+                <div class="avis-card">
+                    <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+                    <p class="avis-text">« Enfin une vraie pizza napolitaine dans la région ! Le four à bois fait toute la différence. Les produits sont d'une fraîcheur irréprochable. »</p>
+                    <p class="avis-author">Sophie B. — Brindas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       SECTION 5 — Notre histoire (scroll-triggered pin)
+    ══════════════════════════════════════════════════════════ #}
+    <section class="histoire" id="histoire">
+        <div class="histoire-inner">
+            <div class="histoire-steps-col">
+                <span class="section-label">Notre histoire</span>
+                <div class="histoire-step" data-step="0">
+                    <span class="histoire-step-num">01</span>
+                    <h3 class="histoire-step-title">La naissance</h3>
+                    <p class="histoire-step-text">Tout a commencé avec une obsession : retrouver le goût exact de la pizza que notre fondateur mangeait enfant dans le quartier Spaccanapoli de Naples. Des années de recherche pour une seule recette.</p>
+                </div>
+                <div class="histoire-step" data-step="1">
+                    <span class="histoire-step-num">02</span>
+                    <h3 class="histoire-step-title">La pâte</h3>
+                    <p class="histoire-step-text">Trois ans d'apprentissage auprès de maîtres pizzaïolos napolitains. La recette de notre pâte repose 48 heures avant d'être travaillée — patience et tradition avant tout.</p>
+                </div>
+                <div class="histoire-step" data-step="2">
+                    <span class="histoire-step-num">03</span>
+                    <h3 class="histoire-step-title">Le four</h3>
+                    <p class="histoire-step-text">Construit à la main par un artisan de Naples, notre four en briques réfractaires met 4 heures à atteindre sa température idéale. Il ne s'éteint jamais en service.</p>
+                </div>
+                <div class="histoire-step" data-step="3">
+                    <span class="histoire-step-num">04</span>
+                    <h3 class="histoire-step-title">La promesse</h3>
+                    <p class="histoire-step-text">Chaque pizza que nous servons est une promesse : celle de vous transporter à Naples le temps d'un repas. Authentique, sincère, sans le moindre compromis.</p>
+                </div>
+            </div>
+            <div class="histoire-image-col">
+                <div class="histoire-image-frame">
+                    <img class="histoire-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="La naissance" loading="lazy">
+                    <img class="histoire-img" src="https://images.unsplash.com/photo-1556217477-d325251ece38?w=700&q=80" alt="La pâte" loading="lazy">
+                    <img class="histoire-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80" alt="Le four" loading="lazy">
+                    <img class="histoire-img" src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=700&q=80" alt="La promesse" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       SECTION 6 — Localisation
+    ══════════════════════════════════════════════════════════ #}
+    <section class="localisation" id="localisation">
+        <div class="localisation-inner">
+            <div class="localisation-info">
+                <span class="section-label section-label--dark">Nous trouver</span>
+                <h2 class="localisation-title">Venez nous rendre visite</h2>
+                <ul class="localisation-list">
+                    <li class="localisation-item">
+                        <span class="localisation-item-label">Adresse</span>
+                        <span class="localisation-item-value">12 Rue de la Paix<br>01600 Messimy</span>
+                    </li>
+                    <li class="localisation-item">
+                        <span class="localisation-item-label">Téléphone</span>
+                        <a href="tel:+33474000000" class="localisation-link">04 74 00 00 00</a>
+                    </li>
+                    <li class="localisation-item">
+                        <span class="localisation-item-label">Horaires</span>
+                        <span class="localisation-item-value">
+                            Mar–Ven&nbsp;: 12h–14h30 · 19h–22h30<br>
+                            Sam–Dim&nbsp;: 12h–15h · 19h–23h<br>
+                            <em>Lundi fermé</em>
+                        </span>
+                    </li>
+                </ul>
+                <a href="{{ path('app_contact') }}" class="btn-outline-dark">Nous contacter</a>
+            </div>
+            <div class="localisation-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11161.2!2d4.73!3d45.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4e9b2c2f4c2a1%3A0x0!2sMessimy%2C%20France!5e0!3m2!1sfr!2sfr!4v1"
+                    allowfullscreen
+                    loading="lazy"
+                    title="Localisation La Pizza d'Ischia à Messimy"
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // ── Philosophie intro
+            gsap.fromTo('.philosophie-intro',
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1, y: 0, duration: 1.1, ease: 'power3.out',
+                    scrollTrigger: { trigger: '.philosophie-intro', start: 'top 80%', toggleActions: 'play none none reverse' },
+                }
+            );
+
+            // ── Philosophie steps — fade + rise
+            gsap.utils.toArray('.philosophie-step').forEach((step) => {
+                gsap.fromTo(step,
+                    { opacity: 0, y: 70 },
+                    {
+                        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+                        scrollTrigger: { trigger: step, start: 'top 78%', toggleActions: 'play none none reverse' },
+                    }
+                );
+            });
+
+            // ── Pizzas — clip-path reveal du bas vers le haut
+            gsap.fromTo('.pizzas-phares-header',
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+                    scrollTrigger: { trigger: '.pizzas-phares-header', start: 'top 82%', toggleActions: 'play none none reverse' },
+                }
+            );
+
+            gsap.utils.toArray('.pizza-card').forEach((card, i) => {
+                gsap.fromTo(card,
+                    { clipPath: 'inset(100% 0 0 0)', opacity: 0 },
+                    {
+                        clipPath: 'inset(0% 0 0 0)', opacity: 1,
+                        duration: 1.2, ease: 'power4.out', delay: i * 0.18,
+                        scrollTrigger: { trigger: '.pizzas-phares-grid', start: 'top 78%', toggleActions: 'play none none reverse' },
+                    }
+                );
+            });
+
+            // ── Histoire — scroll pin + step cycling
+            const histoireSteps = gsap.utils.toArray('.histoire-step');
+            const histoireImgs = gsap.utils.toArray('.histoire-img');
+
+            if (histoireSteps.length && histoireImgs.length) {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '.histoire',
+                        start: 'top top',
+                        end: `+=${histoireSteps.length * 650}`,
+                        pin: true,
+                        scrub: 0.9,
+                        anticipatePin: 1,
+                    },
+                });
+
+                histoireSteps.forEach((step, i) => {
+                    const img = histoireImgs[i];
+                    if (i === 0) {
+                        tl.fromTo(step, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 }, 0);
+                        tl.fromTo(img, { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 1 }, 0);
+                    } else {
+                        tl
+                            .to(histoireSteps[i - 1], { opacity: 0, y: -40, duration: 0.5 })
+                            .to(histoireImgs[i - 1], { opacity: 0, duration: 0.4 }, '<')
+                            .fromTo(step, { opacity: 0, y: 55 }, { opacity: 1, y: 0, duration: 0.9 })
+                            .fromTo(img, { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 0.9 }, '<');
+                    }
+                });
+            }
+
+            // ── Avis — stagger reveal du bas
+            gsap.fromTo('.avis-title',
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+                    scrollTrigger: { trigger: '.avis-title', start: 'top 82%', toggleActions: 'play none none reverse' },
+                }
+            );
+
+            gsap.utils.toArray('.avis-card').forEach((card, i) => {
+                gsap.fromTo(card,
+                    { opacity: 0, y: 65 },
+                    {
+                        opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: i * 0.15,
+                        scrollTrigger: { trigger: '.avis-grid', start: 'top 80%', toggleActions: 'play none none reverse' },
+                    }
+                );
+            });
+
+            // ── Localisation — simple fade
+            gsap.fromTo('.localisation-info',
+                { opacity: 0, x: -40 },
+                {
+                    opacity: 1, x: 0, duration: 1, ease: 'power3.out',
+                    scrollTrigger: { trigger: '.localisation-inner', start: 'top 80%', toggleActions: 'play none none reverse' },
+                }
+            );
+
+            gsap.fromTo('.localisation-map',
+                { opacity: 0, x: 40 },
+                {
+                    opacity: 1, x: 0, duration: 1, ease: 'power3.out',
+                    scrollTrigger: { trigger: '.localisation-inner', start: 'top 80%', toggleActions: 'play none none reverse' },
+                }
+            );
+        }
+        });
+    </script>
 {% endblock %}
