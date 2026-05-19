@@ -46,8 +46,64 @@
                 background-clip: text;
             }
 
+            .hero-btn,
+            .btn-primary,
+            .btn-outline-dark,
+            .header-cta {
+                border-radius: 50px !important;
+                background-color: rgb(214 50 48 / 18%) !important;
+                border: 2px solid rgb(214 50 48 / 18%) !important;
+                color: #ffffff !important;
+                -webkit-text-fill-color: #ffffff !important;
+            }
+
+            .hero-btn--primary,
+            .btn-primary,
+            .header-cta {
+                border: 3px solid rgb(214 50 48 / 60%) !important;
+            }
+
+            .hero-btn,
+            .btn-primary,
+            .btn-outline-dark,
+            .header-cta,
+            .scroll-top {
+                transition: transform 0.25s ease, background-color 0.25s ease !important;
+            }
+
+            .hero-btn--primary:hover,
+            .btn-primary:hover,
+            .header-cta:hover,
+            .scroll-top:hover {
+                transform: scale(1.08) !important;
+                background-color: rgb(214 50 48 / 60%) !important;
+            }
+
+            .hero-btn--outline:hover,
+            .btn-outline-dark:hover {
+                transform: scale(1.08) !important;
+                background-color: #ffffff !important;
+                color: #1e1e1e !important;
+                -webkit-text-fill-color: #1e1e1e !important;
+            }
+
+            .hero-btn--outline,
+            .btn-outline-dark {
+                background-color: transparent !important;
+                border-color: #ffffff !important;
+                color: #ffffff !important;
+                -webkit-text-fill-color: #ffffff !important;
+            }
+
             .hero-sub {
                 margin-bottom: 2.5rem;
+            }
+
+            .scroll-top {
+                background-color: rgb(214 50 48 / 18%) !important;
+                border: 3px solid rgb(214 50 48 / 60%) !important;
+                border-radius: 50% !important;
+                bottom: 3.5rem !important;
             }
 
             .localisation-link {
