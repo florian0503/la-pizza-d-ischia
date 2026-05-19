@@ -24,12 +24,7 @@
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgb(9 29 16 / 45%) 0%,
-        rgb(9 29 16 / 65%) 60%,
-        rgb(9 29 16 / 85%) 100%
-    );
+    background: linear-gradient(to bottom, rgb(9 29 16 / 45%) 0%, rgb(9 29 16 / 65%) 60%, rgb(9 29 16 / 85%) 100%);
 }
 
 .hero-content {
@@ -64,7 +59,7 @@
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: clamp(2rem, 5vw, 3.8rem);
     font-weight: 700;
     color: #fff;

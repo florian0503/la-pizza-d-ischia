@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap");
 
 /* ─── Variables ───────────────────────────────────────────────── */
 :root {
-    --color-bg-dark:     #fff;
-    --color-bg-deeper:   #091d10;
-    --color-green:       #1a6b2a;
+    --color-bg-dark: #fff;
+    --color-bg-deeper: #091d10;
+    --color-green: #1a6b2a;
     --color-green-light: #2d8a3e;
-    --color-red:         #cc1f1f;
-    --color-red-light:   #e53535;
-    --color-gold:        #d4933a;
-    --color-gold-light:  #f0b050;
-    --color-cream:       #f5f0e8;
-    --color-cream-dim:   #c8bfa8;
-    --color-line:        rgb(26 107 42 / 35%);
-    --font-display: 'Playfair Display', serif;
-    --font-body:    'Raleway', sans-serif;
+    --color-red: #cc1f1f;
+    --color-red-light: #e53535;
+    --color-gold: #d4933a;
+    --color-gold-light: #f0b050;
+    --color-cream: #f5f0e8;
+    --color-cream-dim: #c8bfa8;
+    --color-line: rgb(26 107 42 / 35%);
+    --font-display: "Playfair Display", serif;
+    --font-body: "Raleway", sans-serif;
 }
 
 /* ─── Reset partiel ───────────────────────────────────────────── */
@@ -44,7 +44,10 @@ body {
     z-index: 100;
     background-color: transparent;
     border-bottom: none;
-    transition: background-color 0.4s ease, border-bottom 0.4s ease, box-shadow 0.4s ease;
+    transition:
+        background-color 0.4s ease,
+        border-bottom 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
 .site-header.scrolled {
@@ -124,7 +127,7 @@ body {
 }
 
 .header-nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 2px;
     left: 1rem;
@@ -161,7 +164,10 @@ body {
     text-decoration: none;
     padding: 0.6rem 1.4rem;
     border: 1px solid var(--color-red);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
     flex-shrink: 0;
 }
 
@@ -193,7 +199,9 @@ body {
     height: 2px;
     background-color: #fff;
     border-radius: 2px;
-    transition: transform 0.35s ease, opacity 0.25s ease;
+    transition:
+        transform 0.35s ease,
+        opacity 0.25s ease;
 }
 
 .site-header.scrolled .nav-toggle-label span,
@@ -210,7 +218,7 @@ body {
 
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     width: 100%;
@@ -302,7 +310,7 @@ body {
 
 /* ornement géométrique de fond */
 .site-footer::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -120px;
     left: 50%;
@@ -317,7 +325,15 @@ body {
 /* bande tricolore supérieure */
 .footer-divider {
     height: 4px;
-    background: linear-gradient(90deg, var(--color-green) 0%, var(--color-green) 33%, #f5f0e8 33%, #f5f0e8 66%, var(--color-red) 66%, var(--color-red) 100%);
+    background: linear-gradient(
+        90deg,
+        var(--color-green) 0%,
+        var(--color-green) 33%,
+        #f5f0e8 33%,
+        #f5f0e8 66%,
+        var(--color-red) 66%,
+        var(--color-red) 100%
+    );
 }
 
 .footer-ornament {
@@ -372,7 +388,10 @@ body {
     color: var(--color-cream-dim);
     text-decoration: none;
     font-size: 0.9rem;
-    transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+    transition:
+        border-color 0.3s ease,
+        color 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .footer-social-link:hover {
