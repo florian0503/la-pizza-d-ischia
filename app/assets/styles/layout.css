@@ -320,7 +320,7 @@ body {
 ═══════════════════════════════════════════════════════════════ */
 
 .site-footer {
-    background-color: var(--color-dark);
+    background-color: #3d3d3d;
     color: var(--color-cream-dim);
     font-family: var(--font-body);
     position: relative;
