@@ -1,0 +1,46 @@
+<header class="site-header">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+
+    <div class="header-inner">
+        <a href="{{ path('app_home') }}" class="header-logo" aria-label="La Pizza d'Ischia — Accueil">
+            <img src="{{ asset('images/logo.png') }}" alt="La Pizza d'Ischia" class="header-logo-img">
+        </a>
+
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu">
+            <span></span>
+        </label>
+
+        <nav class="header-nav" aria-label="Navigation principale">
+            <ul class="header-nav-list" role="list">
+                <li>
+                    <a href="{{ path('app_home') }}"
+                       class="header-nav-link {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}">
+                        Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_menu') }}"
+                       class="header-nav-link {{ app.request.attributes.get('_route') starts with 'app_menu' ? 'active' : '' }}">
+                        Menu
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_histoire') }}"
+                       class="header-nav-link {{ app.request.attributes.get('_route') == 'app_histoire' ? 'active' : '' }}">
+                        Notre histoire
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_contact') }}"
+                       class="header-nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+            <a href="{{ path('app_reservation') }}" class="header-cta">
+                Réserver
+            </a>
+        </nav>
+    </div>
+</header>
