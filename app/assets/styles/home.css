@@ -1,0 +1,143 @@
+/* ═══════════════════════════════════════════════════════════════
+   HERO VIDEO
+═══════════════════════════════════════════════════════════════ */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 560px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(9, 29, 16, 0.45) 0%,
+        rgba(9, 29, 16, 0.65) 60%,
+        rgba(9, 29, 16, 0.85) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    max-width: 760px;
+    animation: hero-fade-in 1.2s ease both;
+}
+
+@keyframes hero-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #d4933a;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title em {
+    font-style: italic;
+    color: #f0b050;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.15em;
+    font-weight: 300;
+}
+
+.hero-desc {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(245, 240, 232, 0.85);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.hero-btn--primary {
+    background-color: #cc1f1f;
+    color: #ffffff;
+    border: 2px solid #cc1f1f;
+}
+
+.hero-btn--primary:hover {
+    background-color: #e53535;
+    border-color: #e53535;
+}
+
+.hero-btn--outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(245, 240, 232, 0.6);
+}
+
+.hero-btn--outline:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 600px) {
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

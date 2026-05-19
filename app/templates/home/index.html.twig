@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Pizza d'Ischia — Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/home.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+            <source src="https://videos.pexels.com/video-files/5898128/5898128-hd_1080_2048_30fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-sub">Depuis 1987 à Messimy</p>
+            <h1 class="hero-title">La vraie pizza<br><em>napolitaine</em></h1>
+            <p class="hero-desc">Pâte pétrie à la main, cuisson au feu de bois,<br>produits importés directement d'Italie.</p>
+            <div class="hero-actions">
+                <a href="{{ path('app_menu') }}" class="hero-btn hero-btn--primary">Voir le menu</a>
+                <a href="{{ path('app_reservation') }}" class="hero-btn hero-btn--outline">Réserver une table</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
