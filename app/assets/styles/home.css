@@ -190,14 +190,15 @@
     text-decoration: none;
     padding: 0.9rem 2.2rem;
     background-color: transparent;
-    color: #1e1e1e;
-    border: 2px solid #1e1e1e;
+    color: #f5f0e8;
+    border: 2px solid rgb(245 240 232 / 40%);
     border-radius: 4px;
     transition: all 0.3s ease;
 }
 
 .btn-outline-dark:hover {
-    background-color: #1e1e1e;
+    background-color: rgb(245 240 232 / 10%);
+    border-color: #f5f0e8;
     color: #f5f0e8;
 }
 
@@ -206,7 +207,7 @@
 ═══════════════════════════════════════════════════════════════ */
 
 .philosophie {
-    background-color: #fff;
+    background-color: #141414;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     min-height: 100vh;
@@ -258,7 +259,7 @@
     font-family: "Cormorant Garamond", serif;
     font-size: clamp(2.2rem, 3.5vw, 3.2rem);
     font-weight: 700;
-    color: #1e1e1e;
+    color: #f5f0e8;
     line-height: 1.2;
     margin: 0;
 }
@@ -287,7 +288,7 @@
     font-family: "Cormorant Garamond", serif;
     font-size: 1.8rem;
     font-weight: 600;
-    color: #1e1e1e;
+    color: #f5f0e8;
     margin: 0;
 }
 
@@ -295,7 +296,7 @@
     font-family: sans-serif;
     font-size: 1.05rem;
     font-weight: 400;
-    color: rgb(30 30 30 / 65%);
+    color: rgb(245 240 232 / 60%);
     line-height: 1.8;
     margin: 0;
     max-width: 480px;
@@ -322,7 +323,7 @@
 ═══════════════════════════════════════════════════════════════ */
 
 .pizzas-phares {
-    background-color: #faf6ef;
+    background-color: #191919;
     padding: 8rem 5vw;
 }
 
@@ -338,7 +339,7 @@
     font-family: "Cormorant Garamond", serif;
     font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 700;
-    color: #1e1e1e;
+    color: #f5f0e8;
     margin: 0;
 }
 
@@ -351,7 +352,7 @@
 }
 
 .pizza-card {
-    background-color: #fff;
+    background-color: #212121;
     overflow: hidden;
     position: relative;
     clip-path: inset(0 0 0 0);
@@ -418,7 +419,7 @@
     font-family: "Cormorant Garamond", serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #1e1e1e;
+    color: #f5f0e8;
     margin: 0 0 0.6rem;
 }
 
@@ -430,7 +431,7 @@
     font-family: sans-serif;
     font-size: 0.9rem;
     font-weight: 400;
-    color: rgb(30 30 30 / 60%);
+    color: rgb(245 240 232 / 55%);
     line-height: 1.65;
     margin: 0 0 1.2rem;
 }
@@ -476,7 +477,7 @@
 ═══════════════════════════════════════════════════════════════ */
 
 .histoire {
-    background-color: #fff;
+    background-color: #141414;
     overflow: hidden;
 }
 
@@ -528,7 +529,7 @@
     font-family: "Cormorant Garamond", serif;
     font-size: clamp(1.8rem, 2.5vw, 2.4rem);
     font-weight: 700;
-    color: #1e1e1e;
+    color: #f5f0e8;
     margin: 0;
     line-height: 1.2;
 }
@@ -537,7 +538,7 @@
     font-family: sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    color: rgb(30 30 30 / 60%);
+    color: rgb(245 240 232 / 55%);
     line-height: 1.8;
     margin: 0;
 }
@@ -687,7 +688,7 @@
 ═══════════════════════════════════════════════════════════════ */
 
 .localisation {
-    background-color: #faf6ef;
+    background-color: #191919;
     padding: 8rem 5vw;
 }
 
@@ -704,7 +705,7 @@
     font-family: "Cormorant Garamond", serif;
     font-size: clamp(1.8rem, 2.8vw, 2.4rem);
     font-weight: 700;
-    color: #1e1e1e;
+    color: #f5f0e8;
     margin: 0.4rem 0 2.5rem;
     line-height: 1.25;
 }
@@ -723,7 +724,7 @@
     flex-direction: column;
     gap: 0.35rem;
     padding-bottom: 1.8rem;
-    border-bottom: 1px solid rgb(30 30 30 / 10%);
+    border-bottom: 1px solid rgb(245 240 232 / 10%);
 }
 
 .localisation-item:last-child {
@@ -744,13 +745,13 @@
     font-family: sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    color: #1e1e1e;
+    color: #f5f0e8;
     line-height: 1.65;
 }
 
 .localisation-item-value em {
     font-style: italic;
-    color: rgb(30 30 30 / 50%);
+    color: rgb(245 240 232 / 50%);
 }
 
 .localisation-link {
@@ -763,7 +764,7 @@
 }
 
 .localisation-link:hover {
-    color: #1e1e1e;
+    color: #f5f0e8;
 }
 
 .localisation-map {

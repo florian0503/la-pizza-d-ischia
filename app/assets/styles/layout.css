@@ -4,9 +4,9 @@
     --color-accent: #a5231e;
     --color-accent-light: #c42b24;
     --color-cream: #f5f0e8;
-    --color-cream-bg: #faf6ef;
-    --color-cream-dim: #b8a898;
-    --color-line: rgb(42 53 32 / 14%);
+    --color-cream-bg: #111111;
+    --color-cream-dim: #9a8e80;
+    --color-line: rgb(245 240 232 / 10%);
     --font-display: "Cormorant Garamond", serif;
     --font-body: sans-serif;
 }
@@ -23,7 +23,7 @@
 body {
     background-color: var(--color-cream-bg);
     font-family: var(--font-body);
-    color: var(--color-dark);
+    color: var(--color-cream);
     overflow-x: hidden;
 }
 
@@ -46,8 +46,8 @@ body {
 }
 
 .site-header.scrolled {
-    background-color: #fff;
-    box-shadow: 0 2px 20px rgb(0 0 0 / 8%);
+    background-color: #141414;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 40%);
 }
 
 .site-header::before {
@@ -131,7 +131,7 @@ body {
 }
 
 .site-header.scrolled .header-nav-link {
-    color: var(--color-dark);
+    color: var(--color-cream);
 }
 
 .site-header.scrolled .header-nav-link:hover,
@@ -220,7 +220,7 @@ body {
 .site-header.scrolled .nav-toggle-label span,
 .site-header.scrolled .nav-toggle-label span::before,
 .site-header.scrolled .nav-toggle-label span::after {
-    background-color: var(--color-dark);
+    background-color: var(--color-cream);
 }
 
 .nav-toggle-label span {
