@@ -8,7 +8,7 @@
     --color-cream-dim: #9a8e80;
     --color-line: rgb(245 240 232 / 10%);
     --font-display: "Cormorant Garamond", serif;
-    --font-body: sans-serif;
+    --font-body: "Cormorant Garamond", serif;
 }
 
 /* ─── Reset partiel ───────────────────────────────────────────── */
@@ -23,6 +23,7 @@
 body {
     background-color: var(--color-cream-bg);
     font-family: var(--font-body);
+    font-style: italic;
     color: var(--color-cream);
     overflow-x: hidden;
 }

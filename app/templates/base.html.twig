@@ -9,9 +9,53 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+        <link href="https://db.onlinewebfonts.com/c/bb99de1682ee75602d351c1dde11a054?family=TAN+-+PEARL" rel="stylesheet">
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('styles/layout.css') }}">
         {% endblock %}
+        <style>
+            * { font-family: "TAN - PEARL", serif !important; }
+
+            .philosophie-heading em {
+                padding-right: 0.3em;
+            }
+
+            .pizza-card-price,
+            .avis-stars,
+            .avis-author,
+            .localisation-item-label,
+            .section-label {
+                display: inline-block;
+                width: fit-content;
+            }
+
+            .section-label,
+            .hero-sub,
+            .avis-stars,
+            .avis-author,
+            .localisation-item-label,
+            .pizza-card-price,
+            .pizza-card-badge,
+            .philosophie-heading em,
+            .header-nav-link:hover,
+            .header-nav-link.active,
+            .footer-credit span {
+                background: linear-gradient(to right, #00a651 0%, #ffffff 50%, #cc1a16 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .hero-sub {
+                margin-bottom: 2.5rem;
+            }
+
+            .localisation-link {
+                background: none;
+                -webkit-text-fill-color: #ffffff;
+                color: #ffffff;
+            }
+        </style>
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
