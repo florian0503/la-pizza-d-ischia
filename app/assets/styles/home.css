@@ -26,9 +26,9 @@
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(9, 29, 16, 0.45) 0%,
-        rgba(9, 29, 16, 0.65) 60%,
-        rgba(9, 29, 16, 0.85) 100%
+        rgb(9 29 16 / 45%) 0%,
+        rgb(9 29 16 / 65%) 60%,
+        rgb(9 29 16 / 85%) 100%
     );
 }
 
@@ -46,6 +46,7 @@
         opacity: 0;
         transform: translateY(24px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -53,7 +54,7 @@
 }
 
 .hero-sub {
-    font-family: 'Raleway', sans-serif;
+    font-family: Raleway, sans-serif;
     font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -66,7 +67,7 @@
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 5vw, 3.8rem);
     font-weight: 700;
-    color: #ffffff;
+    color: #fff;
     line-height: 1.15;
     margin-bottom: 1.5rem;
 }
@@ -74,17 +75,17 @@
 .hero-title em {
     font-style: italic;
     color: #f0b050;
-    font-family: 'Raleway', sans-serif;
+    font-family: Raleway, sans-serif;
     font-size: 1.15em;
     font-weight: 300;
 }
 
 .hero-desc {
-    font-family: 'Raleway', sans-serif;
+    font-family: Raleway, sans-serif;
     font-size: 1.2rem;
     font-weight: 300;
     font-style: italic;
-    color: rgba(245, 240, 232, 0.85);
+    color: rgb(245 240 232 / 85%);
     line-height: 1.7;
     margin-bottom: 2.5rem;
 }
@@ -98,7 +99,7 @@
 }
 
 .hero-btn {
-    font-family: 'Raleway', sans-serif;
+    font-family: Raleway, sans-serif;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -111,7 +112,7 @@
 
 .hero-btn--primary {
     background-color: #cc1f1f;
-    color: #ffffff;
+    color: #fff;
     border: 2px solid #cc1f1f;
 }
 
@@ -122,16 +123,16 @@
 
 .hero-btn--outline {
     background-color: transparent;
-    color: #ffffff;
-    border: 2px solid rgba(245, 240, 232, 0.6);
+    color: #fff;
+    border: 2px solid rgb(245 240 232 / 60%);
 }
 
 .hero-btn--outline:hover {
-    border-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    background-color: rgb(255 255 255 / 10%);
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
     .hero-actions {
         flex-direction: column;
     }

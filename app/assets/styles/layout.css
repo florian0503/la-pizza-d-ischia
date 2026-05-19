@@ -2,7 +2,7 @@
 
 /* ─── Variables ───────────────────────────────────────────────── */
 :root {
-    --color-bg-dark:     #ffffff;
+    --color-bg-dark:     #fff;
     --color-bg-deeper:   #091d10;
     --color-green:       #1a6b2a;
     --color-green-light: #2d8a3e;
@@ -12,8 +12,7 @@
     --color-gold-light:  #f0b050;
     --color-cream:       #f5f0e8;
     --color-cream-dim:   #c8bfa8;
-    --color-line:        rgba(26, 107, 42, 0.35);
-
+    --color-line:        rgb(26 107 42 / 35%);
     --font-display: 'Playfair Display', serif;
     --font-body:    'Raleway', sans-serif;
 }
@@ -49,9 +48,9 @@ body {
 }
 
 .site-header.scrolled {
-    background-color: #ffffff;
+    background-color: #fff;
     border-bottom: 2px solid var(--color-green);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 20px rgb(0 0 0 / 8%);
 }
 
 .site-header::before {
@@ -108,7 +107,7 @@ body {
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
     position: relative;
@@ -192,7 +191,7 @@ body {
 .nav-toggle-label span::after {
     display: block;
     height: 2px;
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 2px;
     transition: transform 0.35s ease, opacity 0.25s ease;
 }
@@ -239,7 +238,7 @@ body {
 }
 
 /* ─── Responsive header ─────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .nav-toggle-label {
         display: flex;
     }
@@ -281,7 +280,7 @@ body {
     }
 
     .header-nav-link:hover {
-        background-color: rgba(200, 164, 90, 0.08);
+        background-color: rgb(200 164 90 / 8%);
     }
 
     .header-cta {
@@ -311,7 +310,7 @@ body {
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    border: 1px solid rgba(200, 164, 90, 0.06);
+    border: 1px solid rgb(200 164 90 / 6%);
     pointer-events: none;
 }
 
@@ -379,7 +378,7 @@ body {
 .footer-social-link:hover {
     border-color: var(--color-gold);
     color: var(--color-gold);
-    background-color: rgba(200, 164, 90, 0.08);
+    background-color: rgb(200 164 90 / 8%);
 }
 
 /* ── Colonnes info ── */
@@ -443,7 +442,7 @@ body {
     font-size: 0.8rem;
     font-weight: 300;
     letter-spacing: 0.05em;
-    color: rgba(196, 184, 154, 0.5);
+    color: rgb(196 184 154 / 50%);
 }
 
 .footer-bottom-links {
@@ -454,7 +453,7 @@ body {
 
 .footer-bottom-link {
     font-size: 0.8rem;
-    color: rgba(196, 184, 154, 0.4);
+    color: rgb(196 184 154 / 40%);
     text-decoration: none;
     letter-spacing: 0.05em;
     transition: color 0.25s ease;
@@ -465,7 +464,7 @@ body {
 }
 
 /* ─── Responsive footer ─────────────────────────────────────── */
-@media (max-width: 900px) {
+@media (width <= 900px) {
     .footer-body {
         grid-template-columns: 1fr 1fr;
     }
@@ -475,7 +474,7 @@ body {
     }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
     .footer-body {
         grid-template-columns: 1fr;
         gap: 2rem;
