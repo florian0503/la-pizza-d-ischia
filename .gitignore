@@ -1,3 +1,6 @@
+screen*.png
+"Capture d'écran*.png"
+app/logo.PNG
 app/.env.local
 app/.env.*.local
 app/var/

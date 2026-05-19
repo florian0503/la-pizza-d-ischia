@@ -1,20 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap");
-
 /* ─── Variables ───────────────────────────────────────────────── */
 :root {
-    --color-bg-dark: #fff;
-    --color-bg-deeper: #091d10;
-    --color-green: #1a6b2a;
-    --color-green-light: #2d8a3e;
-    --color-red: #cc1f1f;
-    --color-red-light: #e53535;
-    --color-gold: #d4933a;
-    --color-gold-light: #f0b050;
+    --color-dark: #1e1e1e;
+    --color-accent: #a5231e;
+    --color-accent-light: #c42b24;
     --color-cream: #f5f0e8;
-    --color-cream-dim: #c8bfa8;
-    --color-line: rgb(26 107 42 / 35%);
-    --font-display: "Playfair Display", serif;
-    --font-body: "Raleway", sans-serif;
+    --color-cream-bg: #faf6ef;
+    --color-cream-dim: #b8a898;
+    --color-line: rgb(42 53 32 / 14%);
+    --font-display: "Cormorant Garamond", serif;
+    --font-body: sans-serif;
 }
 
 /* ─── Reset partiel ───────────────────────────────────────────── */
@@ -27,9 +21,10 @@
 }
 
 body {
-    background-color: #faf6ef;
+    background-color: var(--color-cream-bg);
     font-family: var(--font-body);
-    color: #2a1208;
+    color: var(--color-dark);
+    overflow-x: hidden;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -52,7 +47,6 @@ body {
 
 .site-header.scrolled {
     background-color: #fff;
-    border-bottom: 2px solid var(--color-green);
     box-shadow: 0 2px 20px rgb(0 0 0 / 8%);
 }
 
@@ -68,7 +62,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    position: relative;
+    transition: height 0.4s ease;
+}
+
+.site-header.scrolled .header-inner {
+    height: 58px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 /* ── Logo ── */
@@ -83,7 +88,13 @@ body {
     height: 68px;
     width: auto;
     display: block;
-    transition: transform 0.3s ease;
+    transition:
+        height 0.4s ease,
+        transform 0.3s ease;
+}
+
+.site-header.scrolled .header-logo-img {
+    height: 46px;
 }
 
 .header-logo:hover .header-logo-img {
@@ -92,9 +103,11 @@ body {
 
 /* ── Nav desktop ── */
 .header-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 0.25rem;
 }
 
 .header-nav-list {
@@ -107,7 +120,7 @@ body {
 .header-nav-link {
     font-family: var(--font-body);
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #fff;
@@ -118,12 +131,12 @@ body {
 }
 
 .site-header.scrolled .header-nav-link {
-    color: var(--color-green);
+    color: var(--color-dark);
 }
 
 .site-header.scrolled .header-nav-link:hover,
 .site-header.scrolled .header-nav-link.active {
-    color: var(--color-red);
+    color: var(--color-accent);
 }
 
 .header-nav-link::after {
@@ -133,23 +146,22 @@ body {
     left: 1rem;
     right: 1rem;
     height: 2px;
-    background-color: var(--color-red);
+    background-color: var(--color-accent);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
 }
 
 .header-nav-link:hover {
-    color: var(--color-red);
+    color: var(--color-accent);
 }
 
-.header-nav-link:hover::after,
-.header-nav-link.active::after {
+.header-nav-link:hover::after {
     transform: scaleX(1);
 }
 
 .header-nav-link.active {
-    color: var(--color-red);
+    color: var(--color-accent);
 }
 
 /* ── CTA Réserver ── */
@@ -160,10 +172,11 @@ body {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #fff;
-    background-color: var(--color-red);
+    background-color: var(--color-accent);
     text-decoration: none;
     padding: 0.6rem 1.4rem;
-    border: 1px solid var(--color-red);
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
     transition:
         background-color 0.3s ease,
         color 0.3s ease,
@@ -173,8 +186,8 @@ body {
 
 .header-cta:hover {
     background-color: transparent;
-    color: var(--color-red-light);
-    border-color: var(--color-red-light);
+    color: var(--color-accent-light);
+    border-color: var(--color-accent-light);
 }
 
 /* ── Hamburger (CSS only) ── */
@@ -207,7 +220,7 @@ body {
 .site-header.scrolled .nav-toggle-label span,
 .site-header.scrolled .nav-toggle-label span::before,
 .site-header.scrolled .nav-toggle-label span::after {
-    background-color: var(--color-green);
+    background-color: var(--color-dark);
 }
 
 .nav-toggle-label span {
@@ -251,13 +264,18 @@ body {
         display: flex;
     }
 
+    .header-inner {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+    }
+
     .header-nav {
         display: none;
         position: absolute;
-        top: 83px;
+        top: 80px;
         left: 0;
         right: 0;
-        background-color: var(--color-bg-deeper);
+        background-color: var(--color-dark);
         border-top: 1px solid var(--color-line);
         flex-direction: column;
         padding: 1.5rem 0;
@@ -288,7 +306,7 @@ body {
     }
 
     .header-nav-link:hover {
-        background-color: rgb(200 164 90 / 8%);
+        background-color: rgb(204 31 31 / 8%);
     }
 
     .header-cta {
@@ -301,7 +319,7 @@ body {
 ═══════════════════════════════════════════════════════════════ */
 
 .site-footer {
-    background-color: var(--color-bg-deeper);
+    background-color: var(--color-dark);
     color: var(--color-cream-dim);
     font-family: var(--font-body);
     position: relative;
@@ -318,31 +336,43 @@ body {
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    border: 1px solid rgb(200 164 90 / 6%);
+    border: 1px solid rgb(204 31 31 / 8%);
     pointer-events: none;
 }
 
-/* bande tricolore supérieure */
+/* barre de progression scroll — drapeau italien */
+.scroll-progress {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    z-index: 99;
+    height: 3px;
+    width: 0%;
+    transition:
+        top 0.4s ease,
+        width 0.1s linear;
+    background: linear-gradient(
+        90deg,
+        #009246 0%,
+        #009246 33.33%,
+        #fff 33.33%,
+        #fff 66.66%,
+        #ce2b37 66.66%,
+        #ce2b37 100%
+    );
+}
+
 .footer-divider {
     height: 4px;
     background: linear-gradient(
         90deg,
-        var(--color-green) 0%,
-        var(--color-green) 33%,
-        #f5f0e8 33%,
-        #f5f0e8 66%,
-        var(--color-red) 66%,
-        var(--color-red) 100%
+        #009246 0%,
+        #009246 33.33%,
+        #fff 33.33%,
+        #fff 66.66%,
+        #ce2b37 66.66%,
+        #ce2b37 100%
     );
-}
-
-.footer-ornament {
-    text-align: center;
-    padding: 2rem 0 0;
-    font-size: 1.5rem;
-    color: var(--color-green-light);
-    letter-spacing: 0.3em;
-    opacity: 0.7;
 }
 
 .footer-body {
@@ -358,7 +388,7 @@ body {
 .footer-brand-name {
     font-family: var(--font-display);
     font-size: 1.1rem;
-    color: var(--color-gold);
+    color: var(--color-cream);
     letter-spacing: 0.04em;
     margin-bottom: 0.5rem;
 }
@@ -384,7 +414,7 @@ body {
     justify-content: center;
     width: 38px;
     height: 38px;
-    border: 1px solid var(--color-line);
+    border: 1px solid rgb(245 240 232 / 15%);
     color: var(--color-cream-dim);
     text-decoration: none;
     font-size: 0.9rem;
@@ -395,9 +425,9 @@ body {
 }
 
 .footer-social-link:hover {
-    border-color: var(--color-gold);
-    color: var(--color-gold);
-    background-color: rgb(200 164 90 / 8%);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: rgb(204 31 31 / 8%);
 }
 
 /* ── Colonnes info ── */
@@ -406,10 +436,10 @@ body {
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-gold-light);
+    color: var(--color-cream);
     margin-bottom: 1.25rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--color-line);
+    border-bottom: 1px solid rgb(245 240 232 / 12%);
 }
 
 .footer-info-list {
@@ -442,7 +472,7 @@ body {
 }
 
 .footer-info-link:hover {
-    color: var(--color-gold);
+    color: var(--color-accent);
 }
 
 /* ── Bottom bar ── */
@@ -450,7 +480,7 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: 1.5rem 2.5rem;
-    border-top: 1px solid var(--color-line);
+    border-top: 1px solid rgb(245 240 232 / 10%);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -461,7 +491,19 @@ body {
     font-size: 0.8rem;
     font-weight: 300;
     letter-spacing: 0.05em;
-    color: rgb(196 184 154 / 50%);
+    color: rgb(245 240 232 / 35%);
+}
+
+.footer-credit {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgb(245 240 232 / 25%);
+    letter-spacing: 0.05em;
+}
+
+.footer-credit span {
+    color: var(--color-accent);
+    font-weight: 500;
 }
 
 .footer-bottom-links {
@@ -472,7 +514,7 @@ body {
 
 .footer-bottom-link {
     font-size: 0.8rem;
-    color: rgb(196 184 154 / 40%);
+    color: rgb(245 240 232 / 30%);
     text-decoration: none;
     letter-spacing: 0.05em;
     transition: color 0.25s ease;
@@ -504,4 +546,50 @@ body {
         text-align: center;
         gap: 0.75rem;
     }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL TO TOP
+═══════════════════════════════════════════════════════════════ */
+
+.scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 200;
+    width: 46px;
+    height: 46px;
+    background-color: #c4622d;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.scroll-top::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(-45deg) translate(-1px, 2px);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    background-color: #d97441;
 }
