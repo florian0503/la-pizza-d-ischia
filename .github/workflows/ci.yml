@@ -73,6 +73,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: pizzeria_messimy_test
+          MYSQL_ROOT_HOST: '%'
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -86,8 +87,8 @@ jobs:
       - name: Run migrations
         run: cd app && php bin/console doctrine:migrations:migrate --no-interaction --env=test
         env:
-          DATABASE_URL: mysql://root:@127.0.0.1:3306/pizzeria_messimy_test?serverVersion=8.0&charset=utf8mb4
+          DATABASE_URL: mysql://root:@127.0.0.1:3306/pizzeria_messimy?serverVersion=8.0&charset=utf8mb4
       - name: Run tests
         run: cd app && php bin/phpunit
         env:
-          DATABASE_URL: mysql://root:@127.0.0.1:3306/pizzeria_messimy_test?serverVersion=8.0&charset=utf8mb4
+          DATABASE_URL: mysql://root:@127.0.0.1:3306/pizzeria_messimy?serverVersion=8.0&charset=utf8mb4
