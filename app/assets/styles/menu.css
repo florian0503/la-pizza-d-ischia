@@ -1,0 +1,589 @@
+/* ═══════════════════════════════════════════════════════════════
+   MENU PAGE — La Pizza d'Ischia
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── Hero ────────────────────────────────────────────────────── */
+
+.menu-hero {
+    background-color: var(--ink);
+    color: var(--paper);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-hero-topbar {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 0 3rem;
+    height: 72px;
+    margin-top: 72px;
+    border-bottom: 1px solid rgb(243 236 224 / 10%);
+    flex-shrink: 0;
+}
+
+.menu-hero-topbar-item {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgb(243 236 224 / 35%);
+}
+
+.menu-hero-topbar-item + .menu-hero-topbar-item {
+    padding-left: 2.5rem;
+    border-left: 1px solid rgb(243 236 224 / 10%);
+}
+
+.menu-hero-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem 3rem 5rem;
+    gap: 3rem;
+}
+
+.menu-hero-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(80px, 16vw, 220px);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    color: var(--paper);
+    margin: 0;
+}
+
+.menu-hero-h1 em {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.menu-hero-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 900px;
+}
+
+.menu-hero-sub-left {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
+    font-style: italic;
+    font-weight: 400;
+    color: rgb(243 236 224 / 60%);
+    line-height: 1.65;
+}
+
+.menu-hero-sub-right {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: rgb(243 236 224 / 35%);
+    line-height: 2;
+    align-self: end;
+}
+
+/* ─── Légende ─────────────────────────────────────────────────── */
+
+.menu-legende {
+    background-color: var(--paper-2);
+    border-bottom: 1px solid var(--line);
+    padding: 1.4rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.menu-legende-title {
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--ink-mute);
+    flex-shrink: 0;
+}
+
+.menu-legende-items {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.menu-legende-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+}
+
+.menu-tag {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+/* ─── Tags inline (pills) ─────────────────────────────────────── */
+
+.tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.2em 0.55em;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-left: 0.6rem;
+    line-height: 1.6;
+}
+
+.tag-veggie,
+.menu-tag.tag-veggie {
+    background-color: var(--olive);
+    color: #fff;
+}
+
+.tag-spicy,
+.menu-tag.tag-spicy {
+    background-color: var(--tomato);
+    color: #fff;
+}
+
+.tag-new,
+.menu-tag.tag-new {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+.tag-signature,
+.menu-tag.tag-signature {
+    background-color: var(--ink);
+    color: var(--paper);
+}
+
+/* ─── Sticky tabs ─────────────────────────────────────────────── */
+
+.menu-tabs {
+    position: sticky;
+    top: 72px;
+    z-index: 90;
+    background-color: var(--paper);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.menu-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-tab {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 1.1rem 1.5rem;
+    cursor: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+    margin-bottom: -1px;
+}
+
+.menu-tab:hover {
+    color: var(--ink);
+}
+
+.menu-tab.active {
+    color: var(--tomato);
+    border-bottom-color: var(--tomato);
+}
+
+/* ─── Menu section ────────────────────────────────────────────── */
+
+.menu-section {
+    padding: 6rem 0;
+}
+
+.menu-section--dark {
+    background-color: var(--ink);
+    color: var(--paper);
+}
+
+.menu-section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.menu-section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    gap: 2rem;
+}
+
+.menu-section-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.menu-section-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 110px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0.2em 0 0.3em;
+}
+
+.menu-section-h2 em {
+    font-style: italic;
+    color: var(--tomato);
+}
+
+.menu-section--dark .menu-section-h2 {
+    color: var(--paper);
+}
+
+.menu-section--dark .menu-section-h2 em {
+    color: var(--gold);
+}
+
+.menu-section-sub {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--ink-mute);
+    line-height: 1.7;
+    max-width: 44ch;
+}
+
+.menu-section--dark .menu-section-sub {
+    color: rgb(243 236 224 / 45%);
+}
+
+.menu-section-num {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 10vw, 9rem);
+    font-weight: 400;
+    font-style: italic;
+    color: rgb(26 20 16 / 6%);
+    line-height: 1;
+    flex-shrink: 0;
+    user-select: none;
+    align-self: flex-start;
+}
+
+.menu-section--dark .menu-section-num {
+    color: rgb(243 236 224 / 6%);
+}
+
+/* Dark section item overrides */
+.menu-section--dark .menu-item {
+    border-color: rgb(243 236 224 / 10%);
+}
+
+.menu-section--dark .menu-item:hover {
+    background-color: rgb(243 236 224 / 3%);
+    padding-left: 0.75rem;
+}
+
+.menu-section--dark .menu-num {
+    color: rgb(243 236 224 / 25%);
+}
+
+.menu-section--dark .menu-name {
+    color: var(--paper);
+}
+
+.menu-section--dark .menu-name em {
+    color: var(--gold);
+}
+
+.menu-section--dark .menu-ingredients {
+    color: rgb(243 236 224 / 40%);
+}
+
+.menu-section--dark .menu-price {
+    color: var(--gold);
+}
+
+.menu-section--dark .menu-list {
+    border-top-color: rgb(243 236 224 / 10%);
+}
+
+/* ─── Editorial insert — L'Ischia ────────────────────────────── */
+
+.menu-insert {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--ink);
+    color: var(--paper);
+    min-height: 75vh;
+}
+
+.menu-insert-img {
+    overflow: hidden;
+    clip-path: inset(0 0 100% 0);
+}
+
+.menu-insert-img.in {
+    clip-path: inset(0 0 0% 0);
+}
+
+.menu-insert-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.8s var(--ease-expo);
+}
+
+.menu-insert-img:hover img {
+    transform: scale(1.04);
+}
+
+.menu-insert-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem;
+    gap: 2rem;
+}
+
+.menu-insert-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+}
+
+.menu-insert-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4.5vw, 5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+}
+
+.menu-insert-h2 em {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.menu-insert-text {
+    font-family: var(--font-body);
+    font-size: 0.925rem;
+    font-weight: 300;
+    color: rgb(243 236 224 / 55%);
+    line-height: 1.85;
+    max-width: 44ch;
+}
+
+.menu-insert-price {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-style: italic;
+    color: var(--gold);
+    border-top: 1px solid rgb(243 236 224 / 10%);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.menu-insert-price small {
+    font-size: 0.5em;
+    opacity: 0.7;
+}
+
+/* ─── Vini grid ───────────────────────────────────────────────── */
+
+.vini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.vini-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.vini-col-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.vini-col-title em {
+    font-style: italic;
+    color: var(--tomato);
+}
+
+/* ─── Note ────────────────────────────────────────────────────── */
+
+.menu-note {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 3rem 4rem;
+    text-align: center;
+    border-top: 1px solid var(--line);
+}
+
+.menu-note p {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    line-height: 2;
+}
+
+/* ─── CTA ─────────────────────────────────────────────────────── */
+
+.menu-cta {
+    background-color: var(--ink);
+    color: var(--paper);
+    padding: 8rem 3rem;
+    text-align: center;
+}
+
+.menu-cta-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.menu-cta-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--paper);
+}
+
+.menu-cta-h2 em {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.menu-cta .btn-tomato {
+    font-size: 0.72rem;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+
+@media (width <= 900px) {
+    .menu-hero-topbar {
+        padding: 0 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .menu-hero-main {
+        padding: 3rem 1.5rem 4rem;
+    }
+
+    .menu-hero-sub {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .menu-legende {
+        padding: 1.2rem 1.5rem;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .menu-tab {
+        padding: 1rem;
+    }
+
+    .menu-section-inner {
+        padding: 0 1.5rem;
+    }
+
+    .menu-section-header {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 2.5rem;
+    }
+
+    .menu-section-num {
+        display: none;
+    }
+
+    .menu-insert {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .menu-insert-img {
+        aspect-ratio: 16 / 9;
+    }
+
+    .menu-insert-content {
+        padding: 3rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .vini-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .menu-note {
+        padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .menu-cta {
+        padding: 6rem 1.5rem;
+    }
+}
+
+@media (width <= 600px) {
+    .menu-hero-topbar-item + .menu-hero-topbar-item:last-child {
+        display: none;
+    }
+
+    .menu-legende-items {
+        gap: 1.2rem;
+    }
+}
