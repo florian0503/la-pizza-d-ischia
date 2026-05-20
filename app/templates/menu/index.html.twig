@@ -1,20 +1,583 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MenuController!{% endblock %}
+{% block title %}La Carte — La Pizza d'Ischia{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/menu.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {# ══════════════════════════════════════════════════════════
+       1. HERO
+    ══════════════════════════════════════════════════════════ #}
+    <section class="menu-hero">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/ECCSEL260401/Desktop/pizzeria-messimy/app/src/Controller/MenuController.php</code></li>
-        <li>Your template at <code>C:/Users/ECCSEL260401/Desktop/pizzeria-messimy/app/templates/menu/index.html.twig</code></li>
-    </ul>
-</div>
+        <div class="menu-hero-topbar">
+            <span class="menu-hero-topbar-item">La Carte &mdash; Hiver 2026</span>
+            <span class="menu-hero-topbar-item">21 références &middot; Pétries chaque matin</span>
+            <span class="menu-hero-topbar-item">Édition n°XII</span>
+        </div>
+
+        <div class="menu-hero-main">
+            <h1 class="menu-hero-h1 reveal-text" data-split>
+                Notre<br><em>carta.</em>
+            </h1>
+            <div class="menu-hero-sub">
+                <p class="menu-hero-sub-left fade-up">
+                    <em>« Une carte courte, qui change avec les saisons. Pizzas napolitaines, antipasti, dolci — et ce qu'on a trouvé ce matin au marché. »</em>
+                </p>
+                <p class="menu-hero-sub-right fade-up">
+                    Tous nos prix en euros, taxes incluses.<br>
+                    Pizzas 30&nbsp;cm &middot; Pâte 72&nbsp;h.<br>
+                    Sans gluten sur demande (+2€).
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       2. LÉGENDE
+    ══════════════════════════════════════════════════════════ #}
+    <div class="menu-legende fade-up">
+        <span class="menu-legende-title"><em>— Légende</em></span>
+        <div class="menu-legende-items">
+            <span class="menu-legende-item">
+                <span class="menu-tag tag-veggie" aria-hidden="true"></span>
+                <span>Végétarien</span>
+            </span>
+            <span class="menu-legende-item">
+                <span class="menu-tag tag-spicy" aria-hidden="true"></span>
+                <span>Piquant</span>
+            </span>
+            <span class="menu-legende-item">
+                <span class="menu-tag tag-new" aria-hidden="true"></span>
+                <span>Nouveauté</span>
+            </span>
+            <span class="menu-legende-item">
+                <span class="menu-tag tag-signature" aria-hidden="true"></span>
+                <span>Signature</span>
+            </span>
+        </div>
+    </div>
+
+    {# ══════════════════════════════════════════════════════════
+       3. TABS STICKY
+    ══════════════════════════════════════════════════════════ #}
+    <nav class="menu-tabs" aria-label="Sections du menu">
+        <button class="menu-tab active" data-tab="antipasti">Antipasti</button>
+        <button class="menu-tab" data-tab="rosse">Pizzas Rosse</button>
+        <button class="menu-tab" data-tab="bianche">Pizzas Bianche</button>
+        <button class="menu-tab" data-tab="speciali">Speciali</button>
+        <button class="menu-tab" data-tab="dolci">Dolci</button>
+        <button class="menu-tab" data-tab="vini">Vini &amp; Boissons</button>
+    </nav>
+
+    {# ══════════════════════════════════════════════════════════
+       4. ANTIPASTI
+    ══════════════════════════════════════════════════════════ #}
+    <section class="menu-section" id="antipasti" aria-labelledby="antipasti-title">
+        <div class="menu-section-inner">
+
+            <div class="menu-section-header">
+                <div class="menu-section-label">
+                    <span class="eyebrow fade-up">— Capitolo I</span>
+                    <h2 class="menu-section-h2 reveal-text" data-split id="antipasti-title">
+                        Anti<em>pasti</em>
+                    </h2>
+                    <p class="menu-section-sub fade-up">Pour ouvrir l'appétit. Tout est préparé le matin, à la main, à dimensions humaines.</p>
+                </div>
+                <span class="menu-section-num" aria-hidden="true">01</span>
+            </div>
+
+            <ol class="menu-list stagger">
+
+                <li class="menu-item" style="--i:0">
+                    <span class="menu-num">01</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            Burrata <em>delle Puglie</em>
+                            <span class="tag tag-veggie" aria-label="Végétarien">Veg</span>
+                        </span>
+                        <span class="menu-ingredients">Burrata des Pouilles · Tomates anciennes · Basilic · Huile d'olive de Sorrente · Fleur de sel</span>
+                    </div>
+                    <span class="menu-price">12 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:1">
+                    <span class="menu-num">02</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Vitello <em>Tonnato</em></span>
+                        <span class="menu-ingredients">Veau rosé · Sauce au thon · Câpres de Pantelleria · Anchois · Citron confit</span>
+                    </div>
+                    <span class="menu-price">14 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:2">
+                    <span class="menu-num">03</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Carpaccio di <em>Manzo</em></span>
+                        <span class="menu-ingredients">Bœuf cru tranché fin · Copeaux de parmigiano 24 mois · Roquette · Citron</span>
+                    </div>
+                    <span class="menu-price">15 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:3">
+                    <span class="menu-num">04</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Polpette <em>della Nonna</em></span>
+                        <span class="menu-ingredients">Boulettes bœuf et porc · Sauce tomate maison · Parmigiano · Pain grillé</span>
+                    </div>
+                    <span class="menu-price">11 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:4">
+                    <span class="menu-num">05</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            Verdure <em>grigliate</em>
+                            <span class="tag tag-veggie" aria-label="Végétarien">Veg</span>
+                        </span>
+                        <span class="menu-ingredients">Aubergines · Courgettes · Poivrons grillés · Ricotta fumée · Pignons</span>
+                    </div>
+                    <span class="menu-price">10 <small>€</small></span>
+                </li>
+
+            </ol>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       5. PIZZAS ROSSE
+    ══════════════════════════════════════════════════════════ #}
+    <section class="menu-section menu-section--dark" id="rosse" aria-labelledby="rosse-title">
+        <div class="menu-section-inner">
+
+            <div class="menu-section-header">
+                <div class="menu-section-label">
+                    <span class="eyebrow eyebrow--gold fade-up">— Capitolo II</span>
+                    <h2 class="menu-section-h2 reveal-text" data-split id="rosse-title">
+                        Pizzas <em>Rosse</em>
+                    </h2>
+                    <p class="menu-section-sub fade-up">À base de tomate San Marzano D.O.P. Les vraies, celles du Vésuve.</p>
+                </div>
+                <span class="menu-section-num" aria-hidden="true">02</span>
+            </div>
+
+            <ol class="menu-list stagger">
+
+                <li class="menu-item" style="--i:0">
+                    <span class="menu-num">06</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            La <em>Marinara</em>
+                            <span class="tag tag-veggie" aria-label="Végétarien">Veg</span>
+                        </span>
+                        <span class="menu-ingredients">Tomate · Ail · Origan de Sicile · Huile d'olive. La plus ancienne, la plus pure. Pas de fromage.</span>
+                    </div>
+                    <span class="menu-price">11 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:1">
+                    <span class="menu-num">07</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            Margherita <em>Vera</em>
+                            <span class="tag tag-veggie" aria-label="Végétarien">Veg</span>
+                        </span>
+                        <span class="menu-ingredients">Tomate · Mozzarella di Bufala campana · Basilic frais · Huile d'olive extra vierge</span>
+                    </div>
+                    <span class="menu-price">14 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:2">
+                    <span class="menu-num">08</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            Diavola <em>Calabraise</em>
+                            <span class="tag tag-spicy" aria-label="Piquant">Piquant</span>
+                        </span>
+                        <span class="menu-ingredients">Tomate · Fior di latte · Soppressata de Calabre · Miel de châtaignier · Huile pimentée</span>
+                    </div>
+                    <span class="menu-price">17 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:3">
+                    <span class="menu-num">09</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Capricciosa <em>del nonno</em></span>
+                        <span class="menu-ingredients">Tomate · Mozzarella · Jambon cuit · Champignons · Artichauts · Olives noires · Œuf au plat</span>
+                    </div>
+                    <span class="menu-price">17 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:4">
+                    <span class="menu-num">10</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Napoletana <em>classica</em></span>
+                        <span class="menu-ingredients">Tomate · Mozzarella · Anchois de Cetara · Câpres de Pantelleria · Origan</span>
+                    </div>
+                    <span class="menu-price">15 <small>€</small></span>
+                </li>
+
+            </ol>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       6. PIZZAS BIANCHE
+    ══════════════════════════════════════════════════════════ #}
+    <section class="menu-section" id="bianche" aria-labelledby="bianche-title">
+        <div class="menu-section-inner">
+
+            <div class="menu-section-header">
+                <div class="menu-section-label">
+                    <span class="eyebrow fade-up">— Capitolo III</span>
+                    <h2 class="menu-section-h2 reveal-text" data-split id="bianche-title">
+                        Pizzas <em>Bianche</em>
+                    </h2>
+                    <p class="menu-section-sub fade-up">Sans tomate. La pâte, le fromage, et le reste. La preuve qu'on n'a pas besoin de tout.</p>
+                </div>
+                <span class="menu-section-num" aria-hidden="true">03</span>
+            </div>
+
+            <ol class="menu-list stagger">
+
+                <li class="menu-item" style="--i:0">
+                    <span class="menu-num">11</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            Quattro <em>Formaggi</em>
+                            <span class="tag tag-veggie" aria-label="Végétarien">Veg</span>
+                        </span>
+                        <span class="menu-ingredients">Mozzarella · Gorgonzola · Pecorino romano · Parmigiano 24 mois · Poivre noir de Madagascar</span>
+                    </div>
+                    <span class="menu-price">18 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:1">
+                    <span class="menu-num">12</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            Bufala <em>e Pesto</em>
+                            <span class="tag tag-veggie" aria-label="Végétarien">Veg</span>
+                        </span>
+                        <span class="menu-ingredients">Mozzarella di Bufala · Pesto au mortier · Tomates cerises confites · Pignons</span>
+                    </div>
+                    <span class="menu-price">16 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:2">
+                    <span class="menu-num">13</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Tartufo <em>Nero</em></span>
+                        <span class="menu-ingredients">Crème fraîche · Mozzarella · Champignons de Paris · Truffe noire du Périgord râpée à la minute</span>
+                    </div>
+                    <span class="menu-price">22 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:3">
+                    <span class="menu-num">14</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            Patate <em>e Rosmarino</em>
+                            <span class="tag tag-veggie" aria-label="Végétarien">Veg</span>
+                        </span>
+                        <span class="menu-ingredients">Crème · Mozzarella · Fines tranches de pommes de terre · Romarin · Fleur de sel · Huile d'olive</span>
+                    </div>
+                    <span class="menu-price">14 <small>€</small></span>
+                </li>
+
+            </ol>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       INSERT EDITORIAL — L'ISCHIA
+    ══════════════════════════════════════════════════════════ #}
+    <section class="menu-insert" aria-label="La signature — L'Ischia">
+        <div class="menu-insert-img reveal-clip">
+            <img src="https://images.unsplash.com/photo-1542834369-f10ebf06d3e0?w=1400&q=80"
+                 alt="L'Ischia — La pizza signature de Vincenzo Esposito"
+                 loading="lazy">
+        </div>
+        <div class="menu-insert-content">
+            <span class="menu-insert-label fade-up">— La Signature &mdash; Édition limitée</span>
+            <h2 class="menu-insert-h2 reveal-text" data-split>
+                L'<em>Ischia.</em><br>Notre hommage<br>à l'île.
+            </h2>
+            <p class="menu-insert-text fade-up">
+                « Une création de Vincenzo, née chaque hiver depuis 2014. Crème de courgette grillée, mozzarella di bufala campana, burrata des Pouilles ajoutée à la sortie du four, citron d'Amalfi confit, basilic frais, huile d'olive de Sorrente, fleur de sel. »
+            </p>
+            <p class="menu-insert-text fade-up">
+                « Servie uniquement le soir, et seulement vingt par jour. »
+            </p>
+            <span class="menu-insert-price fade-up">19 <small>€</small></span>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       7. SPECIALI
+    ══════════════════════════════════════════════════════════ #}
+    <section class="menu-section" id="speciali" aria-labelledby="speciali-title">
+        <div class="menu-section-inner">
+
+            <div class="menu-section-header">
+                <div class="menu-section-label">
+                    <span class="eyebrow fade-up">— Capitolo IV</span>
+                    <h2 class="menu-section-h2 reveal-text" data-split id="speciali-title">
+                        Le <em>Speciali</em>
+                    </h2>
+                    <p class="menu-section-sub fade-up">Ce que Vincenzo invente cette saison. Disponible jusqu'à épuisement.</p>
+                </div>
+                <span class="menu-section-num" aria-hidden="true">04</span>
+            </div>
+
+            <ol class="menu-list stagger">
+
+                <li class="menu-item menu-item--signature" style="--i:0">
+                    <span class="menu-num">15</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            L'<em>Ischia</em>
+                            <span class="tag tag-signature" aria-label="Signature">Signature</span>
+                        </span>
+                        <span class="menu-ingredients">Crème de courgette · Bufala · Burrata · Citron d'Amalfi · Basilic &mdash; 20 par soir</span>
+                    </div>
+                    <span class="menu-price">19 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:1">
+                    <span class="menu-num">16</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            Vesuvio <em>in Fiamme</em>
+                            <span class="tag tag-spicy" aria-label="Piquant">Piquant</span>
+                            <span class="tag tag-new" aria-label="Nouveauté">Nouveau</span>
+                        </span>
+                        <span class="menu-ingredients">Nduja de Calabre fondue · Mozzarella · Oignons rouges confits · Huile de piment · Miel</span>
+                    </div>
+                    <span class="menu-price">18 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:2">
+                    <span class="menu-num">17</span>
+                    <div class="menu-info">
+                        <span class="menu-name">
+                            Mortadella <em>e Pistacchio</em>
+                            <span class="tag tag-new" aria-label="Nouveauté">Nouveau</span>
+                        </span>
+                        <span class="menu-ingredients">Mortadelle de Bologne · Crème de pistache de Bronte · Stracciatella · Pistaches concassées</span>
+                    </div>
+                    <span class="menu-price">19 <small>€</small></span>
+                </li>
+
+            </ol>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       8. DOLCI
+    ══════════════════════════════════════════════════════════ #}
+    <section class="menu-section menu-section--dark" id="dolci" aria-labelledby="dolci-title">
+        <div class="menu-section-inner">
+
+            <div class="menu-section-header">
+                <div class="menu-section-label">
+                    <span class="eyebrow eyebrow--gold fade-up">— Capitolo V</span>
+                    <h2 class="menu-section-h2 reveal-text" data-split id="dolci-title">
+                        <em>Dolci</em>
+                    </h2>
+                    <p class="menu-section-sub fade-up">Pour finir. Faits maison. Pas trop sucrés, comme là-bas.</p>
+                </div>
+                <span class="menu-section-num" aria-hidden="true">05</span>
+            </div>
+
+            <ol class="menu-list stagger">
+
+                <li class="menu-item" style="--i:0">
+                    <span class="menu-num">18</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Tiramisù <em>della casa</em></span>
+                        <span class="menu-ingredients">Mascarpone · Café arabica de Naples · Biscuits savoiardi · Cacao amer · Marsala</span>
+                    </div>
+                    <span class="menu-price">8 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:1">
+                    <span class="menu-num">19</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Panna <em>Cotta</em> aux figues</span>
+                        <span class="menu-ingredients">Crème vanille de Madagascar · Figues rôties au miel · Éclats d'amandes torréfiées</span>
+                    </div>
+                    <span class="menu-price">7 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:2">
+                    <span class="menu-num">20</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Cannoli <em>Siciliani</em></span>
+                        <span class="menu-ingredients">Trois cannoli croustillants · Ricotta fraîche au citron · Pistache · Chocolat noir</span>
+                    </div>
+                    <span class="menu-price">8 <small>€</small></span>
+                </li>
+
+                <li class="menu-item" style="--i:3">
+                    <span class="menu-num">21</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Affogato <em>al caffè</em></span>
+                        <span class="menu-ingredients">Glace vanille noyée dans un espresso brûlant. Un dessert et un café, en même temps.</span>
+                    </div>
+                    <span class="menu-price">6 <small>€</small></span>
+                </li>
+
+            </ol>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       9. VINI & BOISSONS
+    ══════════════════════════════════════════════════════════ #}
+    <section class="menu-section" id="vini" aria-labelledby="vini-title">
+        <div class="menu-section-inner">
+
+            <div class="menu-section-header">
+                <div class="menu-section-label">
+                    <span class="eyebrow fade-up">— Capitolo VI</span>
+                    <h2 class="menu-section-h2 reveal-text" data-split id="vini-title">
+                        Vini &amp; <em>Bevande</em>
+                    </h2>
+                    <p class="menu-section-sub fade-up">Une carte courte de petits producteurs italiens, choisis par Vincenzo et son frère.</p>
+                </div>
+                <span class="menu-section-num" aria-hidden="true">06</span>
+            </div>
+
+            <div class="vini-grid stagger">
+
+                <div class="vini-col">
+                    <h3 class="vini-col-title fade-up"><em>Au verre</em></h3>
+                    <ol class="menu-list">
+                        <li class="menu-item" style="--i:0">
+                            <span class="menu-num">—</span>
+                            <div class="menu-info">
+                                <span class="menu-name">Falanghina <em>2023</em></span>
+                                <span class="menu-ingredients">Campanie · Sec, minéral, fruits blancs</span>
+                            </div>
+                            <span class="menu-price">7 <small>€</small></span>
+                        </li>
+                        <li class="menu-item" style="--i:1">
+                            <span class="menu-num">—</span>
+                            <div class="menu-info">
+                                <span class="menu-name">Aglianico <em>del Vulture</em></span>
+                                <span class="menu-ingredients">Basilicate · Puissant, épicé, cerise noire</span>
+                            </div>
+                            <span class="menu-price">8 <small>€</small></span>
+                        </li>
+                        <li class="menu-item" style="--i:2">
+                            <span class="menu-num">—</span>
+                            <div class="menu-info">
+                                <span class="menu-name">Lambrusco <em>grasparossa</em></span>
+                                <span class="menu-ingredients">Émilie-Romagne · Pétillant, sec, fruits rouges</span>
+                            </div>
+                            <span class="menu-price">7 <small>€</small></span>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="vini-col">
+                    <h3 class="vini-col-title fade-up"><em>Autres</em></h3>
+                    <ol class="menu-list">
+                        <li class="menu-item" style="--i:0">
+                            <span class="menu-num">—</span>
+                            <div class="menu-info">
+                                <span class="menu-name">Bières <em>italiennes</em></span>
+                                <span class="menu-ingredients">Birrificio Italiano · IPA, blonde, ambrée — 33cl</span>
+                            </div>
+                            <span class="menu-price">6 <small>€</small></span>
+                        </li>
+                        <li class="menu-item" style="--i:1">
+                            <span class="menu-num">—</span>
+                            <div class="menu-info">
+                                <span class="menu-name">Limonata <em>d'Amalfi</em></span>
+                                <span class="menu-ingredients">Maison · Citrons d'Amalfi, eau de source, menthe</span>
+                            </div>
+                            <span class="menu-price">5 <small>€</small></span>
+                        </li>
+                        <li class="menu-item" style="--i:2">
+                            <span class="menu-num">—</span>
+                            <div class="menu-info">
+                                <span class="menu-name">Espresso <em>Napolitain</em></span>
+                                <span class="menu-ingredients">Torréfaction Kimbo · Simple ou doppio</span>
+                            </div>
+                            <span class="menu-price">3 <small>€</small></span>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       10. NOTE
+    ══════════════════════════════════════════════════════════ #}
+    <div class="menu-note fade-up">
+        <p>Toutes nos pizzas sont disponibles en pâte classique ou intégrale &middot; Allergènes disponibles sur demande &middot; Prix TTC service compris</p>
+    </div>
+
+    {# ══════════════════════════════════════════════════════════
+       11. CTA
+    ══════════════════════════════════════════════════════════ #}
+    <section class="menu-cta" aria-label="Réservation">
+        <div class="menu-cta-inner">
+            <h2 class="menu-cta-h2 reveal-text" data-split>
+                Passez quand<br><em>vous voulez.</em>
+            </h2>
+            <a href="{{ path('app_contact') }}" class="btn-tomato magnetic">Nous contacter &rarr;</a>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="module" src="{{ asset('home.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.menu-tab');
+            const tabsBar = document.querySelector('.menu-tabs');
+            const sectionIds = ['antipasti', 'rosse', 'bianche', 'speciali', 'dolci', 'vini'];
+            const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+            function getOffset() {
+                const header = document.getElementById('site-header');
+                return (header ? header.offsetHeight : 72) + (tabsBar ? tabsBar.offsetHeight : 44) + 8;
+            }
+
+            tabs.forEach(function (t) {
+                t.addEventListener('click', function () {
+                    const el = document.getElementById(t.dataset.tab);
+                    if (el) {
+                        const top = el.getBoundingClientRect().top + window.scrollY - getOffset();
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', function () {
+                const offset = getOffset();
+                const sy = window.scrollY + offset + 32;
+                let active = sections[0] ? sections[0].id : null;
+                sections.forEach(function (s) {
+                    if (s.offsetTop <= sy) { active = s.id; }
+                });
+                tabs.forEach(function (t) {
+                    t.classList.toggle('active', t.dataset.tab === active);
+                });
+            }, { passive: true });
+        });
+    </script>
 {% endblock %}
