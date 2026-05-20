@@ -16,9 +16,9 @@ set('writable_dirs', ['app/var', 'app/var/cache', 'app/var/log', 'app/var/sessio
 set('writable_mode', 'chmod');
 
 host('production')
-    ->setHostname('__DEPLOY_HOST__')
-    ->setRemoteUser('__DEPLOY_USER__')
-    ->setPort(__DEPLOY_PORT__)
+    ->hostname('__DEPLOY_HOST__')
+    ->user('__DEPLOY_USER__')
+    ->port(__DEPLOY_PORT__)
     ->set('deploy_path', '~/domains/lightslategrey-manatee-691472.hostingersite.com/storage');
 
 task('deploy:vendors', static function () {
