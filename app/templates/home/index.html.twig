@@ -10,222 +10,451 @@
 {% block body %}
 
     {# ══════════════════════════════════════════════════════════
-       SECTION 1 — Hero vidéo
+       1. HERO CINÉMATIQUE
     ══════════════════════════════════════════════════════════ #}
-    <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto">
-            <source src="https://videos.pexels.com/video-files/5898128/5898128-hd_1080_2048_30fps.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
+    <section class="hero" aria-label="La Pizza d'Ischia">
+
+        {# Ken Burns frames #}
+        <div class="hero-bg" aria-hidden="true">
+            <div class="hero-frame hero-frame--1">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=1600&q=80" alt="">
+            </div>
+            <div class="hero-frame hero-frame--2">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80" alt="">
+            </div>
+            <div class="hero-frame hero-frame--3">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1600&q=80" alt="">
+            </div>
+            <div class="hero-frame hero-frame--4">
+                <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=1600&q=80" alt="">
+            </div>
+        </div>
+
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        {# Film grain #}
+        <svg class="hero-grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <filter id="grain-filter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+                <feColorMatrix type="saturate" values="0"/>
+            </filter>
+            <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+        </svg>
+
+        {# Floating badge #}
+        <div class="hero-badge" aria-hidden="true">
+            <span class="hero-badge-dal">Dal</span>
+            <strong class="hero-badge-year">1962</strong>
+            <span class="hero-badge-sub">Tre<br>Generazioni</span>
+        </div>
+
+        {# Meta top bar #}
+        <div class="hero-top">
+            <div class="hero-meta">
+                <span class="hero-tristrip" aria-hidden="true">
+                    <span class="ts-g"></span>
+                    <span class="ts-w"></span>
+                    <span class="ts-r"></span>
+                </span>
+                <span class="hero-meta-text">Napoli × Messimy &mdash; Dal 1962 &middot; Servizio fino alle 23h &middot; Hiver 2026</span>
+            </div>
+        </div>
+
+        {# H1 main #}
         <div class="hero-content">
-            <p class="hero-sub">Pizzeria napolitaine à Messimy</p>
-            <h1 class="hero-title">La Pizza<br><em>d'Ischia</em></h1>
-<div class="hero-actions">
-                <a href="{{ path('app_menu') }}" class="hero-btn hero-btn--primary">Voir le menu</a>
-                <a href="{{ path('app_contact') }}" class="hero-btn hero-btn--outline">Nous contacter</a>
+            <p class="hero-surtitle">Vera Pizza Napoletana &mdash; Forno a legna</p>
+            <h1 class="hero-h1">
+                La Pizza<br><em>d'Ischia</em>
+            </h1>
+        </div>
+
+        {# Footer 3 cols + scroll #}
+        <div class="hero-footer">
+            <div class="hero-footer-cols">
+                <div>
+                    <span class="hero-footer-label">— La promesse</span>
+                    <p class="hero-footer-text"><em>"La pizza è vita."</em><br>Mangée chaude, au coin d'une table.</p>
+                </div>
+                <div>
+                    <span class="hero-footer-label">— Adresse</span>
+                    <p class="hero-footer-text">12 Rue de la Paix<br>Messimy, Ain — France</p>
+                </div>
+                <div>
+                    <span class="hero-footer-label">— Horaires</span>
+                    <p class="hero-footer-text">Mar–Ven&nbsp;: 12h–14h30 · 19h–22h30<br>Sam–Dim&nbsp;: 12h–15h · 19h–23h<br><em>Lundi fermé</em></p>
+                </div>
             </div>
+            <div class="hero-scroll-indicator">
+                <span class="hero-scroll-label">Défiler</span>
+                <div class="hero-scroll-line" aria-hidden="true"></div>
+            </div>
+        </div>
+
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       2. BANDE TRICOLORE
+    ══════════════════════════════════════════════════════════ #}
+    <div class="tricolor" aria-hidden="true">
+        <div class="tricolor-g"></div>
+        <div class="tricolor-w"></div>
+        <div class="tricolor-r"></div>
+    </div>
+
+    {# ══════════════════════════════════════════════════════════
+       3. MANIFESTO
+    ══════════════════════════════════════════════════════════ #}
+    <section class="manifesto" aria-labelledby="manifesto-title">
+        <div class="manifesto-left fade-up">
+            <span class="manifesto-chapter">— Capitolo I · Manifesto</span>
+            <h2 class="manifesto-title" id="manifesto-title">Il nostro<br>credo</h2>
+        </div>
+        <div class="manifesto-right">
+            <p class="manifesto-quote reveal-lines">
+                <span class="line"><span class="line-inner">Une pizza n'est pas</span></span>
+                <span class="line"><span class="line-inner">un plat. C'est un <em>souvenir</em></span></span>
+                <span class="line"><span class="line-inner">qui se mange avec les doigts,</span></span>
+                <span class="line"><span class="line-inner">au coin d'une table,</span></span>
+                <span class="line"><span class="line-inner">en se <em>brûlant</em> <span class="mute">un peu</span></span></span>
+                <span class="line"><span class="line-inner"><span class="mute">la bouche.</span></span></span>
+            </p>
         </div>
     </section>
 
     {# ══════════════════════════════════════════════════════════
-       SECTION 2 — Pizzas phares (clip-path reveal)
+       4. MARQUEE 1
     ══════════════════════════════════════════════════════════ #}
-    <section class="pizzas-phares" id="menu-apercu">
-        <div class="pizzas-phares-header">
-            <span class="section-label section-label--dark">Nos créations</span>
-            <h2 class="pizzas-phares-title">Les incontournables</h2>
+    <div class="marquee-band" aria-hidden="true">
+        <div class="marquee-track">
+            <span class="marquee-word">Forno a legna</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Mamma mia</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Farina Caputo 00</span><span class="marquee-dot"></span>
+            <span class="marquee-word">San Marzano</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Mozzarella di Bufala</span><span class="marquee-dot"></span>
+            <span class="marquee-word">72 ore di maturazione</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Buon appetito</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Bellissima</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Buongiorno</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Forno a legna</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Mamma mia</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Farina Caputo 00</span><span class="marquee-dot"></span>
+            <span class="marquee-word">San Marzano</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Mozzarella di Bufala</span><span class="marquee-dot"></span>
+            <span class="marquee-word">72 ore di maturazione</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Buon appetito</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Bellissima</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Buongiorno</span><span class="marquee-dot"></span>
         </div>
-        <div class="pizzas-phares-grid">
-            <article class="pizza-card">
-                <div class="pizza-card-image-wrap">
-                    <img
-                        src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=80"
-                        alt="Margherita"
-                        class="pizza-card-img"
-                        loading="lazy"
-                    >
-                </div>
-                <div class="pizza-card-body">
-                    <h3 class="pizza-card-name">Margherita</h3>
-                    <p class="pizza-card-desc">Tomate San Marzano, mozzarella di bufala, basilic frais, huile d'olive extra vierge</p>
-                    <span class="pizza-card-price">14 €</span>
-                </div>
-            </article>
-            <article class="pizza-card pizza-card--featured">
-                <div class="pizza-card-badge">La signature</div>
-                <div class="pizza-card-image-wrap">
-                    <img
-                        src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf2f?w=600&q=80"
-                        alt="Napolitaine"
-                        class="pizza-card-img"
-                        loading="lazy"
-                    >
-                </div>
-                <div class="pizza-card-body">
-                    <h3 class="pizza-card-name">Napolitaine</h3>
-                    <p class="pizza-card-desc">Tomate, anchois, olives noires, câpres, origan — la recette originale de 1889</p>
-                    <span class="pizza-card-price">16 €</span>
-                </div>
-            </article>
-            <article class="pizza-card">
-                <div class="pizza-card-image-wrap">
-                    <img
-                        src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80"
-                        alt="Quattro Formaggi"
-                        class="pizza-card-img"
-                        loading="lazy"
-                    >
-                </div>
-                <div class="pizza-card-body">
-                    <h3 class="pizza-card-name">Quattro Formaggi</h3>
-                    <p class="pizza-card-desc">Mozzarella, gorgonzola, pecorino romano, parmesan 24 mois</p>
-                    <span class="pizza-card-price">17 €</span>
-                </div>
-            </article>
+    </div>
+
+    {# ══════════════════════════════════════════════════════════
+       5. STICKY SCROLL — PROCESS
+    ══════════════════════════════════════════════════════════ #}
+    <section class="process" aria-label="Notre savoir-faire">
+
+        {# Sticky image column #}
+        <div class="process-visual" id="processVisual" aria-hidden="true">
+            <img class="process-img" id="processImg"
+                src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=900&q=80"
+                alt="La pâte napolitaine">
+            <span class="process-roman" id="processRoman"><em>i</em></span>
         </div>
-        <div class="pizzas-phares-cta">
-            <a href="{{ path('app_menu') }}" class="btn-primary">Découvrir tout le menu</a>
+
+        {# Scrolling panels #}
+        <div class="process-panels" id="processPanels">
+
+            <div class="panel">
+                <span class="process-eyebrow">N°01 — La Pâte</span>
+                <h3 class="process-title">Soixante-douze <em>heures</em> de patience.</h3>
+                <p class="process-text">Farine Caputo 00, eau, sel et levain naturel. Trois jours à 4°C, puis deux heures à température ambiante avant de l'étirer à la main. Aucune machine. Aucune précipitation.</p>
+            </div>
+
+            <div class="panel">
+                <span class="process-eyebrow">N°02 — Le Feu</span>
+                <h3 class="process-title">Quatre cents <em>degrés</em>, soixante secondes.</h3>
+                <p class="process-text">Notre four à bois date de 1962. Chêne et hêtre secs, allumés chaque matin à l'aube. Il faut quatre heures pour atteindre la bonne chaleur. Il ne s'éteint jamais en service.</p>
+            </div>
+
+            <div class="panel">
+                <span class="process-eyebrow">N°03 — La Tomate</span>
+                <h3 class="process-title">San Marzano, <em>D.O.P.</em> du Vésuve.</h3>
+                <p class="process-text">Cultivées sur les flancs du Vésuve, dans un sol volcanique unique. Ni cuite, ni mixée — écrasée à la main avec du sel, de l'huile, quelques feuilles de basilic. C'est tout.</p>
+            </div>
+
+            <div class="panel">
+                <span class="process-eyebrow">N°04 — Le Service</span>
+                <h3 class="process-title">Mangée <em>tout de suite</em> ou pas du tout.</h3>
+                <p class="process-text">Une pizza napolitaine ne voyage pas, ne se réchauffe pas, ne s'adapte pas. Elle sort du four, elle arrive sur la table, et elle se mange là, maintenant, pendant qu'elle est encore vivante.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       6. MARQUEE 2
+    ══════════════════════════════════════════════════════════ #}
+    <div class="marquee-band marquee-band--dark" aria-hidden="true">
+        <div class="marquee-track">
+            <span class="marquee-word">Margherita</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Marinara</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Diavola</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Bufala</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Quattro Formaggi</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Tartufo</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Capricciosa</span><span class="marquee-dot"></span>
+            <span class="marquee-word">L'Ischia</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Margherita</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Marinara</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Diavola</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Bufala</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Quattro Formaggi</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Tartufo</span><span class="marquee-dot"></span>
+            <span class="marquee-word">Capricciosa</span><span class="marquee-dot"></span>
+            <span class="marquee-word">L'Ischia</span><span class="marquee-dot"></span>
+        </div>
+    </div>
+
+    {# ══════════════════════════════════════════════════════════
+       7. SÉLECTION DU CHEF
+    ══════════════════════════════════════════════════════════ #}
+    <section class="selection" id="menu-apercu" aria-label="Sélection du chef">
+
+        <div class="selection-inner">
+
+            <div class="selection-header fade-up">
+                <div class="selection-header-text">
+                    <span class="eyebrow">N°02 — La selezione dello chef</span>
+                    <h2 class="selection-title">Quelques <em>classiques</em>,<br>cuits comme à la maison.</h2>
+                </div>
+                <div class="selection-header-img" aria-hidden="true">
+                    <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400&q=80" alt="" loading="lazy">
+                </div>
+            </div>
+
+            <ol class="menu-list stagger">
+
+                <li class="menu-item" style="--i:0">
+                    <span class="menu-num">N°01</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Margherita <em>Vera</em></span>
+                        <span class="menu-ingredients">San Marzano D.O.P. · Mozzarella di Bufala · Basilic · Huile d'olive</span>
+                    </div>
+                    <span class="menu-price">14 €</span>
+                </li>
+
+                <li class="menu-item" style="--i:1">
+                    <span class="menu-num">N°02</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Diavola <em>Calabraise</em></span>
+                        <span class="menu-ingredients">Tomate · Salami piccante · Piment calabrais · Mozzarella</span>
+                    </div>
+                    <span class="menu-price">17 €</span>
+                </li>
+
+                <li class="menu-item" style="--i:2">
+                    <span class="menu-num">N°03</span>
+                    <div class="menu-info">
+                        <span class="menu-name"><em>Marinara</em></span>
+                        <span class="menu-ingredients">Tomate San Marzano · Ail · Origan · Huile d'olive</span>
+                    </div>
+                    <span class="menu-price">11 €</span>
+                </li>
+
+                <li class="menu-item" style="--i:3">
+                    <span class="menu-num">N°04</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Tartufo <em>Nero</em></span>
+                        <span class="menu-ingredients">Crème de truffe noire · Mozzarella fior di latte · Parmesan 24 mois</span>
+                    </div>
+                    <span class="menu-price">22 €</span>
+                </li>
+
+                <li class="menu-item" style="--i:4">
+                    <span class="menu-num">N°05</span>
+                    <div class="menu-info">
+                        <span class="menu-name">Quattro <em>Formaggi</em></span>
+                        <span class="menu-ingredients">Mozzarella · Gorgonzola · Pecorino Romano · Parmesan</span>
+                    </div>
+                    <span class="menu-price">18 €</span>
+                </li>
+
+                <li class="menu-item menu-item--signature" style="--i:5">
+                    <span class="menu-num">N°06</span>
+                    <div class="menu-info">
+                        <span class="menu-name"><em>L'Ischia</em> <span class="menu-badge">La signature</span></span>
+                        <span class="menu-ingredients">San Marzano · Bufala · Anchois de Cetara · Câpres · Olives Taggiasca · Basilic</span>
+                    </div>
+                    <span class="menu-price">19 €</span>
+                </li>
+
+            </ol>
+
+            <div class="selection-cta fade-up">
+                <a href="{{ path('app_menu') }}" class="btn-ghost magnetic">Voir la carte complète</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       8. STORY — LE CHEF
+    ══════════════════════════════════════════════════════════ #}
+    <section class="story" aria-labelledby="story-title">
+        <div class="story-inner">
+
+            <div class="story-image-wrap reveal-clip">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Vincenzo Esposito, chef et propriétaire" loading="lazy">
+            </div>
+
+            <div class="story-content">
+                <span class="eyebrow">— Capitolo II · La famiglia</span>
+                <h2 class="story-title" id="story-title">Le grand-père,<br>le four, <em>et nous.</em></h2>
+                <p class="story-text">En 1962, Vincenzo Esposito quitte Ischia avec ses mains, sa recette et un rêve : faire découvrir à la France la vraie pizza napolitaine. Son four a traversé trois générations. La recette de la pâte, jamais.</p>
+                <p class="story-text">Aujourd'hui, son petit-fils perpétue ce geste avec la même exigence — ni plus, ni moins. Pas d'innovation pour le plaisir. Juste le respect d'un héritage qui vaut plus que n'importe quelle tendance.</p>
+                <div class="story-signature">
+                    <svg class="signature-svg" viewBox="0 0 160 60" aria-hidden="true">
+                        <path d="M10,45 C15,20 25,15 35,25 C40,30 38,38 42,35 C48,30 52,18 60,20 C68,22 65,38 72,35 C78,32 80,22 88,28 C94,33 90,45 98,42 C106,38 108,25 116,28 C122,30 120,42 128,40 C134,38 138,28 148,32"/>
+                    </svg>
+                    <span class="story-signature-name">Vincenzo Esposito</span>
+                    <span class="story-signature-role">Chef &amp; propriétaire — 3e génération</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
     {# ══════════════════════════════════════════════════════════
-       SECTION 3 — Notre philosophie (sticky scroll)
+       9. STATS
     ══════════════════════════════════════════════════════════ #}
-    <section class="philosophie" id="philosophie">
-        <div class="philosophie-image-col">
-            <div class="philosophie-image">
-                <img
-                    src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80"
-                    alt="Notre four à bois napolitain"
-                    loading="lazy"
-                >
+    <section class="stats" aria-label="En chiffres">
+        <div class="stats-inner stagger">
+
+            <div class="stat-item" style="--i:0">
+                <span class="stat-value" data-count="62" aria-label="62 années">62</span>
+                <span class="stat-label">Années depuis Ischia, 1962</span>
             </div>
-        </div>
-        <div class="philosophie-text-col">
-            <div class="philosophie-intro">
-                <span class="section-label">Notre philosophie</span>
-                <h2 class="philosophie-heading">Ce qui nous<br><em>définit</em></h2>
+
+            <div class="stat-item" style="--i:1">
+                <span class="stat-value" aria-label="72 heures">72<em>h</em></span>
+                <span class="stat-label">Maturation de la pâte</span>
             </div>
-            <div class="philosophie-step">
-                <span class="philosophie-step-num">01</span>
-                <h3 class="philosophie-step-title">L'authenticité</h3>
-                <p class="philosophie-step-text">Chaque pizza porte en elle l'âme de Naples. Nous n'avons jamais compromis la recette originale — ni les ingrédients, ni la méthode, ni le temps.</p>
+
+            <div class="stat-item" style="--i:2">
+                <span class="stat-value" data-count="400" aria-label="400 degrés">400<em>°</em></span>
+                <span class="stat-label">Chaleur du four à bois</span>
             </div>
-            <div class="philosophie-step">
-                <span class="philosophie-step-num">02</span>
-                <h3 class="philosophie-step-title">Le feu de bois</h3>
-                <p class="philosophie-step-text">Notre four atteint 485°C. À cette température, la pâte cuit en 90 secondes — croustillante dehors, aérienne dedans. Un résultat impossible à reproduire autrement.</p>
+
+            <div class="stat-item" style="--i:3">
+                <span class="stat-value" aria-label="60 secondes">60<em>s</em></span>
+                <span class="stat-label">Temps de cuisson</span>
             </div>
-            <div class="philosophie-step">
-                <span class="philosophie-step-num">03</span>
-                <h3 class="philosophie-step-title">Les produits</h3>
-                <p class="philosophie-step-text">Farine Caputo 00, tomates San Marzano DOP, mozzarella di bufala campana. Chaque ingrédient vient directement d'Italie, sélectionné avec exigence.</p>
-            </div>
+
         </div>
     </section>
 
     {# ══════════════════════════════════════════════════════════
-       SECTION 4 — Avis clients (text reveal)
+       10. TÉMOIGNAGES
     ══════════════════════════════════════════════════════════ #}
-    <section class="avis" id="avis">
-        <div class="avis-inner">
-            <span class="section-label">Ce qu'ils disent</span>
-            <h2 class="avis-title">Ils nous ont fait confiance</h2>
-            <div class="avis-grid">
-                <div class="avis-card">
-                    <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
-                    <p class="avis-text">« La meilleure pizza que j'ai mangée en dehors de Naples. La pâte est incroyable, légère et aérienne. On reviendra sans hésiter. »</p>
-                    <p class="avis-author">Marie L. — Messimy</p>
+    <section class="testimonials" aria-labelledby="testimonials-title">
+
+        <div class="testimonials-header fade-up">
+            <span class="eyebrow">— Capitolo III · I clienti</span>
+            <h2 class="testimonials-title" id="testimonials-title">Ce qu'on <em>dit</em> de nous.</h2>
+        </div>
+
+        <div class="testimonials-grid stagger">
+
+            <div class="testimonial-card" style="--i:0">
+                <div class="testimonial-stars" aria-label="5 étoiles">
+                    <span></span><span></span><span></span><span></span><span></span>
                 </div>
-                <div class="avis-card">
-                    <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
-                    <p class="avis-text">« Un endroit où l'on sent que la passion prime sur tout. La Napolitaine aux anchois est un chef-d'œuvre. Service chaleureux, accueil parfait. »</p>
-                    <p class="avis-author">Thomas R. — Lyon</p>
-                </div>
-                <div class="avis-card">
-                    <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
-                    <p class="avis-text">« Enfin une vraie pizza napolitaine dans la région ! Le four à bois fait toute la différence. Les produits sont d'une fraîcheur irréprochable. »</p>
-                    <p class="avis-author">Sophie B. — Brindas</p>
+                <p class="testimonial-quote">« La meilleure pizza que j'aie mangée en dehors de Naples. La pâte est <em>incroyable</em> — légère, alvéolée, avec ce goût brûlé qui fait tout. »</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar" aria-hidden="true"><span>M</span></div>
+                    <div>
+                        <span class="testimonial-name">Marie L.</span>
+                        <span class="testimonial-role">Habitante de Messimy</span>
+                    </div>
                 </div>
             </div>
+
+            <div class="testimonial-card" style="--i:1">
+                <div class="testimonial-stars" aria-label="5 étoiles">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <p class="testimonial-quote">« Un endroit où l'on sent que la <em>passion</em> prime sur tout. L'Ischia aux anchois est un chef-d'œuvre. Service chaleureux, accueil parfait. »</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar" aria-hidden="true"><span>T</span></div>
+                    <div>
+                        <span class="testimonial-name">Thomas R.</span>
+                        <span class="testimonial-role">Client fidèle depuis 2019</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card" style="--i:2">
+                <div class="testimonial-stars" aria-label="5 étoiles">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <p class="testimonial-quote">« Enfin une vraie pizza napolitaine dans la région. Le <em>four à bois</em> fait toute la différence. Les produits sont d'une fraîcheur irréprochable. »</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar" aria-hidden="true"><span>S</span></div>
+                    <div>
+                        <span class="testimonial-name">Sophie B.</span>
+                        <span class="testimonial-role">Critique gastronomique</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
     </section>
 
     {# ══════════════════════════════════════════════════════════
-       SECTION 5 — Notre histoire (scroll-triggered pin)
+       11. LOCATION
     ══════════════════════════════════════════════════════════ #}
-    <section class="histoire" id="histoire">
-        <div class="histoire-inner">
-            <div class="histoire-steps-col">
-                <span class="section-label">Notre histoire</span>
-                <div class="histoire-step" data-step="0">
-                    <span class="histoire-step-num">01</span>
-                    <h3 class="histoire-step-title">La naissance</h3>
-                    <p class="histoire-step-text">Tout a commencé avec une obsession : retrouver le goût exact de la pizza que notre fondateur mangeait enfant dans le quartier Spaccanapoli de Naples. Des années de recherche pour une seule recette.</p>
-                </div>
-                <div class="histoire-step" data-step="1">
-                    <span class="histoire-step-num">02</span>
-                    <h3 class="histoire-step-title">La pâte</h3>
-                    <p class="histoire-step-text">Trois ans d'apprentissage auprès de maîtres pizzaïolos napolitains. La recette de notre pâte repose 48 heures avant d'être travaillée — patience et tradition avant tout.</p>
-                </div>
-                <div class="histoire-step" data-step="2">
-                    <span class="histoire-step-num">03</span>
-                    <h3 class="histoire-step-title">Le four</h3>
-                    <p class="histoire-step-text">Construit à la main par un artisan de Naples, notre four en briques réfractaires met 4 heures à atteindre sa température idéale. Il ne s'éteint jamais en service.</p>
-                </div>
-                <div class="histoire-step" data-step="3">
-                    <span class="histoire-step-num">04</span>
-                    <h3 class="histoire-step-title">La promesse</h3>
-                    <p class="histoire-step-text">Chaque pizza que nous servons est une promesse : celle de vous transporter à Naples le temps d'un repas. Authentique, sincère, sans le moindre compromis.</p>
-                </div>
-            </div>
-            <div class="histoire-image-col">
-                <div class="histoire-image-frame">
-                    <img class="histoire-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="La naissance" loading="lazy">
-                    <img class="histoire-img" src="https://images.unsplash.com/photo-1556217477-d325251ece38?w=700&q=80" alt="La pâte" loading="lazy">
-                    <img class="histoire-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80" alt="Le four" loading="lazy">
-                    <img class="histoire-img" src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=700&q=80" alt="La promesse" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="location" id="localisation" aria-labelledby="location-title">
+        <div class="location-inner">
 
-    {# ══════════════════════════════════════════════════════════
-       SECTION 6 — Localisation
-    ══════════════════════════════════════════════════════════ #}
-    <section class="localisation" id="localisation">
-        <div class="localisation-inner">
-            <div class="localisation-info">
-                <span class="section-label section-label--dark">Nous trouver</span>
-                <h2 class="localisation-title">Venez nous rendre visite</h2>
-                <ul class="localisation-list">
-                    <li class="localisation-item">
-                        <span class="localisation-item-label">Adresse</span>
-                        <span class="localisation-item-value">12 Rue de la Paix<br>01600 Messimy</span>
-                    </li>
-                    <li class="localisation-item">
-                        <span class="localisation-item-label">Téléphone</span>
-                        <a href="tel:+33474000000" class="localisation-link">04 74 00 00 00</a>
-                    </li>
-                    <li class="localisation-item">
-                        <span class="localisation-item-label">Horaires</span>
-                        <span class="localisation-item-value">
-                            Mar–Ven&nbsp;: 12h–14h30 · 19h–22h30<br>
-                            Sam–Dim&nbsp;: 12h–15h · 19h–23h<br>
-                            <em>Lundi fermé</em>
-                        </span>
-                    </li>
-                </ul>
-                <a href="{{ path('app_contact') }}" class="btn-outline-dark">Nous contacter</a>
-            </div>
-            <div class="localisation-map">
+            <div class="location-map-wrap">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11161.2!2d4.73!3d45.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4e9b2c2f4c2a1%3A0x0!2sMessimy%2C%20France!5e0!3m2!1sfr!2sfr!4v1"
-                    allowfullscreen
+                    class="location-map-iframe"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=4.8650%2C45.6760%2C4.8950%2C45.6920&amp;layer=mapnik&amp;marker=45.6840%2C4.8800"
+                    title="Localisation La Pizza d'Ischia — Messimy"
                     loading="lazy"
-                    title="Localisation La Pizza d'Ischia à Messimy"
+                    allowfullscreen
                 ></iframe>
             </div>
+
+            <div class="location-content fade-up">
+                <span class="eyebrow">— Capitolo IV · Vieni a trovarci</span>
+                <h2 class="location-title" id="location-title">Venez nous<br><em>rendre visite.</em></h2>
+                <div class="location-grid">
+                    <div>
+                        <span class="location-item-label">Adresse</span>
+                        <p class="location-item-value">12 Rue de la Paix<br>01600 Messimy</p>
+                    </div>
+                    <div>
+                        <span class="location-item-label">Téléphone</span>
+                        <p class="location-item-value"><a href="tel:+33474000000" style="color:inherit;text-decoration:none">04 74 00 00 00</a></p>
+                    </div>
+                    <div>
+                        <span class="location-item-label">Horaires</span>
+                        <p class="location-item-value">Mar–Ven&nbsp;: 12h–14h30<br>Soir&nbsp;: 19h–22h30</p>
+                    </div>
+                    <div>
+                        <span class="location-item-label">Fermé</span>
+                        <p class="location-item-value">Le lundi toute la journée</p>
+                    </div>
+                </div>
+                <div class="location-ctas">
+                    <a href="{{ path('app_contact') }}" class="btn-tomato magnetic">Réserver une table</a>
+                    <a href="https://www.openstreetmap.org/?mlat=45.6840&amp;mlon=4.8800#map=16/45.6840/4.8800" class="btn-outline" target="_blank" rel="noopener noreferrer">Itinéraire</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -233,120 +462,5 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-
-            // ── Philosophie intro
-            gsap.fromTo('.philosophie-intro',
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1, y: 0, duration: 1.1, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.philosophie-intro', start: 'top 80%', toggleActions: 'play none none reverse' },
-                }
-            );
-
-            // ── Philosophie steps — fade + rise
-            gsap.utils.toArray('.philosophie-step').forEach((step) => {
-                gsap.fromTo(step,
-                    { opacity: 0, y: 70 },
-                    {
-                        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-                        scrollTrigger: { trigger: step, start: 'top 78%', toggleActions: 'play none none reverse' },
-                    }
-                );
-            });
-
-            // ── Pizzas — clip-path reveal du bas vers le haut
-            gsap.fromTo('.pizzas-phares-header',
-                { opacity: 0, y: 40 },
-                {
-                    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.pizzas-phares-header', start: 'top 82%', toggleActions: 'play none none reverse' },
-                }
-            );
-
-            gsap.utils.toArray('.pizza-card').forEach((card, i) => {
-                gsap.fromTo(card,
-                    { clipPath: 'inset(100% 0 0 0)', opacity: 0 },
-                    {
-                        clipPath: 'inset(0% 0 0 0)', opacity: 1,
-                        duration: 1.2, ease: 'power4.out', delay: i * 0.18,
-                        scrollTrigger: { trigger: '.pizzas-phares-grid', start: 'top 78%', toggleActions: 'play none none reverse' },
-                    }
-                );
-            });
-
-            // ── Histoire — scroll pin + step cycling
-            const histoireSteps = gsap.utils.toArray('.histoire-step');
-            const histoireImgs = gsap.utils.toArray('.histoire-img');
-
-            if (histoireSteps.length && histoireImgs.length) {
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: '.histoire',
-                        start: 'top top',
-                        end: `+=${histoireSteps.length * 650}`,
-                        pin: true,
-                        scrub: 0.9,
-                        anticipatePin: 1,
-                    },
-                });
-
-                histoireSteps.forEach((step, i) => {
-                    const img = histoireImgs[i];
-                    if (i === 0) {
-                        tl.fromTo(step, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 }, 0);
-                        tl.fromTo(img, { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 1 }, 0);
-                    } else {
-                        tl
-                            .to(histoireSteps[i - 1], { opacity: 0, y: -40, duration: 0.5 })
-                            .to(histoireImgs[i - 1], { opacity: 0, duration: 0.4 }, '<')
-                            .fromTo(step, { opacity: 0, y: 55 }, { opacity: 1, y: 0, duration: 0.9 })
-                            .fromTo(img, { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 0.9 }, '<');
-                    }
-                });
-            }
-
-            // ── Avis — stagger reveal du bas
-            gsap.fromTo('.avis-title',
-                { opacity: 0, y: 40 },
-                {
-                    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.avis-title', start: 'top 82%', toggleActions: 'play none none reverse' },
-                }
-            );
-
-            gsap.utils.toArray('.avis-card').forEach((card, i) => {
-                gsap.fromTo(card,
-                    { opacity: 0, y: 65 },
-                    {
-                        opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', delay: i * 0.15,
-                        scrollTrigger: { trigger: '.avis-grid', start: 'top 80%', toggleActions: 'play none none reverse' },
-                    }
-                );
-            });
-
-            // ── Localisation — simple fade
-            gsap.fromTo('.localisation-info',
-                { opacity: 0, x: -40 },
-                {
-                    opacity: 1, x: 0, duration: 1, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.localisation-inner', start: 'top 80%', toggleActions: 'play none none reverse' },
-                }
-            );
-
-            gsap.fromTo('.localisation-map',
-                { opacity: 0, x: 40 },
-                {
-                    opacity: 1, x: 0, duration: 1, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.localisation-inner', start: 'top 80%', toggleActions: 'play none none reverse' },
-                }
-            );
-        }
-        });
-    </script>
+    <script type="module" src="{{ asset('home.js') }}"></script>
 {% endblock %}
