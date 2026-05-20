@@ -8,6 +8,7 @@ app/vendor/
 /vendor/
 app/node_modules/
 app/public/bundles/
+app/public/assets/
 app/.php-cs-fixer.cache
 app/.phpunit.result.cache
 .claude/
