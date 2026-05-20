@@ -41,7 +41,7 @@ task('deploy:link_webroot', static function () {
 
 task('deploy', [
     'deploy:info',
-    'deploy:setup',
+    'deploy:prepare',
     'deploy:lock',
     'deploy:release',
     'deploy:update_code',
@@ -54,7 +54,6 @@ task('deploy', [
     'deploy:link_webroot',
     'deploy:unlock',
     'deploy:cleanup',
-    'deploy:success',
 ]);
 
 after('deploy:failed', 'deploy:unlock');
