@@ -58,47 +58,37 @@ document.querySelectorAll(".magnetic").forEach((btn) => {
     });
 });
 
-// ── Header scroll ─────────────────────────────────────────────
-const siteHeader = document.getElementById("site-header");
+// ── Header scroll + scroll progress + scroll-to-top ───────────
+// Les listeners scroll sont attachés une seule fois sur window.
+// Les références DOM sont relues à chaque événement (Turbo swap le body).
 
-if (siteHeader) {
-    window.addEventListener(
-        "scroll",
-        () => {
-            siteHeader.classList.toggle("scrolled", window.scrollY > 60);
-        },
-        { passive: true }
-    );
+function onScroll() {
+    const siteHeader = document.getElementById("site-header");
+    const scrollProgress = document.getElementById("scrollProgress");
+    const scrollTopBtn = document.getElementById("scrollTop");
+
+    if (siteHeader) {
+        siteHeader.classList.toggle("scrolled", window.scrollY > 60);
+    }
+
+    if (scrollProgress) {
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress.style.width = total > 0 ? `${(window.scrollY / total) * 100}%` : "0%";
+    }
+
+    if (scrollTopBtn) {
+        scrollTopBtn.classList.toggle("visible", window.scrollY > 500);
+    }
 }
 
-// ── Scroll progress bar ────────────────────────────────────────
-const scrollProgress = document.getElementById("scrollProgress");
+window.addEventListener("scroll", onScroll, { passive: true });
 
-if (scrollProgress) {
-    window.addEventListener(
-        "scroll",
-        () => {
-            const total = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
-            scrollProgress.style.width = `${progress}%`;
-        },
-        { passive: true }
-    );
-}
+// Appel immédiat à chaque navigation Turbo pour initialiser l'état
+document.addEventListener("turbo:load", onScroll);
 
-// ── Scroll to top ──────────────────────────────────────────────
-const scrollTopBtn = document.getElementById("scrollTop");
-
-if (scrollTopBtn) {
-    window.addEventListener(
-        "scroll",
-        () => {
-            scrollTopBtn.classList.toggle("visible", window.scrollY > 500);
-        },
-        { passive: true }
-    );
-
-    scrollTopBtn.addEventListener("click", () => {
+// Bouton scroll-to-top — délégation sur le document pour survivre aux swaps Turbo
+document.addEventListener("click", (e) => {
+    if (e.target.closest("#scrollTop")) {
         window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
+    }
+});
