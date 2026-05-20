@@ -1,9 +1,9 @@
-<header class="site-header">
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-
+<header class="site-header" id="site-header">
     <div class="header-inner">
+
         <a href="{{ path('app_home') }}" class="header-logo" aria-label="La Pizza d'Ischia — Accueil">
-            <img src="{{ asset('images/logo.png') }}" alt="La Pizza d'Ischia" class="header-logo-img">
+            La Pizza d'Ischia
+            <span class="header-logo-dot" aria-hidden="true"></span>
         </a>
 
         <nav class="header-nav" aria-label="Navigation principale">
@@ -23,7 +23,7 @@
                 <li>
                     <a href="{{ path('app_histoire') }}"
                        class="header-nav-link {{ app.request.attributes.get('_route') == 'app_histoire' ? 'active' : '' }}">
-                        Notre histoire
+                        Histoire
                     </a>
                 </li>
                 <li>
@@ -32,14 +32,14 @@
                         Galerie
                     </a>
                 </li>
+                <li>
+                    <a href="{{ path('app_contact') }}"
+                       class="header-nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
+                        Contact
+                    </a>
+                </li>
             </ul>
         </nav>
 
-        <div class="header-right">
-            <a href="{{ path('app_contact') }}" class="header-cta">Contact</a>
-            <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu">
-                <span></span>
-            </label>
-        </div>
     </div>
 </header>
