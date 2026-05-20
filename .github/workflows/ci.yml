@@ -92,3 +92,36 @@ jobs:
         run: cd app && php bin/phpunit
         env:
           DATABASE_URL: mysql://root:@127.0.0.1:3306/pizzeria_messimy?serverVersion=8.0&charset=utf8mb4
+
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [php-cs-fixer, phpstan, twig-cs-fixer, stylelint, phpunit]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Download Deployer
+        run: curl -LO https://deployer.org/deployer.phar && chmod +x deployer.phar
+
+      - name: Prepare deploy.php
+        run: |
+          sed -i "s/__DEPLOY_HOST__/${{ secrets.HOST }}/g" deploy.php
+          sed -i "s/__DEPLOY_USER__/${{ secrets.USER }}/g" deploy.php
+          sed -i "s/__DEPLOY_PORT__/${{ secrets.PORT }}/g" deploy.php
+
+      - name: Deploy
+        run: php deployer.phar deploy -vvv
