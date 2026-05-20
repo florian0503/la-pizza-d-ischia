@@ -39,6 +39,11 @@ task('deploy:link_webroot', static function () {
     run('ln -sfn {{deploy_path}}/current/app/public ~/domains/lightslategrey-manatee-691472.hostingersite.com/public_html');
 });
 
+task('deploy:post_cache', static function () {
+    run('cd {{deploy_path}}/current/app && APP_ENV=prod php bin/console cache:clear --no-warmup');
+    run('cd {{deploy_path}}/current/app && APP_ENV=prod php bin/console cache:warmup');
+});
+
 task('deploy', [
     'deploy:info',
     'deploy:setup',
@@ -52,6 +57,7 @@ task('deploy', [
     'deploy:assets',
     'deploy:symlink',
     'deploy:link_webroot',
+    'deploy:post_cache',
     'deploy:unlock',
     'deploy:cleanup',
     'deploy:success',
