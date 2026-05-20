@@ -1,0 +1,8 @@
+{
+    "require-dev": {
+        "deployer/deployer": "^7.0"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}

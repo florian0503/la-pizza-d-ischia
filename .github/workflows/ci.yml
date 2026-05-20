@@ -114,8 +114,8 @@ jobs:
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
-      - name: Download Deployer
-        run: curl -LO https://deployer.org/deployer.phar && chmod +x deployer.phar
+      - name: Install Deployer
+        run: composer install
 
       - name: Prepare deploy.php
         run: |
@@ -124,4 +124,4 @@ jobs:
           sed -i "s/__DEPLOY_PORT__/${{ secrets.PORT }}/g" deploy.php
 
       - name: Deploy
-        run: php deployer.phar deploy -vvv
+        run: vendor/bin/dep deploy -vvv
