@@ -257,7 +257,9 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     cursor: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
     align-self: flex-start;
 }
 
@@ -407,7 +409,9 @@
     justify-content: center;
     color: var(--ink);
     text-decoration: none;
-    transition: border-color 0.25s ease, color 0.25s ease;
+    transition:
+        border-color 0.25s ease,
+        color 0.25s ease;
 }
 
 .contact-social-btn svg {
