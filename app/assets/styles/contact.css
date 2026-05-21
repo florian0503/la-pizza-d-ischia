@@ -1,0 +1,442 @@
+/* ═══════════════════════════════════════════════════════════════
+   PAGE CONTACT — La Pizza d'Ischia
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+
+.contact-hero {
+    background-color: var(--ink);
+    padding: 10rem 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 30% 60%, rgba(197, 67, 40, 0.1), transparent 55%);
+    pointer-events: none;
+}
+
+.contact-hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-bottom: 6rem;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(243, 236, 224, 0.35);
+    margin-bottom: 2rem;
+}
+
+.contact-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-breadcrumb a:hover {
+    color: rgba(243, 236, 224, 0.7);
+}
+
+.contact-eyebrow {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--tomato);
+    margin-bottom: 1.5rem;
+}
+
+.contact-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 6rem);
+    font-weight: 400;
+    line-height: 1.08;
+    color: var(--paper);
+    margin-bottom: 2rem;
+}
+
+.contact-hero-title em {
+    font-style: italic;
+    color: var(--tomato);
+}
+
+.contact-hero-sub {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(243, 236, 224, 0.5);
+    line-height: 1.7;
+    max-width: 52ch;
+}
+
+.contact-tristrip {
+    display: flex;
+    height: 4px;
+}
+
+.contact-tristrip .ts-g { flex: 1; background-color: #009246; }
+.contact-tristrip .ts-w { flex: 1; background-color: #ffffff; }
+.contact-tristrip .ts-r { flex: 1; background-color: #ce2b37; }
+
+/* ─── Body ───────────────────────────────────────────────────── */
+
+.contact-body {
+    background-color: var(--paper-soft);
+    padding: 7rem 3rem;
+}
+
+.contact-body-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* ─── Formulaire ─────────────────────────────────────────────── */
+
+.contact-form-wrap {
+    background-color: var(--paper-2);
+    border: 1px solid var(--line);
+    padding: 3.5rem;
+}
+
+.contact-form-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--tomato);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.contact-form-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 2rem;
+}
+
+.contact-form-sep {
+    height: 1px;
+    background-color: var(--line);
+    margin-bottom: 2.5rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-field label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+}
+
+.contact-required {
+    color: var(--tomato);
+}
+
+.contact-field input,
+.contact-field textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.25s ease;
+    width: 100%;
+    resize: none;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+    color: var(--ink-mute);
+    opacity: 0.6;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+    border-bottom-color: var(--tomato);
+}
+
+.contact-form-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+.contact-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.contact-check input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--tomato);
+    cursor: pointer;
+}
+
+.contact-check span {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--ink-mute);
+    line-height: 1.6;
+}
+
+.contact-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 1.1rem 2.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    align-self: flex-start;
+}
+
+.contact-submit:hover {
+    background-color: var(--tomato);
+}
+
+.contact-required-note {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    opacity: 0.6;
+}
+
+/* ─── Aside ──────────────────────────────────────────────────── */
+
+.contact-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-info-card {
+    background-color: var(--paper-2);
+    border: 1px solid var(--line);
+    padding: 2.5rem;
+}
+
+.contact-info-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+}
+
+.contact-info-sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--ink-mute);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info-sep {
+    height: 1px;
+    background-color: var(--line);
+    margin-bottom: 1.5rem;
+}
+
+.contact-info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.contact-info-item:last-child {
+    border-bottom: none;
+}
+
+.contact-info-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(197, 67, 40, 0.1);
+    color: var(--tomato);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-info-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.contact-info-key {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 0.3rem;
+}
+
+.contact-info-val {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+.contact-info-val em {
+    font-style: italic;
+    color: var(--ink-mute);
+}
+
+/* ─── Social card ────────────────────────────────────────────── */
+
+.contact-social-card {
+    background-color: var(--paper-2);
+    border: 1px solid var(--line);
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-social-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+}
+
+.contact-social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.contact-social-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.contact-social-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+.contact-social-btn:hover {
+    border-color: var(--tomato);
+    color: var(--tomato);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .contact-body-inner {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-hero {
+        padding: 8rem 1.5rem 0;
+    }
+
+    .contact-body {
+        padding: 5rem 1.5rem;
+    }
+
+    .contact-form-wrap {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}
