@@ -285,14 +285,30 @@
     border-radius: 50%;
     background: rgb(243 236 224 / 20%);
     border: 1px solid rgb(243 236 224 / 35%);
-    transition: background 0.4s ease, border-color 0.4s ease;
+    transition:
+        background 0.4s ease,
+        border-color 0.4s ease;
 }
 
-.h-timeline-dot:nth-child(1) { left: 0%; }
-.h-timeline-dot:nth-child(2) { left: 25%; }
-.h-timeline-dot:nth-child(3) { left: 50%; }
-.h-timeline-dot:nth-child(4) { left: 75%; }
-.h-timeline-dot:nth-child(5) { left: 100%; }
+.h-timeline-dot:nth-child(1) {
+    left: 0%;
+}
+
+.h-timeline-dot:nth-child(2) {
+    left: 25%;
+}
+
+.h-timeline-dot:nth-child(3) {
+    left: 50%;
+}
+
+.h-timeline-dot:nth-child(4) {
+    left: 75%;
+}
+
+.h-timeline-dot:nth-child(5) {
+    left: 100%;
+}
 
 .h-timeline-dot.passed {
     background: var(--tomato);
