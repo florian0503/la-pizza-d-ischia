@@ -1,5 +1,12 @@
 // ── Process sticky scroll ──────────────────────────────────────
-(function () {
+let processInterval = null;
+
+function initProcess() {
+    if (processInterval) {
+        clearInterval(processInterval);
+        processInterval = null;
+    }
+
     const panelsEl = document.getElementById("processPanels");
     const img = document.getElementById("processImg");
     const roman = document.getElementById("processRoman");
@@ -17,7 +24,7 @@
 
     let currentIdx = 0;
 
-    setInterval(function () {
+    processInterval = setInterval(function () {
         let activeIdx = 0;
         const threshold = window.innerHeight * 0.6;
 
@@ -37,10 +44,16 @@
             }, 250);
         }
     }, 100);
-})();
+}
 
 // ── Scroll animations ──────────────────────────────────────────
-const animEls = Array.from(document.querySelectorAll(".fade-up, .reveal-clip, .reveal-lines, .stagger"));
+let animEls = [];
+
+function buildAnimEls() {
+    animEls = Array.from(
+        document.querySelectorAll(".fade-up, .reveal-clip, .reveal-lines, .stagger")
+    );
+}
 
 function revealOnScroll() {
     const wh = window.innerHeight;
@@ -55,9 +68,31 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll, { passive: true });
 window.addEventListener("resize", revealOnScroll, { passive: true });
-revealOnScroll();
 
 // ── Counter animation ──────────────────────────────────────────
+let counterObs = null;
+
+function initCounters() {
+    if (counterObs) {
+        counterObs.disconnect();
+        counterObs = null;
+    }
+
+    counterObs = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObs.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    document.querySelectorAll("[data-count]").forEach((el) => counterObs.observe(el));
+}
+
 function animateCounter(el) {
     const target = parseInt(el.dataset.count, 10);
     if (!target) return;
@@ -76,16 +111,16 @@ function animateCounter(el) {
     requestAnimationFrame(tick);
 }
 
-const counterObs = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                counterObs.unobserve(entry.target);
-            }
-        });
-    },
-    { threshold: 0.5 }
-);
+// ── Init à chaque navigation Turbo ────────────────────────────
+document.addEventListener("turbo:load", () => {
+    initProcess();
+    buildAnimEls();
+    revealOnScroll();
+    initCounters();
+});
 
-document.querySelectorAll("[data-count]").forEach((el) => counterObs.observe(el));
+// Premier chargement
+initProcess();
+buildAnimEls();
+revealOnScroll();
+initCounters();

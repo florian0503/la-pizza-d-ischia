@@ -1,20 +1,405 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HistoireController!{% endblock %}
+{% block title %}Notre Histoire — La Pizza d'Ischia{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/histoire.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {# ══════════════════════════════════════════════════════════
+       1. HERO
+    ══════════════════════════════════════════════════════════ #}
+    <section class="h-hero" aria-labelledby="histoire-h1">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/ECCSEL260401/Desktop/pizzeria-messimy/app/src/Controller/HistoireController.php</code></li>
-        <li>Your template at <code>C:/Users/ECCSEL260401/Desktop/pizzeria-messimy/app/templates/histoire/index.html.twig</code></li>
-    </ul>
-</div>
+        <div class="h-hero-bar fade-up">
+            <span class="h-hero-bar-item">— Notre histoire</span>
+            <span class="h-hero-bar-item">Une famille &middot; Une île &middot; Une recette</span>
+            <span class="h-hero-bar-item">D'Ischia à Messimy</span>
+        </div>
+
+        <h1 class="h-hero-h1" id="histoire-h1">
+            De l'île<br>d'Ischia<br><em>à Messimy.</em>
+        </h1>
+
+        <div class="h-hero-sub fade-up">
+            <p>« Une histoire qui commence sur une île volcanique baignée de soleil, dans le golfe de Naples. Une histoire qui finit — pour l'instant — dans le Rhône. »</p>
+            <p>« Entre les deux : un grand-père, ses recettes, ses gestes, et l'idée que certaines choses méritent d'être transmises. »</p>
+        </div>
+
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       TRICOLOR
+    ══════════════════════════════════════════════════════════ #}
+    <div class="tricolor" aria-hidden="true">
+        <div class="tricolor-g"></div>
+        <div class="tricolor-w"></div>
+        <div class="tricolor-r"></div>
+    </div>
+
+    {# ══════════════════════════════════════════════════════════
+       2. TIMELINE — sticky pin track
+    ══════════════════════════════════════════════════════════ #}
+    <section class="h-timeline" aria-label="Chronologie — Notre histoire">
+
+        <div class="h-timeline-track" id="timelineTrack">
+            <div class="h-timeline-pin">
+
+                {# ── Colonne visuelle (gauche) ── #}
+                <div class="h-timeline-visual" aria-hidden="true">
+
+                    <img class="h-timeline-img active"
+                         src="https://images.unsplash.com/photo-1499678329028-101435549a4e?w=1400&q=80"
+                         alt="Côte de l'île d'Ischia, golfe de Naples"
+                         loading="eager">
+
+                    <img class="h-timeline-img"
+                         src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1400&q=80"
+                         alt="Cahiers de recettes de Giuseppe Esposito"
+                         loading="lazy">
+
+                    <img class="h-timeline-img"
+                         src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1400&q=80"
+                         alt="Le voyage — quitter l'Italie pour la France"
+                         loading="lazy">
+
+                    <img class="h-timeline-img"
+                         src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=1400&q=80"
+                         alt="Vincenzo Esposito au four"
+                         loading="lazy">
+
+                    <img class="h-timeline-img"
+                         src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=1400&q=80"
+                         alt="Pizza napolitaine sortant du four, aujourd'hui"
+                         loading="lazy">
+
+                    <span class="h-timeline-year" id="timelineYear">1962</span>
+
+                </div>
+
+                {# ── Colonne contenu (droite) ── #}
+                <div class="h-timeline-content">
+
+                    {# Étape 1 #}
+                    <div class="h-timeline-step active">
+                        <span class="h-step-no">N°01 — L'île d'Ischia, golfe de Naples</span>
+                        <h3>Une île,<br>une religion :<br><em>la pizza.</em></h3>
+                        <p>Ischia. Terre volcanique, eaux chaudes, basilic qui pousse partout. C'est là que mon grand-père a vu le jour — sur cette île où la cuisine n'est pas un métier mais une façon d'être.</p>
+                        <p>La pizza, ici, se transmet de génération en génération. Comme une langue maternelle. Comme une prière.</p>
+                    </div>
+
+                    {# Étape 2 #}
+                    <div class="h-timeline-step">
+                        <span class="h-step-no">N°02 — Les gestes, les recettes</span>
+                        <h3>Des gestes<br>appris<br><em>en silence.</em></h3>
+                        <p>Il a tout appris à la main. L'odeur du basilic frais. La texture d'une pâte qui cède au bon moment. Le rouge généreux d'une tomate mûrie sous le soleil du Sud.</p>
+                        <p>Pas de livres de cuisine. Pas d'école. Juste les gestes de son père, transmis dans la chaleur d'une cuisine.</p>
+                    </div>
+
+                    {# Étape 3 #}
+                    <div class="h-timeline-step">
+                        <span class="h-step-no">N°03 — Le départ pour la France</span>
+                        <h3>Il quitte<br>l'île, pas<br><em>ses recettes.</em></h3>
+                        <p>Quand mon grand-père a quitté l'Italie pour s'installer en France, il a emporté bien plus que ses valises — les recettes, les gestes, les saveurs. Tout ce qui faisait Ischia.</p>
+                        <p>Certaines choses ne tiennent pas dans une valise. Alors il les portait en lui.</p>
+                    </div>
+
+                    {# Étape 4 #}
+                    <div class="h-timeline-step">
+                        <span class="h-step-no">N°04 — Messimy, Rhône</span>
+                        <h3>Messimy,<br>terre<br><em>d'accueil.</em></h3>
+                        <p>C'est à Messimy, dans le Rhône, que cette histoire continue. Pizza d'Ischia ouvre ses portes en hommage à cet héritage — à mon grand-père, à cette île, à tout ce qu'il avait traversé pour en arriver là.</p>
+                        <p>Le nom parle de lui-même. D'Ischia, comme une pizza qui vient de là-bas et qui porte en elle l'âme de cette île.</p>
+                    </div>
+
+                    {# Étape 5 #}
+                    <div class="h-timeline-step">
+                        <span class="h-step-no">N°05 — Aujourd'hui</span>
+                        <h3>Une bouchée<br>à la <em>fois.</em></h3>
+                        <p>Le four ne s'est jamais éteint. La farine vient toujours du même moulin. Les tomates poussent toujours sur les flancs du Vésuve. Et chaque matin, je pétris la pâte comme on me l'a appris.</p>
+                        <p>Pizza d'Ischia, c'est une pizzeria. Mais c'est surtout une histoire de famille que l'on partage — une bouchée à la fois.</p>
+                    </div>
+
+                    {# Barre de progression #}
+                    <div class="h-timeline-progress" aria-hidden="true">
+                        <div class="h-timeline-bar" id="timelineBar"></div>
+                        <div class="h-timeline-dots" id="timelineDots">
+                            <span class="h-timeline-dot passed"></span>
+                            <span class="h-timeline-dot"></span>
+                            <span class="h-timeline-dot"></span>
+                            <span class="h-timeline-dot"></span>
+                            <span class="h-timeline-dot"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       3. CITATION
+    ══════════════════════════════════════════════════════════ #}
+    <section class="h-citation" aria-label="Citation de Vincenzo Esposito">
+
+        <p class="h-citation-quote fade-up">
+            &laquo;&nbsp;Une pizza,<br>c'est une île qui parle<br>à travers <strong>vos mains.</strong>&nbsp;&raquo;
+        </p>
+        <span class="h-citation-sig fade-up">— Hommage à mon grand-père</span>
+
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       4. FAMILLE — grille mosaïque
+    ══════════════════════════════════════════════════════════ #}
+    <section class="h-famille" aria-labelledby="famille-title">
+        <div class="h-famille-inner">
+
+            <div class="h-famille-header">
+
+                <div class="h-famille-header-left">
+                    <span class="eyebrow fade-up">— La famille</span>
+                    <h2 class="h-famille-h2 fade-up" id="famille-title">
+                        Ceux qui<br>font tourner<br>la <em>maison.</em>
+                    </h2>
+                </div>
+
+                <div class="h-famille-header-right fade-up">
+                    <p>Une équipe soudée autour d'une même conviction : que les belles choses se font à plusieurs, sans raccourcis. Personne ne porte d'uniforme. Tout le monde connaît les recettes. Et les mardis, on parle encore un peu italien.</p>
+                </div>
+
+            </div>
+
+            <div class="h-famille-grid stagger">
+
+                {# Vincenzo — large paysage #}
+                <div class="h-famille-card h-famille-card--lg" style="--i:0">
+                    <div class="h-famille-photo">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80"
+                             alt="Vincenzo Esposito, chef et pizzaiolo, 3e génération"
+                             loading="lazy">
+                    </div>
+                    <span class="h-famille-name">Vincenzo <em>Esposito</em></span>
+                    <span class="h-famille-role">Chef &amp; pizzaiolo &middot; 3ᵉ génération</span>
+                </div>
+
+                {# Paolo — portrait #}
+                <div class="h-famille-card h-famille-card--md" style="--i:1">
+                    <div class="h-famille-photo">
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=900&q=80"
+                             alt="Paolo Esposito, chef de salle"
+                             loading="lazy">
+                    </div>
+                    <span class="h-famille-name">Paolo <em>Esposito</em></span>
+                    <span class="h-famille-role">Chef de salle &middot; Frère cadet</span>
+                </div>
+
+                {# Sofia — portrait #}
+                <div class="h-famille-card h-famille-card--sm" style="--i:2">
+                    <div class="h-famille-photo">
+                        <img src="https://images.unsplash.com/photo-1556909211-36987daf7b4d?w=900&q=80"
+                             alt="Sofia Rinaldi, pâtissière"
+                             loading="lazy">
+                    </div>
+                    <span class="h-famille-name">Sofia <em>Rinaldi</em></span>
+                    <span class="h-famille-role">Pâtissière</span>
+                </div>
+
+                {# Et huit autres — large paysage décalé #}
+                <div class="h-famille-card h-famille-card--lg-offset" style="--i:3">
+                    <div class="h-famille-photo">
+                        <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=900&q=80"
+                             alt="L'équipe de La Pizza d'Ischia en cuisine"
+                             loading="lazy">
+                    </div>
+                    <span class="h-famille-name">Et <em>huit autres</em></span>
+                    <span class="h-famille-role">Salle &middot; Plonge &middot; Livraison &middot; Comptabilité</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       5. VALEURS — fond noir
+    ══════════════════════════════════════════════════════════ #}
+    <section class="h-valeurs" aria-labelledby="valeurs-title">
+        <div class="h-valeurs-inner">
+
+            <h2 class="h-valeurs-h2 fade-up" id="valeurs-title">
+                La <em>qualité,</em><br>avant<br>tout le reste.
+            </h2>
+
+            <div class="h-valeurs-grid stagger">
+
+                <div class="h-value" style="--i:0">
+                    <span class="h-value__no">i.</span>
+                    <h4>Des recettes transmises.</h4>
+                    <p>Les recettes viennent de là-bas — transmises, respectées, sans compromis. On ne les réinterprète pas pour faire moderne. On les honore pour qu'elles restent vraies.</p>
+                </div>
+
+                <div class="h-value" style="--i:1">
+                    <span class="h-value__no">ii.</span>
+                    <h4>Des produits choisis.</h4>
+                    <p>Farine Caputo 00. Tomates San Marzano D.O.P. Mozzarella di Bufala campana. Chaque produit est choisi pour ce qu'il est, pas pour ce qu'il coûte. Pas de surgelé. Pas d'industrie.</p>
+                </div>
+
+                <div class="h-value" style="--i:2">
+                    <span class="h-value__no">iii.</span>
+                    <h4>Un savoir-faire artisanal.</h4>
+                    <p>La pâte est le cœur du métier — pétrie, levée soixante-douze heures, respectée. Si une machine peut le faire à notre place, on ne la laisse pas faire. C'est ainsi que ça a toujours été.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       6. CLOSING CTA
+    ══════════════════════════════════════════════════════════ #}
+    <section class="h-closing" aria-label="Invitation">
+
+        <h2 class="h-closing-h2 fade-up">
+            <span class="plain">L'histoire,</span><br>
+            elle se goûte.<br>
+            <em>Venez voir.</em>
+        </h2>
+
+        <div class="h-closing-ctas fade-up">
+            <a href="{{ path('app_contact') }}" class="btn-tomato magnetic">Nous contacter &rarr;</a>
+            <a href="{{ path('app_menu') }}" class="btn-outline magnetic">Voir la carte</a>
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="module" src="{{ asset('home.js') }}"></script>
+    <script>
+        (function () {
+            var timelineScrollHandler = null;
+            var timelineResizeHandler = null;
+            var familleObserver = null;
+
+            function initTimeline() {
+                var track = document.getElementById('timelineTrack');
+                if (!track) return;
+
+                var imgs   = track.querySelectorAll('.h-timeline-img');
+                var steps  = track.querySelectorAll('.h-timeline-step');
+                var yearEl = document.getElementById('timelineYear');
+                var bar    = document.getElementById('timelineBar');
+                var dotsEl = document.getElementById('timelineDots');
+                var dots   = dotsEl ? dotsEl.children : [];
+                var years  = ['1962', '1965', '1987', '2008', '2026'];
+                var count  = steps.length;
+
+                function update() {
+                    var rect       = track.getBoundingClientRect();
+                    var fullScroll = track.offsetHeight;
+                    if (fullScroll <= 0) return;
+                    var scrolledIn = -rect.top + window.innerHeight;
+                    var progress   = Math.max(0, Math.min(1, scrolledIn / fullScroll));
+                    var idx      = Math.min(count - 1, Math.floor(progress * count));
+
+                    imgs.forEach(function (el, i)  { el.classList.toggle('active', i === idx); });
+                    steps.forEach(function (el, i) { el.classList.toggle('active', i === idx); });
+
+                    if (yearEl) yearEl.textContent = years[idx];
+                    if (bar) bar.style.transform = 'scaleX(' + progress + ')';
+
+                    Array.from(dots).forEach(function (d, i) {
+                        d.classList.toggle('passed', i <= idx);
+                    });
+                }
+
+                if (timelineScrollHandler) {
+                    window.removeEventListener('scroll', timelineScrollHandler);
+                    window.removeEventListener('resize', timelineResizeHandler);
+                }
+
+                timelineScrollHandler = update;
+                timelineResizeHandler = update;
+
+                window.addEventListener('scroll', timelineScrollHandler, { passive: true });
+                window.addEventListener('resize', timelineResizeHandler);
+                update();
+            }
+
+            var staggerObserver = null;
+
+            function initFamilleReveal() {
+                if (familleObserver) familleObserver.disconnect();
+
+                var photos = document.querySelectorAll('.h-famille-photo');
+                if (photos.length) {
+                    familleObserver = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('in');
+                                familleObserver.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.12 });
+
+                    photos.forEach(function (el) { familleObserver.observe(el); });
+                }
+            }
+
+            function initStaggerReveal() {
+                if (staggerObserver) staggerObserver.disconnect();
+
+                var staggerEls = document.querySelectorAll('.h-famille .stagger, .h-valeurs .stagger');
+                if (!staggerEls.length) return;
+
+                staggerObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in');
+                            staggerObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+                staggerEls.forEach(function (el) { staggerObserver.observe(el); });
+            }
+
+            function initFadeReveal() {
+                var fadeEls = document.querySelectorAll(
+                    '.h-hero .fade-up, .h-citation .fade-up, .h-famille .fade-up, .h-closing .fade-up, .h-valeurs .fade-up'
+                );
+                if (!fadeEls.length) return;
+
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+                fadeEls.forEach(function (el) { obs.observe(el); });
+            }
+
+            function init() {
+                initTimeline();
+                initFamilleReveal();
+                initStaggerReveal();
+                initFadeReveal();
+            }
+
+            document.addEventListener('turbo:load', init);
+            init();
+        })();
+    </script>
 {% endblock %}
