@@ -281,9 +281,17 @@ body::before {
     transition: opacity 0.2s ease;
 }
 
-.header-nav-link:hover,
+.header-nav-link:hover {
+    opacity: 1;
+}
+
 .header-nav-link.active {
     opacity: 1;
+    color: var(--tomato);
+}
+
+.site-header.scrolled .header-nav-link.active {
+    color: var(--tomato);
 }
 
 .header-cta {
@@ -330,7 +338,7 @@ body::before {
     z-index: 200;
     width: 44px;
     height: 44px;
-    background-color: var(--ink);
+    background: var(--ink);
     border: none;
     cursor: none;
     display: flex;
@@ -341,7 +349,12 @@ body::before {
     transform: translateY(12px);
     transition:
         opacity 0.3s ease,
-        transform 0.3s ease;
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.scroll-top.on-dark {
+    background: linear-gradient(to right, #009246 33.33%, #fff 33.33% 66.66%, #ce2b37 66.66%);
 }
 
 .scroll-top::after {
@@ -352,6 +365,11 @@ body::before {
     border-top: 2px solid var(--paper);
     border-right: 2px solid var(--paper);
     transform: rotate(-45deg) translate(-1px, 2px);
+    transition: border-color 0.3s ease;
+}
+
+.scroll-top.on-dark::after {
+    border-color: var(--ink);
 }
 
 .scroll-top.visible {
@@ -377,8 +395,6 @@ body::before {
     font-size: clamp(72px, 14vw, 220px);
     font-weight: 400;
     line-height: 0.88;
-    color: var(--paper);
-    opacity: 0.07;
     letter-spacing: -0.02em;
     pointer-events: none;
     user-select: none;
@@ -386,6 +402,21 @@ body::before {
 
 .footer-logo-giant em {
     font-style: italic;
+}
+
+.footer-logo-giant .it-g {
+    color: #009246;
+    opacity: 0.55;
+}
+
+.footer-logo-giant .it-w {
+    color: #f3ece0;
+    opacity: 0.18;
+}
+
+.footer-logo-giant .it-r {
+    color: #ce2b37;
+    opacity: 0.55;
 }
 
 .footer-body {

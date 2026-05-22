@@ -24,7 +24,7 @@
             <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
         {% endif %}
     </head>
-    <body>
+    <body{% block body_class %}{% endblock %}>
         {{ include('partials/_header.html.twig') }}
 
         <main>

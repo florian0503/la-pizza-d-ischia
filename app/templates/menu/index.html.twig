@@ -534,38 +534,53 @@
     {{ parent() }}
     <script type="module" src="{{ asset('home.js') }}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('.menu-tab');
-            const tabsBar = document.querySelector('.menu-tabs');
-            const sectionIds = ['antipasti', 'rosse', 'bianche', 'speciali', 'dolci', 'vini'];
-            const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+        (function () {
+            var menuScrollHandler = null;
 
-            function getOffset() {
-                const header = document.getElementById('site-header');
-                return (header ? header.offsetHeight : 72) + (tabsBar ? tabsBar.offsetHeight : 44) + 8;
+            function initMenuTabs() {
+                var tabs = document.querySelectorAll('.menu-tab');
+                var tabsBar = document.querySelector('.menu-tabs');
+                var sectionIds = ['antipasti', 'rosse', 'bianche', 'speciali', 'dolci', 'vini'];
+                var sections = sectionIds.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+
+                if (!tabs.length || !sections.length) return;
+
+                function getOffset() {
+                    var header = document.getElementById('site-header');
+                    return (header ? header.offsetHeight : 72) + (tabsBar ? tabsBar.offsetHeight : 44) + 8;
+                }
+
+                tabs.forEach(function (t) {
+                    t.addEventListener('click', function () {
+                        var el = document.getElementById(t.dataset.tab);
+                        if (el) {
+                            var top = el.getBoundingClientRect().top + window.scrollY - getOffset();
+                            window.scrollTo({ top: top, behavior: 'smooth' });
+                        }
+                    });
+                });
+
+                if (menuScrollHandler) {
+                    window.removeEventListener('scroll', menuScrollHandler);
+                }
+
+                menuScrollHandler = function () {
+                    var offset = getOffset();
+                    var sy = window.scrollY + offset + 32;
+                    var active = sections[0] ? sections[0].id : null;
+                    sections.forEach(function (s) {
+                        if (s.offsetTop <= sy) { active = s.id; }
+                    });
+                    tabs.forEach(function (t) {
+                        t.classList.toggle('active', t.dataset.tab === active);
+                    });
+                };
+
+                window.addEventListener('scroll', menuScrollHandler, { passive: true });
             }
 
-            tabs.forEach(function (t) {
-                t.addEventListener('click', function () {
-                    const el = document.getElementById(t.dataset.tab);
-                    if (el) {
-                        const top = el.getBoundingClientRect().top + window.scrollY - getOffset();
-                        window.scrollTo({ top: top, behavior: 'smooth' });
-                    }
-                });
-            });
-
-            window.addEventListener('scroll', function () {
-                const offset = getOffset();
-                const sy = window.scrollY + offset + 32;
-                let active = sections[0] ? sections[0].id : null;
-                sections.forEach(function (s) {
-                    if (s.offsetTop <= sy) { active = s.id; }
-                });
-                tabs.forEach(function (t) {
-                    t.classList.toggle('active', t.dataset.tab === active);
-                });
-            }, { passive: true });
-        });
+            document.addEventListener('turbo:load', initMenuTabs);
+            initMenuTabs();
+        })();
     </script>
 {% endblock %}

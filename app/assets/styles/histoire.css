@@ -1,0 +1,689 @@
+/* ═══════════════════════════════════════════════════════════════
+   PAGE HISTOIRE — La Pizza d'Ischia
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── Animation initial states ────────────────────────────────── */
+
+.h-hero .fade-up,
+.h-citation .fade-up,
+.h-famille .fade-up,
+.h-closing .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.h-famille .stagger > *,
+.h-valeurs .stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+/* Override reveal — spécificité plus haute que les règles initiales */
+.h-hero .fade-up.in,
+.h-citation .fade-up.in,
+.h-famille .fade-up.in,
+.h-closing .fade-up.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.h-famille .stagger.in > *,
+.h-valeurs .stagger.in > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.h-famille-photo {
+    overflow: hidden;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 1.4s var(--ease-expo);
+}
+
+.h-famille-photo.in,
+.h-famille .stagger.in > * .h-famille-photo {
+    clip-path: inset(0 0 0% 0);
+}
+
+.h-famille .stagger.in > * .h-famille-photo {
+    transition-delay: calc(var(--i, 0) * 0.15s);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   1. HERO
+═══════════════════════════════════════════════════════════════ */
+
+.h-hero {
+    padding: 140px 3rem 60px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--paper);
+}
+
+.h-hero-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 30px;
+}
+
+.h-hero-bar-item {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+}
+
+.h-hero-bar-item:nth-child(2) {
+    text-align: center;
+}
+
+.h-hero-bar-item:nth-child(3) {
+    text-align: right;
+}
+
+.h-hero-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 13vw, 220px);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 80px 0;
+}
+
+.h-hero-h1 em {
+    font-style: italic;
+    color: var(--tomato);
+}
+
+.h-hero-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    border-top: 1px solid var(--line);
+    padding-top: 30px;
+}
+
+.h-hero-sub p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 26px);
+    line-height: 1.4;
+    max-width: 32ch;
+    color: var(--ink-soft);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   2. TIMELINE — sticky pin track
+═══════════════════════════════════════════════════════════════ */
+
+.h-timeline {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.h-timeline-track {
+    position: relative;
+    height: 500vh;
+}
+
+.h-timeline-pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+/* ── Visual (colonne gauche) ── */
+
+.h-timeline-visual {
+    position: relative;
+    overflow: hidden;
+}
+
+.h-timeline-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transform: scale(1.05);
+    transition:
+        opacity 1s ease,
+        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.h-timeline-img.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.h-timeline-year {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(60px, 9vw, 160px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--paper);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ── Content (colonne droite) ── */
+
+.h-timeline-content {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 3rem;
+}
+
+.h-timeline-step {
+    position: absolute;
+    inset: 80px 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.7s var(--ease-expo),
+        transform 0.7s var(--ease-expo);
+}
+
+.h-timeline-step.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.h-step-no {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgb(243 236 224 / 50%);
+}
+
+.h-step-no::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: rgb(243 236 224 / 50%);
+    flex-shrink: 0;
+}
+
+.h-timeline-step h3 {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 5.5vw, 90px);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+}
+
+.h-timeline-step h3 em {
+    font-style: italic;
+    color: var(--tomato);
+}
+
+.h-timeline-step p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgb(243 236 224 / 75%);
+    max-width: 40ch;
+}
+
+/* ── Barre de progression ── */
+
+.h-timeline-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgb(243 236 224 / 10%);
+}
+
+.h-timeline-bar {
+    position: absolute;
+    inset: 0;
+    background: var(--tomato);
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+.h-timeline-dots {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.h-timeline-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgb(243 236 224 / 20%);
+    border: 1px solid rgb(243 236 224 / 35%);
+    transition:
+        background 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.h-timeline-dot:nth-child(1) {
+    left: 0%;
+}
+
+.h-timeline-dot:nth-child(2) {
+    left: 25%;
+}
+
+.h-timeline-dot:nth-child(3) {
+    left: 50%;
+}
+
+.h-timeline-dot:nth-child(4) {
+    left: 75%;
+}
+
+.h-timeline-dot:nth-child(5) {
+    left: 100%;
+}
+
+.h-timeline-dot.passed {
+    background: var(--tomato);
+    border-color: var(--tomato);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3. CITATION
+═══════════════════════════════════════════════════════════════ */
+
+.h-citation {
+    padding: 200px 3rem;
+    text-align: center;
+    background: var(--paper-2);
+}
+
+.h-citation-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(40px, 6vw, 100px);
+    font-weight: 400;
+    line-height: 1.05;
+    max-width: 18ch;
+    margin: 0 auto;
+    color: var(--ink);
+}
+
+.h-citation-quote strong {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--tomato);
+}
+
+.h-citation-sig {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 60px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   4. FAMILLE — grille mosaïque
+═══════════════════════════════════════════════════════════════ */
+
+.h-famille {
+    padding: 160px 3rem;
+    background: var(--paper);
+}
+
+.h-famille-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.h-famille-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 100px;
+}
+
+.h-famille-header-left .eyebrow {
+    margin-bottom: 1.2rem;
+}
+
+.h-famille-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(50px, 7vw, 110px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+}
+
+.h-famille-h2 em {
+    font-style: italic;
+    color: var(--tomato);
+}
+
+.h-famille-header-right p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    max-width: 44ch;
+}
+
+.h-famille-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 60px 30px;
+}
+
+.h-famille-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.h-famille-card--lg {
+    grid-column: span 7;
+}
+
+.h-famille-card--md {
+    grid-column: span 5;
+}
+
+.h-famille-card--sm {
+    grid-column: span 4;
+}
+
+.h-famille-card--lg-offset {
+    grid-column: 5 / span 8;
+    margin-top: 80px;
+}
+
+.h-famille-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1s var(--ease-expo);
+}
+
+.h-famille-card:hover .h-famille-photo img {
+    transform: scale(1.05);
+}
+
+.h-famille-card--lg .h-famille-photo,
+.h-famille-card--lg-offset .h-famille-photo {
+    aspect-ratio: 5 / 3;
+}
+
+.h-famille-card--md .h-famille-photo,
+.h-famille-card--sm .h-famille-photo {
+    aspect-ratio: 3 / 4;
+}
+
+.h-famille-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+}
+
+.h-famille-name em {
+    font-style: italic;
+    color: var(--tomato);
+}
+
+.h-famille-role {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. VALEURS
+═══════════════════════════════════════════════════════════════ */
+
+.h-valeurs {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 160px 3rem;
+}
+
+.h-valeurs-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.h-valeurs-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(50px, 8vw, 130px);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    margin-bottom: 100px;
+    max-width: 14ch;
+    color: var(--paper);
+}
+
+.h-valeurs-h2 em {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.h-valeurs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.h-value {
+    border-top: 1px solid rgb(243 236 224 / 20%);
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.h-value__no {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--gold);
+    line-height: 1;
+}
+
+.h-value h4 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--paper);
+    line-height: 1.1;
+}
+
+.h-value p {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: rgb(243 236 224 / 70%);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   6. CLOSING CTA
+═══════════════════════════════════════════════════════════════ */
+
+.h-closing {
+    padding: 200px 3rem;
+    text-align: center;
+    background: var(--paper);
+}
+
+.h-closing-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 8vw, 120px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 3rem;
+    color: var(--ink);
+}
+
+.h-closing-h2 .plain {
+    font-style: normal;
+    color: var(--ink);
+}
+
+.h-closing-h2 em {
+    font-style: italic;
+    color: var(--tomato);
+}
+
+.h-closing-ctas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════ */
+
+@media (width <= 1024px) {
+    .h-famille-card--sm {
+        grid-column: span 6;
+    }
+
+    .h-famille-card--lg-offset {
+        grid-column: 7 / span 6;
+    }
+}
+
+@media (width <= 900px) {
+    .h-hero {
+        padding: 120px 1.5rem 40px;
+    }
+
+    .h-hero-bar {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+
+    .h-hero-bar-item:nth-child(2),
+    .h-hero-bar-item:nth-child(3) {
+        text-align: left;
+    }
+
+    .h-hero-h1 {
+        margin: 40px 0;
+    }
+
+    .h-hero-sub {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .h-timeline-pin {
+        grid-template-columns: 1fr;
+        grid-template-rows: 40vh 1fr;
+    }
+
+    .h-timeline-visual {
+        height: 40vh;
+    }
+
+    .h-timeline-year {
+        font-size: clamp(40px, 10vw, 80px);
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .h-timeline-content {
+        padding: 40px 1.5rem;
+    }
+
+    .h-timeline-step {
+        inset: 40px 1.5rem;
+        gap: 1.2rem;
+    }
+
+    .h-citation {
+        padding: 100px 1.5rem;
+    }
+
+    .h-famille {
+        padding: 80px 1.5rem;
+    }
+
+    .h-famille-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 60px;
+    }
+
+    .h-famille-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .h-famille-card--lg,
+    .h-famille-card--md,
+    .h-famille-card--sm,
+    .h-famille-card--lg-offset {
+        grid-column: 1 / -1;
+        margin-top: 0;
+    }
+
+    .h-valeurs {
+        padding: 80px 1.5rem;
+    }
+
+    .h-valeurs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .h-closing {
+        padding: 100px 1.5rem;
+    }
+}
+
+@media (width <= 800px) {
+    .h-famille-card--lg .h-famille-photo,
+    .h-famille-card--lg-offset .h-famille-photo {
+        aspect-ratio: 4 / 3;
+    }
+}
