@@ -681,6 +681,20 @@ body::before {
 
 /* ─── Responsive ──────────────────────────────────────────────── */
 
+@media (hover: none) and (pointer: coarse) {
+    body {
+        cursor: auto;
+    }
+
+    .cursor {
+        display: none;
+    }
+
+    .scroll-top {
+        cursor: auto;
+    }
+}
+
 @media (width <= 480px) {
     .mobile-menu-info {
         grid-template-columns: 1fr 1fr;
