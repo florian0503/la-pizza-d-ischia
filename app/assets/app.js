@@ -9,9 +9,13 @@ let cursorX = 0;
 let cursorY = 0;
 let rafId = null;
 
+const isTouchDevice = () => window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
 function initCursor() {
     const old = document.querySelector(".cursor");
     if (old) old.remove();
+
+    if (isTouchDevice()) return;
 
     cursorEl = document.createElement("div");
     cursorEl.className = "cursor";
