@@ -1,6 +1,8 @@
 import "./stimulus_bootstrap.js";
 import "./styles/app.css";
 
+history.scrollRestoration = "manual";
+
 // ── Custom cursor ──────────────────────────────────────────────
 let cursorEl = null;
 let cursorX = 0;
@@ -161,6 +163,7 @@ function initMobileMenu() {
 
 // ── Initialisation à chaque navigation Turbo ──────────────────
 function onTurboLoad() {
+    window.scrollTo(0, 0);
     initCursor();
     initMagnetic();
     initMobileMenu();
