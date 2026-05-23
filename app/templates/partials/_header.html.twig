@@ -41,6 +41,68 @@
             </ul>
         </nav>
 
+        <button class="header-burger" id="header-burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
     </div>
+
+    <div class="header-mobile-menu" id="header-mobile-menu" aria-hidden="true">
+        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Fermer le menu" type="button">
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="mobile-menu-nav" aria-label="Navigation principale">
+            <ul role="list">
+                <li>
+                    <a href="{{ path('app_home') }}"
+                       class="mobile-nav-link {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}">
+                        Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_menu') }}"
+                       class="mobile-nav-link {{ app.request.attributes.get('_route') starts with 'app_menu' ? 'active' : '' }}">
+                        Menu
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_histoire') }}"
+                       class="mobile-nav-link {{ app.request.attributes.get('_route') == 'app_histoire' ? 'active' : '' }}">
+                        Histoire
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_contact') }}"
+                       class="mobile-nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
+                        Galerie
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_contact') }}"
+                       class="mobile-nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-info">
+            <div class="mobile-info-block">
+                <p class="mobile-info-label">— La promesse</p>
+                <p class="mobile-info-text"><em>« La pizza è vita. »</em>Mangée chaude, au coin d'une table.</p>
+            </div>
+            <div class="mobile-info-block">
+                <p class="mobile-info-label">— Adresse</p>
+                <p class="mobile-info-text">12 Rue de la Paix<br>Messimy, Ain — France</p>
+            </div>
+            <div class="mobile-info-block">
+                <p class="mobile-info-label">— Horaires</p>
+                <p class="mobile-info-text">Mar–Ven : 12h–14h30 · 19h–22h30<br>Sam–Dim : 12h–15h · 19h–23h<br>Lundi fermé</p>
+            </div>
+        </div>
+    </div>
+
     <div id="scrollProgress" class="scroll-progress" aria-hidden="true"></div>
 </header>
