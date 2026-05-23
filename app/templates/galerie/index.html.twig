@@ -1,0 +1,409 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie — La Pizza d'Ischia{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/galerie.css') }}">
+{% endblock %}
+
+{% block body %}
+
+{# ── Hero ──────────────────────────────────────────────────────── #}
+<section class="galerie-hero" data-theme="dark">
+    <div class="galerie-hero-bg"></div>
+    <div class="galerie-hero-inner">
+        <div class="galerie-hero-label reveal-lines">
+            <span class="line"><span class="line-inner galerie-hero-label-line"></span></span>
+            <span class="line"><span class="line-inner eyebrow eyebrow--light">— La vie en images</span></span>
+        </div>
+        <h1 class="galerie-hero-title reveal-lines">
+            <span class="line"><span class="line-inner">La <em>galerie</em></span></span>
+            <span class="line"><span class="line-inner">d'Ischia</span></span>
+        </h1>
+        <p class="galerie-hero-sub fade-up">
+            Nos pizzas, notre four, notre salle et les instants qui font de chaque repas un souvenir.
+        </p>
+    </div>
+</section>
+
+{# ── Filters ───────────────────────────────────────────────────── #}
+<div class="galerie-filters">
+    <div class="galerie-filters-inner">
+        <button class="galerie-filter-btn active" data-filter="all">Tout</button>
+        <button class="galerie-filter-btn" data-filter="pizza">Pizzas</button>
+        <button class="galerie-filter-btn" data-filter="four">Le four</button>
+        <button class="galerie-filter-btn" data-filter="ingrediants">Ingrédients</button>
+        <button class="galerie-filter-btn" data-filter="salle">La salle</button>
+    </div>
+</div>
+
+{# ── Grid ──────────────────────────────────────────────────────── #}
+<main class="galerie-main">
+
+    <p class="galerie-count" id="galerie-count">— 18 photos</p>
+
+    <div class="galerie-grid stagger" id="galerie-grid">
+
+        <div class="galerie-item" data-category="pizza" data-caption="Margherita" data-tag="Pizza"
+             data-src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:3/4"
+                 src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80"
+                 alt="Margherita" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Margherita</p>
+                <span class="galerie-item-tag">Pizza</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="salle" data-caption="La salle du soir" data-tag="Salle"
+             data-src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:16/9"
+                 src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+                 alt="La salle du soir" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">La salle du soir</p>
+                <span class="galerie-item-tag">Salle</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="ingrediants" data-caption="Tomates San Marzano" data-tag="Ingrédients"
+             data-src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:1/1"
+                 src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=800&q=80"
+                 alt="Tomates San Marzano" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Tomates San Marzano</p>
+                <span class="galerie-item-tag">Ingrédients</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="four" data-caption="Le four à bois" data-tag="Le four"
+             data-src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:2/3"
+                 src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=800&q=80"
+                 alt="Le four à bois" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Le four à bois</p>
+                <span class="galerie-item-tag">Le four</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="pizza" data-caption="Diavola" data-tag="Pizza"
+             data-src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:4/3"
+                 src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
+                 alt="Diavola" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Diavola</p>
+                <span class="galerie-item-tag">Pizza</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="ingrediants" data-caption="Fior di latte" data-tag="Ingrédients"
+             data-src="https://images.unsplash.com/photo-1618164435735-413d3b066c9a?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:3/4"
+                 src="https://images.unsplash.com/photo-1618164435735-413d3b066c9a?w=800&q=80"
+                 alt="Fior di latte" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Fior di latte</p>
+                <span class="galerie-item-tag">Ingrédients</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="salle" data-caption="La terrasse" data-tag="Salle"
+             data-src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:4/3"
+                 src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80"
+                 alt="La terrasse" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">La terrasse</p>
+                <span class="galerie-item-tag">Salle</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="pizza" data-caption="Tartufo" data-tag="Pizza"
+             data-src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:1/1"
+                 src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80"
+                 alt="Tartufo" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Tartufo</p>
+                <span class="galerie-item-tag">Pizza</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="four" data-caption="La flamme à 400°C" data-tag="Le four"
+             data-src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:16/9"
+                 src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=800&q=80"
+                 alt="La flamme à 400°C" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">La flamme à 400°C</p>
+                <span class="galerie-item-tag">Le four</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="ingrediants" data-caption="Huile d'olive AOP" data-tag="Ingrédients"
+             data-src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:2/3"
+                 src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=800&q=80"
+                 alt="Huile d'olive AOP" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Huile d'olive AOP</p>
+                <span class="galerie-item-tag">Ingrédients</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="pizza" data-caption="Quattro Formaggi" data-tag="Pizza"
+             data-src="https://images.unsplash.com/photo-1548940740-204726a19be3?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:3/4"
+                 src="https://images.unsplash.com/photo-1548940740-204726a19be3?w=800&q=80"
+                 alt="Quattro Formaggi" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Quattro Formaggi</p>
+                <span class="galerie-item-tag">Pizza</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="salle" data-caption="Une table pour deux" data-tag="Salle"
+             data-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:4/3"
+                 src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+                 alt="Une table pour deux" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Une table pour deux</p>
+                <span class="galerie-item-tag">Salle</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="ingrediants" data-caption="Basilic frais" data-tag="Ingrédients"
+             data-src="https://images.unsplash.com/photo-1559291001-693fb9166cec?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:1/1"
+                 src="https://images.unsplash.com/photo-1559291001-693fb9166cec?w=800&q=80"
+                 alt="Basilic frais" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Basilic frais</p>
+                <span class="galerie-item-tag">Ingrédients</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="four" data-caption="L'enfournage" data-tag="Le four"
+             data-src="https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:3/4"
+                 src="https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=800&q=80"
+                 alt="L'enfournage" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">L'enfournage</p>
+                <span class="galerie-item-tag">Le four</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="pizza" data-caption="L'Ischia" data-tag="Pizza"
+             data-src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:16/9"
+                 src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80"
+                 alt="L'Ischia" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">L'Ischia</p>
+                <span class="galerie-item-tag">Pizza</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="salle" data-caption="L'entrée" data-tag="Salle"
+             data-src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:2/3"
+                 src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80"
+                 alt="L'entrée" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">L'entrée</p>
+                <span class="galerie-item-tag">Salle</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="ingrediants" data-caption="La pâte 72h" data-tag="Ingrédients"
+             data-src="https://images.unsplash.com/photo-1556471013-0001958d2b84?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:16/9"
+                 src="https://images.unsplash.com/photo-1556471013-0001958d2b84?w=800&q=80"
+                 alt="La pâte 72h" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">La pâte 72h</p>
+                <span class="galerie-item-tag">Ingrédients</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+        <div class="galerie-item" data-category="pizza" data-caption="Marinara" data-tag="Pizza"
+             data-src="https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?w=1200&q=85">
+            <img class="galerie-item-img" style="aspect-ratio:4/3"
+                 src="https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?w=800&q=80"
+                 alt="Marinara" loading="lazy">
+            <div class="galerie-item-overlay">
+                <p class="galerie-item-caption">Marinara</p>
+                <span class="galerie-item-tag">Pizza</span>
+            </div>
+            <div class="galerie-item-expand">
+                <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+{# ── Lightbox ──────────────────────────────────────────────────── #}
+<div class="galerie-lightbox" id="galerie-lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+    <button class="galerie-lightbox-close" id="lb-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="galerie-lightbox-nav galerie-lightbox-prev" id="lb-prev" aria-label="Photo précédente">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="galerie-lightbox-nav galerie-lightbox-next" id="lb-next" aria-label="Photo suivante">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="galerie-lightbox-content">
+        <img class="galerie-lightbox-img" id="lb-img" src="" alt="">
+        <div class="galerie-lightbox-info">
+            <span class="galerie-lightbox-caption" id="lb-caption"></span>
+            <span class="galerie-lightbox-tag" id="lb-tag"></span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+    function initGalerie() {
+        const items = Array.from(document.querySelectorAll('.galerie-item'));
+        if (!items.length) return;
+
+        const countEl = document.getElementById('galerie-count');
+        const lb = document.getElementById('galerie-lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbCaption = document.getElementById('lb-caption');
+        const lbTag = document.getElementById('lb-tag');
+        let currentIndex = 0;
+        let visibleItems = [...items];
+
+        /* ── Filters ── */
+        document.querySelectorAll('.galerie-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.galerie-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                visibleItems = [];
+                items.forEach(item => {
+                    const match = filter === 'all' || item.dataset.category === filter;
+                    item.style.display = match ? '' : 'none';
+                    if (match) visibleItems.push(item);
+                });
+                countEl.textContent = `— ${visibleItems.length} photo${visibleItems.length > 1 ? 's' : ''}`;
+            });
+        });
+
+        /* ── Lightbox ── */
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const idx = visibleItems.indexOf(item);
+                if (idx !== -1) openLightbox(idx);
+            });
+        });
+
+        function openLightbox(idx) {
+            currentIndex = idx;
+            const item = visibleItems[idx];
+            lbImg.src = item.dataset.src;
+            lbImg.alt = item.dataset.caption;
+            lbCaption.textContent = item.dataset.caption;
+            lbTag.textContent = item.dataset.tag;
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('lb-close').addEventListener('click', closeLightbox);
+        lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+        document.getElementById('lb-prev').addEventListener('click', e => {
+            e.stopPropagation();
+            openLightbox((currentIndex - 1 + visibleItems.length) % visibleItems.length);
+        });
+        document.getElementById('lb-next').addEventListener('click', e => {
+            e.stopPropagation();
+            openLightbox((currentIndex + 1) % visibleItems.length);
+        });
+
+        document.addEventListener('keydown', e => {
+            if (!lb.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') openLightbox((currentIndex - 1 + visibleItems.length) % visibleItems.length);
+            if (e.key === 'ArrowRight') openLightbox((currentIndex + 1) % visibleItems.length);
+        });
+
+        /* ── Reveal animations ── */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-lines, .fade-up').forEach(el => observer.observe(el));
+    }
+
+    document.addEventListener('DOMContentLoaded', initGalerie);
+    document.addEventListener('turbo:load', initGalerie);
+    </script>
+{% endblock %}

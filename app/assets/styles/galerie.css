@@ -1,0 +1,508 @@
+/* ═══════════════════════════════════════════════════════════════
+   GALERIE — La Pizza d'Ischia
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── Hero ────────────────────────────────────────────────────── */
+
+.galerie-hero {
+    padding-top: 72px;
+    min-height: 52vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: var(--ink);
+    position: relative;
+    overflow: hidden;
+}
+
+.galerie-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(ellipse 70% 60% at 60% 40%, rgba(197,67,40,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(184,137,58,0.10) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.galerie-hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 6rem 3rem 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.galerie-hero-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.galerie-hero-label-line {
+    display: block;
+    width: 32px;
+    height: 1px;
+    background-color: var(--tomato);
+}
+
+.galerie-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--paper);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+}
+
+.galerie-hero-title em {
+    font-style: normal;
+    color: var(--tomato);
+}
+
+.galerie-hero-sub {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(243, 236, 224, 0.5);
+    max-width: 480px;
+    line-height: 1.8;
+}
+
+/* ─── Filter bar ──────────────────────────────────────────────── */
+
+.galerie-filters {
+    background-color: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+}
+
+.galerie-filters-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.galerie-filters-inner::-webkit-scrollbar {
+    display: none;
+}
+
+.galerie-filter-btn {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1.1rem 1rem;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.galerie-filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: var(--tomato);
+    transform: scaleX(0);
+    transition: transform 0.3s var(--ease-expo);
+}
+
+.galerie-filter-btn:hover {
+    color: var(--ink);
+}
+
+.galerie-filter-btn.active {
+    color: var(--tomato);
+}
+
+.galerie-filter-btn.active::after {
+    transform: scaleX(1);
+}
+
+/* ─── Grid ────────────────────────────────────────────────────── */
+
+.galerie-main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 3rem 6rem;
+}
+
+.galerie-count {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 2.5rem;
+}
+
+.galerie-grid {
+    columns: 3;
+    column-gap: 1.25rem;
+}
+
+.galerie-item {
+    break-inside: avoid;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+}
+
+.galerie-item-img {
+    width: 100%;
+    display: block;
+    background-color: var(--paper-2);
+    object-fit: cover;
+    transition: transform 0.7s var(--ease-expo);
+}
+
+.galerie-item:hover .galerie-item-img {
+    transform: scale(1.04);
+}
+
+/* Placeholder images using CSS art */
+.galerie-item-placeholder {
+    width: 100%;
+    display: block;
+    background-color: var(--paper-2);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.7s var(--ease-expo);
+}
+
+.galerie-item:hover .galerie-item-placeholder {
+    transform: scale(1.04);
+}
+
+.galerie-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,20,16,0.85) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+}
+
+.galerie-item:hover .galerie-item-overlay {
+    opacity: 1;
+}
+
+.galerie-item-caption {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--paper);
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+}
+
+.galerie-item-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+/* Expand icon */
+.galerie-item-expand {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    background: rgba(243,236,224,0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s var(--ease-expo);
+}
+
+.galerie-item:hover .galerie-item-expand {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.galerie-item-expand svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--paper);
+    fill: none;
+    stroke-width: 1.5;
+}
+
+/* ─── Placeholder visuals ─────────────────────────────────────── */
+
+.ph {
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.ph-tall    { aspect-ratio: 3/4; }
+.ph-wide    { aspect-ratio: 16/9; }
+.ph-square  { aspect-ratio: 1/1; }
+.ph-std     { aspect-ratio: 4/3; }
+.ph-portrait{ aspect-ratio: 2/3; }
+
+.ph-pizza {
+    background: linear-gradient(135deg, #2a1f18 0%, #1a1410 100%);
+}
+
+.ph-salle {
+    background: linear-gradient(135deg, #3a2c22 0%, #1a1410 100%);
+}
+
+.ph-ingr {
+    background: linear-gradient(135deg, #2d3520 0%, #1a1410 100%);
+}
+
+.ph-four {
+    background: linear-gradient(135deg, #3a1a10 0%, #1a0a08 100%);
+}
+
+/* Noise texture overlay on placeholders */
+.ph::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    opacity: 0.25;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+
+/* Decorative circle / shape per category */
+.ph-pizza::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 55%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(197,67,40,0.3);
+    box-shadow: inset 0 0 40px rgba(197,67,40,0.12);
+}
+
+.ph-ingr::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 60%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(90,107,63,0.4);
+    box-shadow: inset 0 0 30px rgba(90,107,63,0.1);
+}
+
+.ph-four::after {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(197,67,40,0.25) 0%, transparent 70%);
+}
+
+/* Icon label inside placeholder */
+.ph-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(243,236,224,0.3);
+}
+
+/* ─── Lightbox ────────────────────────────────────────────────── */
+
+.galerie-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(26, 20, 16, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    padding: 2rem;
+}
+
+.galerie-lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.galerie-lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    background: rgba(243,236,224,0.08);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease;
+}
+
+.galerie-lightbox-close:hover {
+    background: rgba(243,236,224,0.15);
+}
+
+.galerie-lightbox-close svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--paper);
+    fill: none;
+    stroke-width: 1.5;
+}
+
+.galerie-lightbox-content {
+    max-width: 900px;
+    width: 100%;
+    transform: scale(0.95);
+    transition: transform 0.4s var(--ease-expo);
+}
+
+.galerie-lightbox.open .galerie-lightbox-content {
+    transform: scale(1);
+}
+
+.galerie-lightbox-img {
+    width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    display: block;
+}
+
+.galerie-lightbox-ph {
+    width: 100%;
+    max-height: 75vh;
+    aspect-ratio: 4/3;
+    display: block;
+}
+
+.galerie-lightbox-info {
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.galerie-lightbox-caption {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--paper);
+}
+
+.galerie-lightbox-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.galerie-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    background: rgba(243,236,224,0.08);
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.galerie-lightbox-nav:hover {
+    background: rgba(243,236,224,0.16);
+}
+
+.galerie-lightbox-nav svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--paper);
+    fill: none;
+    stroke-width: 1.5;
+}
+
+.galerie-lightbox-prev { left: 1rem; }
+.galerie-lightbox-next { right: 1rem; }
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+
+@media (width <= 900px) {
+    .galerie-hero-inner {
+        padding: 5rem 1.5rem 3rem;
+    }
+
+    .galerie-filters-inner {
+        padding: 0 1.5rem;
+    }
+
+    .galerie-main {
+        padding: 3rem 1.5rem 5rem;
+    }
+
+    .galerie-grid {
+        columns: 2;
+    }
+}
+
+@media (width <= 580px) {
+    .galerie-grid {
+        columns: 1;
+    }
+
+    .galerie-lightbox-nav {
+        display: none;
+    }
+}
