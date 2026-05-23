@@ -316,6 +316,178 @@ body::before {
     border-color: rgb(243 236 224 / 60%);
 }
 
+/* ─── Mobile burger ───────────────────────────────────────────── */
+
+.header-burger {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: none;
+    pointer-events: auto;
+    mix-blend-mode: difference;
+    flex-shrink: 0;
+}
+
+.header-burger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: #fff;
+    transform-origin: center;
+    transition:
+        transform 0.35s var(--ease-expo),
+        opacity 0.25s ease;
+}
+
+.header-burger.open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+
+.header-burger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.header-burger.open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ─── Mobile menu overlay ─────────────────────────────────────── */
+
+.header-mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    padding: 96px 1.5rem 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition:
+        opacity 0.4s var(--ease-expo),
+        transform 0.4s var(--ease-expo);
+    overflow-y: auto;
+}
+
+.header-mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.site-header.menu-open {
+    z-index: 250;
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: none;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-close span {
+    position: absolute;
+    width: 20px;
+    height: 1.5px;
+    background: rgb(243 236 224 / 70%);
+    transition: background 0.25s ease;
+}
+
+.mobile-menu-close span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.mobile-menu-close span:nth-child(2) {
+    transform: rotate(-45deg);
+}
+
+.mobile-menu-close:hover span {
+    background: var(--paper);
+}
+
+.mobile-menu-nav ul {
+    list-style: none;
+}
+
+.mobile-nav-link {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 9vw, 3rem);
+    font-style: italic;
+    font-weight: 400;
+    color: rgb(243 236 224 / 65%);
+    text-decoration: none;
+    line-height: 1.1;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgb(243 236 224 / 8%);
+    transition: color 0.25s ease;
+}
+
+.mobile-menu-nav ul li:first-child .mobile-nav-link {
+    border-top: 1px solid rgb(243 236 224 / 8%);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:focus-visible {
+    color: var(--paper);
+}
+
+.mobile-nav-link.active {
+    color: var(--tomato);
+}
+
+.mobile-menu-info {
+    margin-top: auto;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid rgb(243 236 224 / 10%);
+}
+
+.mobile-info-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+}
+
+.mobile-info-text {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.85;
+    color: #f3ece0;
+}
+
+.mobile-info-text em {
+    font-style: italic;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    display: block;
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+
 /* ─── Scroll progress ─────────────────────────────────────────── */
 
 .scroll-progress {
@@ -509,9 +681,24 @@ body::before {
 
 /* ─── Responsive ──────────────────────────────────────────────── */
 
+@media (width <= 480px) {
+    .mobile-menu-info {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+    }
+
+    .mobile-menu-info .mobile-info-block:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
 @media (width <= 900px) {
     .header-nav {
         display: none;
+    }
+
+    .header-burger {
+        display: flex;
     }
 
     .header-inner {

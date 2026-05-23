@@ -122,10 +122,49 @@ function onScroll() {
 
 window.addEventListener("scroll", onScroll, { passive: true });
 
+// ── Mobile menu ───────────────────────────────────────────────
+function toggleMobileMenu(open) {
+    const burger = document.getElementById("header-burger");
+    const menu = document.getElementById("header-mobile-menu");
+    const header = document.getElementById("site-header");
+    if (!burger || !menu) return;
+
+    burger.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", String(open));
+    menu.classList.toggle("open", open);
+    menu.setAttribute("aria-hidden", String(!open));
+    if (header) header.classList.toggle("menu-open", open);
+    document.body.style.overflow = open ? "hidden" : "";
+}
+
+function closeMobileMenu() {
+    toggleMobileMenu(false);
+}
+
+function initMobileMenu() {
+    const burger = document.getElementById("header-burger");
+    const menu = document.getElementById("header-mobile-menu");
+    if (!burger || !menu || burger.dataset.menuInit) return;
+    burger.dataset.menuInit = "1";
+
+    burger.addEventListener("click", () => {
+        toggleMobileMenu(!menu.classList.contains("open"));
+    });
+
+    menu.querySelectorAll(".mobile-nav-link").forEach((link) => {
+        link.addEventListener("click", closeMobileMenu);
+    });
+
+    const closeBtn = document.getElementById("mobile-menu-close");
+    if (closeBtn) closeBtn.addEventListener("click", closeMobileMenu);
+}
+
 // ── Initialisation à chaque navigation Turbo ──────────────────
 function onTurboLoad() {
     initCursor();
     initMagnetic();
+    initMobileMenu();
+    closeMobileMenu();
     onScroll();
 }
 
