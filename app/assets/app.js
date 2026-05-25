@@ -4,7 +4,8 @@ import "./styles/app.css";
 history.scrollRestoration = "manual";
 
 // ── Custom cursor ──────────────────────────────────────────────
-let cursorEl = null;
+let cursorRing = null;
+let cursorDot = null;
 let cursorX = 0;
 let cursorY = 0;
 let rafId = null;
@@ -12,14 +13,18 @@ let rafId = null;
 const isTouchDevice = () => window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
 function initCursor() {
-    const old = document.querySelector(".cursor");
-    if (old) old.remove();
+    document.querySelectorAll(".cursor, .cursor-dot").forEach((el) => el.remove());
 
     if (isTouchDevice()) return;
 
-    cursorEl = document.createElement("div");
-    cursorEl.className = "cursor";
-    document.body.appendChild(cursorEl);
+    cursorRing = document.createElement("div");
+    cursorRing.className = "cursor";
+
+    cursorDot = document.createElement("div");
+    cursorDot.className = "cursor-dot";
+
+    document.body.appendChild(cursorRing);
+    document.body.appendChild(cursorDot);
 }
 
 document.addEventListener("mousemove", (e) => {
@@ -28,33 +33,35 @@ document.addEventListener("mousemove", (e) => {
 
     if (!rafId) {
         rafId = requestAnimationFrame(() => {
-            if (cursorEl) {
-                cursorEl.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
-            }
+            const t = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+            if (cursorRing) cursorRing.style.transform = t;
+            if (cursorDot) cursorDot.style.transform = t;
             rafId = null;
         });
     }
 });
 
 document.addEventListener("mouseenter", () => {
-    if (cursorEl) cursorEl.style.opacity = "1";
+    if (cursorRing) cursorRing.style.opacity = "1";
+    if (cursorDot) cursorDot.style.opacity = "1";
 });
 
 document.addEventListener("mouseleave", () => {
-    if (cursorEl) cursorEl.style.opacity = "0";
+    if (cursorRing) cursorRing.style.opacity = "0";
+    if (cursorDot) cursorDot.style.opacity = "0";
 });
 
 const hoverTargets = "a, button, .menu-item, .testimonial-card, .magnetic, input, label";
 
 document.addEventListener("mouseover", (e) => {
-    if (e.target.closest(hoverTargets) && cursorEl) {
-        cursorEl.classList.add("expanded");
+    if (e.target.closest(hoverTargets) && cursorRing) {
+        cursorRing.classList.add("expanded");
     }
 });
 
 document.addEventListener("mouseout", (e) => {
-    if (e.target.closest(hoverTargets) && cursorEl) {
-        cursorEl.classList.remove("expanded");
+    if (e.target.closest(hoverTargets) && cursorRing) {
+        cursorRing.classList.remove("expanded");
     }
 });
 
