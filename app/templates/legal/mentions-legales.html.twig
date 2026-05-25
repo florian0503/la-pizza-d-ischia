@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mentions légales — La Pizza d'Ischia{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/legal.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    {# ══════════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════════ #}
+    <section class="legal-hero">
+        <div class="legal-hero-topbar">
+            <span class="legal-hero-topbar-item">— Informations légales</span>
+            <span class="legal-hero-topbar-item">Dernière mise à jour&nbsp;: mai 2025</span>
+            <span class="legal-hero-topbar-item">L.111-1 LCEN</span>
+        </div>
+        <div class="legal-hero-main">
+            <h1 class="legal-hero-h1">Mentions<br><em>légales.</em></h1>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       CORPS
+    ══════════════════════════════════════════════════════════ #}
+    <section class="legal-body">
+        <div class="legal-body-inner">
+
+            <div class="legal-section">
+                <span class="legal-section-no">01 — Éditeur du site</span>
+                <h2 class="legal-section-title">Éditeur du site</h2>
+                <p>Le présent site est édité par&nbsp;:</p>
+                <ul>
+                    <li><strong>Raison sociale&nbsp;:</strong> EntryWeb — Florian Dimbert</li>
+                    <li><strong>Statut juridique&nbsp;:</strong> Entrepreneur Individuel (EI)</li>
+                    <li><strong>SIRET&nbsp;:</strong> 948 220 512 00016</li>
+                    <li><strong>Adresse du siège&nbsp;:</strong> 15bis avenue du Casino, 69890 La Tour-de-Salvagny, France</li>
+                    <li><strong>Téléphone&nbsp;:</strong> 06 61 61 79 65</li>
+                    <li><strong>Email&nbsp;:</strong> <a href="mailto:contact@entryweb.fr">contact@entryweb.fr</a></li>
+                    <li><strong>Directeur de la publication&nbsp;:</strong> Florian Dimbert</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">02 — Hébergeur</span>
+                <h2 class="legal-section-title">Hébergeur</h2>
+                <p>Le site est hébergé par&nbsp;:</p>
+                <ul>
+                    <li><strong>Société&nbsp;:</strong> Hostinger International Ltd</li>
+                    <li><strong>Adresse&nbsp;:</strong> 61 Lordou Vironos Street, 6023 Larnaca, Chypre</li>
+                    <li><strong>Site web&nbsp;:</strong> hostinger.com</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">03 — Propriété intellectuelle</span>
+                <h2 class="legal-section-title">Propriété intellectuelle</h2>
+                <p>
+                    L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, sons, logiciels…)
+                    est la propriété exclusive de son éditeur ou de ses partenaires, et est protégé par les lois
+                    françaises et internationales relatives à la propriété intellectuelle.
+                </p>
+                <p>
+                    La conception et le développement du site ont été réalisés par
+                    <strong>EntryWeb</strong> (Florian Dimbert, EI — 15bis avenue du Casino, 69890 La Tour-de-Salvagny).
+                    Les droits de propriété intellectuelle sur le site restent la propriété d'EntryWeb
+                    pendant une durée de deux (2) ans à compter de la livraison, à l'issue de laquelle
+                    l'intégralité des droits est transférée au client, propriétaire du fonds de commerce.
+                </p>
+                <p>
+                    Toute reproduction, représentation, modification, publication ou adaptation, totale ou partielle,
+                    des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans
+                    l'autorisation écrite préalable de l'éditeur, sous peine de poursuites judiciaires.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">04 — Responsabilité</span>
+                <h2 class="legal-section-title">Limitation de responsabilité</h2>
+                <p>
+                    L'éditeur s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur
+                    ce site. Toutefois, il ne peut garantir l'exhaustivité et l'exactitude de ces informations,
+                    ni leur adéquation à une utilisation particulière.
+                </p>
+                <p>
+                    L'éditeur ne saurait être tenu responsable des dommages directs ou indirects résultant
+                    de l'utilisation de ce site ou de l'impossibilité d'y accéder.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">05 — Liens hypertextes</span>
+                <h2 class="legal-section-title">Liens hypertextes</h2>
+                <p>
+                    Ce site peut contenir des liens vers des sites tiers. L'éditeur n'exerce aucun contrôle
+                    sur ces sites et décline toute responsabilité quant à leur contenu ou à leur politique
+                    de confidentialité.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">06 — Droit applicable</span>
+                <h2 class="legal-section-title">Droit applicable</h2>
+                <p>
+                    Les présentes mentions légales sont régies par le droit français. En cas de litige,
+                    et à défaut de résolution amiable, les tribunaux français seront seuls compétents.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       NAV LÉGALE
+    ══════════════════════════════════════════════════════════ #}
+    <nav class="legal-nav" aria-label="Pages légales">
+        <div class="legal-nav-inner">
+            <span class="legal-nav-label">Voir aussi&nbsp;:</span>
+            <a href="{{ path('app_mentions_legales') }}" class="legal-nav-link" aria-current="page">Mentions légales</a>
+            <a href="{{ path('app_confidentialite') }}" class="legal-nav-link">Politique de confidentialité</a>
+            <a href="{{ path('app_cgv') }}" class="legal-nav-link">CGV</a>
+        </div>
+    </nav>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

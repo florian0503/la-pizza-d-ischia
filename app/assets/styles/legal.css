@@ -1,0 +1,218 @@
+/* ═══════════════════════════════════════════════════════════════
+   PAGES LÉGALES — La Pizza d'Ischia
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+
+.legal-hero {
+    background-color: var(--paper);
+    color: var(--ink);
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.legal-hero-topbar {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 0 3rem;
+    height: 72px;
+    margin-top: 72px;
+    border-bottom: 1px solid var(--line);
+    flex-shrink: 0;
+}
+
+.legal-hero-topbar-item {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+}
+
+.legal-hero-topbar-item + .legal-hero-topbar-item {
+    padding-left: 2.5rem;
+    border-left: 1px solid var(--line);
+}
+
+.legal-hero-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 3rem 4rem;
+}
+
+.legal-hero-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0;
+}
+
+.legal-hero-h1 em {
+    font-style: italic;
+    color: var(--tomato);
+}
+
+/* ─── Corps ──────────────────────────────────────────────────── */
+
+.legal-body {
+    background-color: var(--paper-soft);
+    padding: 6rem 3rem 8rem;
+}
+
+.legal-body-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* ─── Sections ───────────────────────────────────────────────── */
+
+.legal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.legal-section-no {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--tomato);
+}
+
+.legal-section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+}
+
+.legal-section p,
+.legal-section li {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 1.85;
+}
+
+.legal-section ul,
+.legal-section ol {
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.legal-section strong {
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.legal-section a {
+    color: var(--tomato);
+    text-decoration: none;
+}
+
+.legal-section a:hover {
+    text-decoration: underline;
+}
+
+.legal-placeholder {
+    background-color: rgb(197 67 40 / 8%);
+    color: var(--tomato);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.2em 0.5em;
+    border-radius: 2px;
+}
+
+/* ─── Nav légale ─────────────────────────────────────────────── */
+
+.legal-nav {
+    background-color: var(--paper);
+    border-top: 1px solid var(--line);
+    padding: 2.5rem 3rem;
+}
+
+.legal-nav-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.legal-nav-label {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-right: 0.5rem;
+}
+
+.legal-nav-link {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--line);
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.legal-nav-link:hover,
+.legal-nav-link[aria-current="page"] {
+    color: var(--tomato);
+    border-color: var(--tomato);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+
+@media (width <= 768px) {
+    .legal-hero-topbar {
+        padding: 0 1.5rem;
+        gap: 1rem;
+    }
+
+    .legal-hero-topbar-item:nth-child(3) {
+        display: none;
+    }
+
+    .legal-hero-main {
+        padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .legal-body {
+        padding: 4rem 1.5rem 6rem;
+    }
+
+    .legal-nav {
+        padding: 2rem 1.5rem;
+    }
+}
