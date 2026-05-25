@@ -46,6 +46,11 @@
 
     <div class="footer-bottom">
         <span class="footer-copyright">&copy; {{ 'now'|date('Y') }} La Pizza d'Ischia — Tous droits réservés</span>
+        <div class="footer-legal-links">
+            <a href="{{ path('app_mentions_legales') }}" class="footer-legal-link">Mentions légales</a>
+            <a href="{{ path('app_confidentialite') }}" class="footer-legal-link">Confidentialité</a>
+            <a href="{{ path('app_cgv') }}" class="footer-legal-link">CGV</a>
+        </div>
         <span class="footer-tagline">Fait à Messimy, avec de la farine de Naples.</span>
     </div>
 

@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Politique de confidentialité — La Pizza d'Ischia{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/legal.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    {# ══════════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════════ #}
+    <section class="legal-hero">
+        <div class="legal-hero-topbar">
+            <span class="legal-hero-topbar-item">— Vos données</span>
+            <span class="legal-hero-topbar-item">Dernière mise à jour&nbsp;: mai 2025</span>
+            <span class="legal-hero-topbar-item">RGPD — Règlement UE 2016/679</span>
+        </div>
+        <div class="legal-hero-main">
+            <h1 class="legal-hero-h1">Politique de<br><em>confidentialité.</em></h1>
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       CORPS
+    ══════════════════════════════════════════════════════════ #}
+    <section class="legal-body">
+        <div class="legal-body-inner">
+
+            <div class="legal-section">
+                <span class="legal-section-no">01 — Responsable du traitement</span>
+                <h2 class="legal-section-title">Responsable du traitement</h2>
+                <p>
+                    Le responsable du traitement des données personnelles collectées sur ce site est&nbsp;:
+                    <strong>Florian Dimbert — EntryWeb</strong>, 15bis avenue du Casino, 69890 La Tour-de-Salvagny,
+                    joignable à l'adresse&nbsp;: <a href="mailto:contact@entryweb.fr">contact@entryweb.fr</a>.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">02 — Données collectées</span>
+                <h2 class="legal-section-title">Données collectées</h2>
+                <p>Ce site collecte uniquement les données que vous transmettez volontairement via le formulaire de contact&nbsp;:</p>
+                <ul>
+                    <li>Nom et prénom</li>
+                    <li>Adresse email</li>
+                    <li>Numéro de téléphone (facultatif)</li>
+                    <li>Contenu de votre message</li>
+                </ul>
+                <p>
+                    Aucune donnée n'est collectée automatiquement (pas de cookies analytiques, pas de traceurs publicitaires,
+                    pas de pixel de suivi).
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">03 — Finalité et base légale</span>
+                <h2 class="legal-section-title">Finalité et base légale</h2>
+                <p>
+                    Les données collectées via le formulaire de contact sont traitées dans le seul but de
+                    répondre à votre demande. La base légale du traitement est votre consentement explicite,
+                    recueilli lors de la soumission du formulaire.
+                </p>
+                <p>Ces données ne sont en aucun cas utilisées à des fins commerciales ou marketing.</p>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">04 — Stockage et durée de conservation</span>
+                <h2 class="legal-section-title">Stockage et durée de conservation</h2>
+                <p>
+                    Les données transmises via le formulaire de contact sont stockées dans notre base de données
+                    hébergée sur les serveurs de Hostinger International Ltd (61 Lordou Vironos Street, 6023 Larnaca, Chypre).
+                </p>
+                <p>
+                    Ces données sont conservées pendant la durée nécessaire au traitement de votre demande,
+                    et au maximum <strong>12 mois</strong> à compter de votre prise de contact, sauf obligation
+                    légale contraire.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">05 — Cookies</span>
+                <h2 class="legal-section-title">Cookies</h2>
+                <p>
+                    Ce site n'utilise pas de cookies analytiques, publicitaires ou de suivi.
+                    Seuls des cookies techniques strictement nécessaires au fonctionnement du site
+                    peuvent être déposés (gestion de session, sécurité). Ces cookies ne requièrent pas
+                    votre consentement conformément à l'article 82 de la loi Informatique et Libertés.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">06 — Destinataires</span>
+                <h2 class="legal-section-title">Destinataires des données</h2>
+                <p>
+                    Vos données sont destinées exclusivement à l'équipe de La Pizza d'Ischia dans le cadre
+                    du traitement de votre demande. Elles ne sont ni vendues, ni cédées, ni louées à des tiers.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <span class="legal-section-no">07 — Vos droits</span>
+                <h2 class="legal-section-title">Vos droits</h2>
+                <p>
+                    Conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679)
+                    et à la loi Informatique et Libertés, vous disposez des droits suivants&nbsp;:
+                </p>
+                <ul>
+                    <li><strong>Droit d'accès</strong> à vos données personnelles</li>
+                    <li><strong>Droit de rectification</strong> en cas d'inexactitude</li>
+                    <li><strong>Droit à l'effacement</strong> (« droit à l'oubli »)</li>
+                    <li><strong>Droit à la limitation</strong> du traitement</li>
+                    <li><strong>Droit d'opposition</strong> au traitement</li>
+                    <li><strong>Droit à la portabilité</strong> de vos données</li>
+                </ul>
+                <p>
+                    Pour exercer ces droits, adressez une demande à&nbsp;:
+                    <a href="mailto:contact@lapizzadischia.fr">contact@lapizzadischia.fr</a>.
+                    Nous nous engageons à vous répondre dans un délai d'un mois.
+                </p>
+                <p>
+                    Vous disposez également du droit d'introduire une réclamation auprès de la
+                    <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés)&nbsp;:
+                    <a href="https://www.cnil.fr" rel="noopener noreferrer">www.cnil.fr</a>.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    {# ══════════════════════════════════════════════════════════
+       NAV LÉGALE
+    ══════════════════════════════════════════════════════════ #}
+    <nav class="legal-nav" aria-label="Pages légales">
+        <div class="legal-nav-inner">
+            <span class="legal-nav-label">Voir aussi&nbsp;:</span>
+            <a href="{{ path('app_mentions_legales') }}" class="legal-nav-link">Mentions légales</a>
+            <a href="{{ path('app_confidentialite') }}" class="legal-nav-link" aria-current="page">Politique de confidentialité</a>
+            <a href="{{ path('app_cgv') }}" class="legal-nav-link">CGV</a>
+        </div>
+    </nav>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
