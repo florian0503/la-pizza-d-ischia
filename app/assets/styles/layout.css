@@ -29,6 +29,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    cursor: none !important;
 }
 
 html {
@@ -40,7 +41,6 @@ body {
     font-family: var(--font-body);
     color: var(--ink);
     overflow-x: clip;
-    cursor: none;
 }
 
 body::before {
@@ -57,27 +57,62 @@ body::before {
 
 /* ─── Custom cursor ───────────────────────────────────────────── */
 
+@keyframes cursor-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Anneau tricolore tournant */
 .cursor {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
-    width: 8px;
-    height: 8px;
-    background-color: var(--tomato);
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     pointer-events: none;
-    mix-blend-mode: difference;
-    translate: -50% -50%;
+    will-change: transform;
     transition:
         width 0.35s var(--ease-expo),
-        height 0.35s var(--ease-expo);
-    will-change: transform;
+        height 0.35s var(--ease-expo),
+        opacity 0.2s ease;
+}
+
+.cursor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(#009246 0deg 120deg, #fff 120deg 240deg, #ce2b37 240deg 360deg);
+    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    animation: cursor-spin 4s linear infinite;
 }
 
 .cursor.expanded {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
+}
+
+.cursor.expanded::before {
+    animation-duration: 0.65s;
+}
+
+/* Point central adaptatif */
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    will-change: transform;
+    transition: opacity 0.2s ease;
 }
 
 /* ─── Tricolor strip ──────────────────────────────────────────── */
