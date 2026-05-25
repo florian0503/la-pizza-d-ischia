@@ -2,31 +2,16 @@
    PAGE CONTACT — La Pizza d'Ischia
 ═══════════════════════════════════════════════════════════════ */
 
-/* ─── Animation initial states ─────────────────────────────────── */
-
-.contact-hero .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-}
-
 /* ─── Hero ───────────────────────────────────────────────────── */
 
 .contact-hero {
-    background-color: var(--ink);
-    color: var(--paper);
+    background-color: var(--paper);
+    color: var(--ink);
     min-height: 80svh;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
-}
-
-.contact-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 30% 60%, rgb(197 67 40 / 10%), transparent 55%);
-    pointer-events: none;
 }
 
 .contact-hero-topbar {
@@ -36,10 +21,8 @@
     padding: 0 3rem;
     height: 72px;
     margin-top: 72px;
-    border-bottom: 1px solid rgb(243 236 224 / 10%);
+    border-bottom: 1px solid var(--line);
     flex-shrink: 0;
-    position: relative;
-    z-index: 1;
 }
 
 .contact-hero-topbar-item {
@@ -48,12 +31,12 @@
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgb(243 236 224 / 35%);
+    color: var(--ink-mute);
 }
 
 .contact-hero-topbar-item + .contact-hero-topbar-item {
     padding-left: 2.5rem;
-    border-left: 1px solid rgb(243 236 224 / 10%);
+    border-left: 1px solid var(--line);
 }
 
 .contact-hero-main {
@@ -63,30 +46,28 @@
     justify-content: flex-end;
     padding: 4rem 3rem 5rem;
     gap: 3rem;
-    position: relative;
-    z-index: 1;
 }
 
 .contact-hero-title {
     font-family: var(--font-display);
-    font-size: clamp(72px, 13vw, 180px);
+    font-size: clamp(64px, 11vw, 150px);
     font-weight: 400;
     line-height: 0.9;
     letter-spacing: -0.03em;
-    color: var(--paper);
+    color: var(--ink);
     margin: 0;
 }
 
 .contact-hero-title em {
     font-style: italic;
-    color: var(--gold);
+    color: var(--tomato);
 }
 
 .contact-hero-sub {
     font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 300;
-    color: rgb(243 236 224 / 50%);
+    color: var(--ink-mute);
     line-height: 1.7;
     max-width: 52ch;
 }
