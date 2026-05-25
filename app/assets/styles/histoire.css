@@ -4,7 +4,7 @@
 
 /* ─── Animation initial states ────────────────────────────────── */
 
-.h-hero .fade-up,
+.h-hero-main .fade-up,
 .h-citation .fade-up,
 .h-famille .fade-up,
 .h-closing .fade-up {
@@ -19,7 +19,7 @@
 }
 
 /* Override reveal — spécificité plus haute que les règles initiales */
-.h-hero .fade-up.in,
+.h-hero-main .fade-up.in,
 .h-citation .fade-up.in,
 .h-famille .fade-up.in,
 .h-closing .fade-up.in {
@@ -53,46 +53,57 @@
 ═══════════════════════════════════════════════════════════════ */
 
 .h-hero {
-    padding: 140px 3rem 60px;
-    min-height: 90vh;
+    background-color: var(--paper);
+    color: var(--ink);
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background: var(--paper);
+    position: relative;
+    overflow: hidden;
 }
 
-.h-hero-bar {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.h-hero-topbar {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 0 3rem;
+    height: 72px;
+    margin-top: 72px;
     border-bottom: 1px solid var(--line);
-    padding-bottom: 30px;
+    flex-shrink: 0;
 }
 
-.h-hero-bar-item {
+.h-hero-topbar-item {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--ink-mute);
 }
 
-.h-hero-bar-item:nth-child(2) {
-    text-align: center;
+.h-hero-topbar-item + .h-hero-topbar-item {
+    padding-left: 2.5rem;
+    border-left: 1px solid var(--line);
 }
 
-.h-hero-bar-item:nth-child(3) {
-    text-align: right;
+.h-hero-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem 3rem 5rem;
+    gap: 3rem;
 }
 
 .h-hero-h1 {
     font-family: var(--font-display);
-    font-size: clamp(64px, 13vw, 220px);
+    font-size: clamp(64px, 11vw, 150px);
     font-weight: 400;
     line-height: 0.88;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.03em;
     color: var(--ink);
-    margin: 80px 0;
+    margin: 0;
 }
 
 .h-hero-h1 em {
@@ -103,18 +114,25 @@
 .h-hero-sub {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    border-top: 1px solid var(--line);
-    padding-top: 30px;
+    gap: 3rem;
+    max-width: 900px;
 }
 
-.h-hero-sub p {
+.h-hero-sub-left {
     font-family: var(--font-display);
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
     font-style: italic;
-    font-size: clamp(18px, 2vw, 26px);
-    line-height: 1.4;
-    max-width: 32ch;
+    font-weight: 400;
     color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+.h-hero-sub-right {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--ink-mute);
+    line-height: 1.8;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -595,22 +613,17 @@
 }
 
 @media (width <= 900px) {
-    .h-hero {
-        padding: 120px 1.5rem 40px;
+    .h-hero-topbar {
+        padding: 0 1.5rem;
+        gap: 1rem;
     }
 
-    .h-hero-bar {
-        grid-template-columns: 1fr;
-        gap: 0.4rem;
+    .h-hero-topbar-item:nth-child(3) {
+        display: none;
     }
 
-    .h-hero-bar-item:nth-child(2),
-    .h-hero-bar-item:nth-child(3) {
-        text-align: left;
-    }
-
-    .h-hero-h1 {
-        margin: 40px 0;
+    .h-hero-main {
+        padding: 3rem 1.5rem 4rem;
     }
 
     .h-hero-sub {

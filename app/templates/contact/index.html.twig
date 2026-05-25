@@ -13,13 +13,12 @@
        HERO
     ══════════════════════════════════════════════════════════ #}
     <section class="contact-hero">
-        <div class="contact-hero-inner fade-up">
-            <nav class="contact-breadcrumb" aria-label="Fil d'Ariane">
-                <a href="{{ path('app_home') }}">Accueil</a>
-                <span aria-hidden="true">›</span>
-                <span>Contact</span>
-            </nav>
-            <span class="contact-eyebrow">— Contattaci</span>
+        <div class="contact-hero-topbar">
+            <span class="contact-hero-topbar-item">— Contattaci</span>
+            <span class="contact-hero-topbar-item">Une question &middot; On vous répond</span>
+            <span class="contact-hero-topbar-item">Réponse sous 24&nbsp;h</span>
+        </div>
+        <div class="contact-hero-main">
             <h1 class="contact-hero-title">
                 Une question&nbsp;?<br><em>On vous répond.</em>
             </h1>
@@ -151,4 +150,9 @@
         </div>
     </section>
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="module" src="{{ asset('home.js') }}"></script>
 {% endblock %}
