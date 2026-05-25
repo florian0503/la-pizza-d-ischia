@@ -122,10 +122,7 @@ function onScroll() {
 
         if (scrollTopBtn.classList.contains("visible")) {
             const rect = scrollTopBtn.getBoundingClientRect();
-            const els = document.elementsFromPoint(
-                rect.left + rect.width / 2,
-                rect.top + rect.height / 2
-            );
+            const els = document.elementsFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
             const behind = els.find((el) => el !== scrollTopBtn && !scrollTopBtn.contains(el));
             const luminance = behind ? getBgLuminance(behind) : 1;
             scrollTopBtn.classList.toggle("on-dark", luminance < 0.2);
@@ -172,6 +169,26 @@ function initMobileMenu() {
     if (closeBtn) closeBtn.addEventListener("click", closeMobileMenu);
 }
 
+// ── Cookie banner ──────────────────────────────────────────────
+function initCookieBanner() {
+    const banner = document.getElementById("cookie-banner");
+    if (!banner) return;
+
+    if (localStorage.getItem("cookie_notice_dismissed")) {
+        banner.classList.add("is-hidden");
+        return;
+    }
+
+    const btn = document.getElementById("cookie-banner-accept");
+    if (!btn || btn.dataset.cookieInit) return;
+    btn.dataset.cookieInit = "1";
+
+    btn.addEventListener("click", () => {
+        localStorage.setItem("cookie_notice_dismissed", "1");
+        banner.classList.add("is-hidden");
+    });
+}
+
 // ── Initialisation à chaque navigation Turbo ──────────────────
 function onTurboLoad() {
     window.scrollTo(0, 0);
@@ -180,6 +197,7 @@ function onTurboLoad() {
     initMobileMenu();
     closeMobileMenu();
     onScroll();
+    initCookieBanner();
 }
 
 document.addEventListener("turbo:load", onTurboLoad);
