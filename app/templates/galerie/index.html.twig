@@ -10,16 +10,15 @@
 {% block body %}
 
 {# ── Hero ──────────────────────────────────────────────────────── #}
-<section class="galerie-hero" data-theme="dark">
-    <div class="galerie-hero-bg"></div>
+<section class="galerie-hero">
+    <div class="galerie-hero-topbar">
+        <span class="galerie-hero-topbar-item">— La galerie</span>
+        <span class="galerie-hero-topbar-item">18 photos &middot; Pizzas, four, salle &amp; ingrédients</span>
+        <span class="galerie-hero-topbar-item">Depuis 2014</span>
+    </div>
     <div class="galerie-hero-inner">
-        <div class="galerie-hero-label reveal-lines">
-            <span class="line"><span class="line-inner galerie-hero-label-line"></span></span>
-            <span class="line"><span class="line-inner eyebrow eyebrow--light">— La vie en images</span></span>
-        </div>
-        <h1 class="galerie-hero-title reveal-lines">
-            <span class="line"><span class="line-inner">La <em>galerie</em></span></span>
-            <span class="line"><span class="line-inner">d'Ischia</span></span>
+        <h1 class="galerie-hero-title">
+            La <em>galerie</em><br>d'Ischia.
         </h1>
         <p class="galerie-hero-sub fade-up">
             Nos pizzas, notre four, notre salle et les instants qui font de chaque repas un souvenir.
@@ -324,7 +323,9 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script type="module" src="{{ asset('home.js') }}"></script>
     <script>
+    (function () {
     function initGalerie() {
         const items = Array.from(document.querySelectorAll('.galerie-item'));
         if (!items.length) return;
@@ -396,14 +397,10 @@
             if (e.key === 'ArrowRight') openLightbox((currentIndex + 1) % visibleItems.length);
         });
 
-        /* ── Reveal animations ── */
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal-lines, .fade-up').forEach(el => observer.observe(el));
     }
 
-    document.addEventListener('DOMContentLoaded', initGalerie);
     document.addEventListener('turbo:load', initGalerie);
+    initGalerie();
+    })();
     </script>
 {% endblock %}

@@ -2,20 +2,32 @@
    GALERIE — La Pizza d'Ischia
 ═══════════════════════════════════════════════════════════════ */
 
+/* ─── Animation initial states ────────────────────────────────── */
+
+.galerie-hero .fade-up,
+.galerie-main .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.galerie-grid.stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
 /* ─── Hero ────────────────────────────────────────────────────── */
 
 .galerie-hero {
-    padding-top: 72px;
-    min-height: 52vh;
+    background-color: var(--ink);
+    min-height: 85svh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    background-color: var(--ink);
     position: relative;
     overflow: hidden;
 }
 
-.galerie-hero-bg {
+.galerie-hero::before {
+    content: "";
     position: absolute;
     inset: 0;
     background-image:
@@ -24,49 +36,64 @@
     pointer-events: none;
 }
 
-.galerie-hero-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 6rem 3rem 4rem;
+.galerie-hero-topbar {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 0 3rem;
+    height: 72px;
+    margin-top: 72px;
+    border-bottom: 1px solid rgb(243 236 224 / 10%);
+    flex-shrink: 0;
     position: relative;
     z-index: 1;
 }
 
-.galerie-hero-label {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
+.galerie-hero-topbar-item {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgb(243 236 224 / 35%);
 }
 
-.galerie-hero-label-line {
-    display: block;
-    width: 32px;
-    height: 1px;
-    background-color: var(--tomato);
+.galerie-hero-topbar-item + .galerie-hero-topbar-item {
+    padding-left: 2.5rem;
+    border-left: 1px solid rgb(243 236 224 / 10%);
+}
+
+.galerie-hero-inner {
+    flex: 1;
+    padding: 4rem 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
 }
 
 .galerie-hero-title {
     font-family: var(--font-display);
-    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-size: clamp(80px, 16vw, 220px);
     font-weight: 400;
-    font-style: italic;
+    line-height: 0.88;
+    letter-spacing: -0.03em;
     color: var(--paper);
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-    margin-bottom: 2rem;
+    margin: 0;
 }
 
 .galerie-hero-title em {
-    font-style: normal;
-    color: var(--tomato);
+    font-style: italic;
+    color: var(--gold);
 }
 
 .galerie-hero-sub {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 300;
-    color: rgb(243 236 224 / 50%);
+    color: rgb(243 236 224 / 45%);
     max-width: 480px;
     line-height: 1.8;
 }
@@ -499,8 +526,17 @@
 /* ─── Responsive ──────────────────────────────────────────────── */
 
 @media (width <= 900px) {
+    .galerie-hero-topbar {
+        padding: 0 1.5rem;
+        gap: 1rem;
+    }
+
+    .galerie-hero-topbar-item:nth-child(3) {
+        display: none;
+    }
+
     .galerie-hero-inner {
-        padding: 5rem 1.5rem 3rem;
+        padding: 3rem 1.5rem 4rem;
     }
 
     .galerie-filters-inner {

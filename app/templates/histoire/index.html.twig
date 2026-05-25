@@ -15,19 +15,24 @@
     ══════════════════════════════════════════════════════════ #}
     <section class="h-hero" aria-labelledby="histoire-h1">
 
-        <div class="h-hero-bar fade-up">
-            <span class="h-hero-bar-item">— Notre histoire</span>
-            <span class="h-hero-bar-item">Une famille &middot; Une île &middot; Une recette</span>
-            <span class="h-hero-bar-item">D'Ischia à Messimy</span>
+        <div class="h-hero-topbar">
+            <span class="h-hero-topbar-item">— Notre histoire</span>
+            <span class="h-hero-topbar-item">Une famille &middot; Une île &middot; Une recette</span>
+            <span class="h-hero-topbar-item">D'Ischia à Messimy</span>
         </div>
 
-        <h1 class="h-hero-h1" id="histoire-h1">
-            De l'île<br>d'Ischia<br><em>à Messimy.</em>
-        </h1>
-
-        <div class="h-hero-sub fade-up">
-            <p>« Une histoire qui commence sur une île volcanique baignée de soleil, dans le golfe de Naples. Une histoire qui finit — pour l'instant — dans le Rhône. »</p>
-            <p>« Entre les deux : un grand-père, ses recettes, ses gestes, et l'idée que certaines choses méritent d'être transmises. »</p>
+        <div class="h-hero-main">
+            <h1 class="h-hero-h1" id="histoire-h1">
+                De l'île<br>d'Ischia<br><em>à Messimy.</em>
+            </h1>
+            <div class="h-hero-sub">
+                <p class="h-hero-sub-left fade-up">
+                    « Une histoire qui commence sur une île volcanique baignée de soleil, dans le golfe de Naples. Une histoire qui finit — pour l'instant — dans le Rhône. »
+                </p>
+                <p class="h-hero-sub-right fade-up">
+                    « Entre les deux : un grand-père, ses recettes, ses gestes, et l'idée que certaines choses méritent d'être transmises. »
+                </p>
+            </div>
         </div>
 
     </section>
@@ -375,7 +380,7 @@
 
             function initFadeReveal() {
                 var fadeEls = document.querySelectorAll(
-                    '.h-hero .fade-up, .h-citation .fade-up, .h-famille .fade-up, .h-closing .fade-up, .h-valeurs .fade-up'
+                    '.h-hero-main .fade-up, .h-citation .fade-up, .h-famille .fade-up, .h-closing .fade-up, .h-valeurs .fade-up'
                 );
                 if (!fadeEls.length) return;
 
