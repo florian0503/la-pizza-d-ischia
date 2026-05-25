@@ -113,7 +113,7 @@
 }
 
 .galerie-filter-btn::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 1rem;
@@ -269,11 +269,25 @@
     overflow: hidden;
 }
 
-.ph-tall    { aspect-ratio: 3/4; }
-.ph-wide    { aspect-ratio: 16/9; }
-.ph-square  { aspect-ratio: 1/1; }
-.ph-std     { aspect-ratio: 4/3; }
-.ph-portrait{ aspect-ratio: 2/3; }
+.ph-tall {
+    aspect-ratio: 3/4;
+}
+
+.ph-wide {
+    aspect-ratio: 16/9;
+}
+
+.ph-square {
+    aspect-ratio: 1/1;
+}
+
+.ph-std {
+    aspect-ratio: 4/3;
+}
+
+.ph-portrait {
+    aspect-ratio: 2/3;
+}
 
 .ph-pizza {
     background: linear-gradient(135deg, #2a1f18 0%, #1a1410 100%);
@@ -293,7 +307,7 @@
 
 /* Noise texture overlay on placeholders */
 .ph::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
@@ -305,7 +319,7 @@
 
 /* Decorative circle / shape per category */
 .ph-pizza::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -318,7 +332,7 @@
 }
 
 .ph-ingr::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -331,7 +345,7 @@
 }
 
 .ph-four::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 15%;
     border-radius: 50%;
@@ -474,8 +488,13 @@
     stroke-width: 1.5;
 }
 
-.galerie-lightbox-prev { left: 1rem; }
-.galerie-lightbox-next { right: 1rem; }
+.galerie-lightbox-prev {
+    left: 1rem;
+}
+
+.galerie-lightbox-next {
+    right: 1rem;
+}
 
 /* ─── Responsive ──────────────────────────────────────────────── */
 
